@@ -34,4 +34,4 @@ All features require user authorization in order to access
 ![alt text](https://camo.githubusercontent.com/3b6655d2610a0c0ecfaaaea3b5947ddcf1689f3762a1a4c4f62069db730db015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d466c61736b2d3030303030303f7374796c653d666c61742d737175617265266c6f676f3d466c61736b266c6f676f436f6c6f723d7768697465)
 ![alt text](https://camo.githubusercontent.com/f70d9d9438b04e316fbba35c08d92860203762cec6212ef53ddd02d930014866/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f6c6f676f3d43535333)
 
-_This full stack application was developed by Ayla Basha as a Capstone Project at [App Academy's](https://github.com/appacademy) Software Engineering Bootcamp in November of 2021_
+_This full stack application was developed by Ayla Basha as a Capstone Project for [App Academy's](https://github.com/appacademy) Software Engineering Bootcamp in November of 2021_
