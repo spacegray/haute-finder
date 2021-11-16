@@ -6,7 +6,7 @@ _The place to find the best new and used fashion items_
 
 # Features
 
-All features require user authorization in order to access
+All features require user authorization in order to be accessed. Demo-login is provided.
 
 **1. Item Listings CRUD**
 * Displays a feed of photos and descriptions of fashion items for sale
