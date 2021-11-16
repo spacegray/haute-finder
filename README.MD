@@ -1,4 +1,4 @@
-# Welcome to Haute Finder
+# Welcome to HauteFinder
 
 _The social marketplace to find and sell the best new and used fashion items_
 
