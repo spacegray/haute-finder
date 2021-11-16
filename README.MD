@@ -6,7 +6,7 @@ _The social marketplace to find and sell the best new and used fashion items_
 
 # Features
 
-All features require user authorization in order to be accessed. Demo-login is provided.
+All features require user authorization. Demo-login is provided.
 
 **1. Item Listings CRUD**
 * Displays a feed of photos and descriptions of fashion items for sale
