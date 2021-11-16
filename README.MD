@@ -22,6 +22,8 @@ All features require user authorization in order to access
 
 **3. Likes**
 * Users may like items the want to save for later
+* Listings may have many likes
+* Brands may have many likes
 
 **4.Search**
 * Users may search the site for desirable items based on item title  
