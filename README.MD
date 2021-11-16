@@ -1,6 +1,6 @@
 # Welcome to Haute Finder
 
-_The place to find the best new and used fashion items_
+_The social marketplace to find and sell the best new and used fashion items_
 
 ![alt text](https://github.com/spacegray/haute-finder/blob/wireframes/react-app/src/images/HauteFinder-Wireframes/Splash%20-%20MacBook%20Pro%20-%201.png)
 
