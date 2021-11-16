@@ -2,6 +2,8 @@
 
 _The place to find the best new and used fashion items_
 
+![alt text](https://github.com/spacegray/haute-finder/blob/wireframes/react-app/src/images/HauteFinder-Wireframes/Splash%20-%20MacBook%20Pro%20-%201.png)
+
 # Features
 
 All features require user authorization in order to access
