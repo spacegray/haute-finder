@@ -7,7 +7,7 @@ _The place to find the best new and used fashion items_
 All features require user authorization in order to access
 
 **1. Item Listings CRUD**
-* Displays photos and descriptions of fashion items for sale
+* Displays a feed of photos and descriptions of fashion items for sale
 * Users may add listings for sale
 * Users are able to update their listings
 * Users may delete their listings
