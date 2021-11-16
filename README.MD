@@ -10,7 +10,7 @@ All features require user authorization. Demo-login is provided.
 
 **1. Item Listings CRUD**
 * Displays a feed of photos and descriptions of fashion items for sale
-* Users may add listings for sale
+* Users may create listings for sale
 * Users are able to update their listings
 * Users may delete their listings
 
