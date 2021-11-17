@@ -7,8 +7,6 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(255), nullable=True)
-    last_name = db.Column(db.String(255), nullable=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     photoURL = db.Column(db.String(
@@ -32,8 +30,6 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
             'username': self.username,
             'email': self.email,
             'profileURL': self.profileURL,
@@ -44,16 +40,12 @@ class User(db.Model, UserMixin):
     def to_simple_dict(self):
         return {
             'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
             'username': self.username,
             'email': self.email,
             'profileURL': self.photoURL
         }
     
     def update(self, first_name=None, last_name=None, username=None, email=None, photoURL=None, password=None, **kwargs):
-        self.first_name = first_name
-        self.last_name = last_name
         self.username = username if username else self.username
         self.email = email if email else self.email
         self.photoURL = photoURL if photoURL else self.photoURL
@@ -61,8 +53,8 @@ class User(db.Model, UserMixin):
         return self
     
     @classmethod
-    def create(cls, first_name, last_name, username, email, photoURL, hashed_password):
-        user = cls(first_name=first_name, last_name=last_name, username=username, email=email, photoURL=photoURL, hashed_password=hashed_password)
+    def create(cls, username, email, photoURL, hashed_password):
+        user = cls(username=username, email=email, photoURL=photoURL, hashed_password=hashed_password)
         db.session.add(user)
         db.session.commit()
         return user
