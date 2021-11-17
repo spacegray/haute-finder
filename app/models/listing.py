@@ -26,9 +26,9 @@ class Listing(db.Model):
             'imageURL': self.imageURL,
             'price': self.price,
             'size': self.size,
-            'likes': [like.to_next_dict() for like in self.likes]
+            'likes': [like.to_simple_dict() for like in self.likes]
         }
-    def to_next_dict(self):
+    def to_simple_dict(self):
         return {
             'id': self.id,
             'description': self.description,

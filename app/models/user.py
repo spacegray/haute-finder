@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     photoURL = db.Column(db.String(
-        255), nullable=True, default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637135525/user-default-photo.png")
+        255), nullable=True, default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140235/HauteFinder/Images/icons/default_profile_photo_dm6yzf.png")
     hashed_password = db.Column(db.String(255), nullable=False)
 
     listings = db.relationship('Listing', backref='user', lazy=True)
@@ -37,11 +37,11 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profileURL': self.profileURL,
-            'listings': [listing.to_next_dict() for listing in self.listings],
-            'likes': [like.to_next_dict() for like in self.likes]
+            'listings': [listing.to_simple_dict() for listing in self.listings],
+            'likes': [like.to_simple_dict() for like in self.likes]
         }
     
-    def to_next_dict(self):
+    def to_simple_dict(self):
         return {
             'id': self.id,
             'first_name': self.first_name,
