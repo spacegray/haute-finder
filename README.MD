@@ -4,6 +4,8 @@ _The social marketplace to find and sell the best new and used fashion items_
 
 ![alt text](https://github.com/spacegray/haute-finder/blob/wireframes/react-app/src/images/HauteFinder-Wireframes/Splash%20-%20MacBook%20Pro%20-%201.png)
 
+For full documentation of this application, please visit my [wiki](https://github.com/spacegray/haute-finder/wiki) section
+
 # Features
 
 All features require user authorization. Demo-login is provided.
