@@ -1,35 +1,40 @@
 from .db import db
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+import datetime
 
 
 class Listing(db.Model):
-    __tablename__ = 'Listings'
+    __tablename__ = 'listings'
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    description = db.Column(db.String(500), nullable=False)
-    image_link = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.String(1500), nullable=True)
+    imageURL = db.Column(db.String(500), nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    size = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
-    user = db.relationship('User', backref=db.backref('listings', lazy=True))
-
-    @property
-    def password(self):
-        return self.hashed_password
-
-    @password.setter
-    def password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
+    likes = db.relationship('Like', backref='listing', lazy=True)
+    user = db.relationship('user', backref=db.backref('listings', lazy=True))
+    brand = db.relationship('brand', backref=db.backref('brands'))
 
     def to_dict(self):
         return {
             'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'username': self.username,
-            'email': self.email
+            'userId': self.userId,
+            'description': self.description,
+            'imageURL': self.imageURL,
+            'price': self.price,
+            'size': self.size,
+            'likes': [like.to_next_dict() for like in self.likes]
         }
+    def to_next_dict(self):
+        return {
+            'id': self.id,
+            'description': self.description,
+            'likes': len(self.likes)
+        }
+    def update(self, description=None):
+        self.description = description if description else self.description
+        return self
+
