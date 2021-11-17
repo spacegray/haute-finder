@@ -29,6 +29,7 @@ All features require user authorization. Demo-login is provided.
 **4.Search**
 * Users may search the site for desirable items based on item title  
 
+***Bonus Feature***
 **5. Comments**
 * Users may leave comments on items to reflect their experience with the item and help other users with the information
 
