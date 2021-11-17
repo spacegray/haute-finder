@@ -1,14 +1,18 @@
-# Welcome to Haute Finder
+# Welcome to HauteFinder
 
-_The place to find the best new and used fashion items_
+_The social marketplace to find and sell the best new and used fashion items_
+
+![alt text](https://github.com/spacegray/haute-finder/blob/wireframes/react-app/src/images/HauteFinder-Wireframes/Splash%20-%20MacBook%20Pro%20-%201.png)
+
+For full documentation of this application, please visit my [wiki](https://github.com/spacegray/haute-finder/wiki) section
 
 # Features
 
-All features require user authorization in order to access
+All features require user authorization. Demo-login is provided.
 
 **1. Item Listings CRUD**
-* Displays photos and descriptions of fashion items for sale
-* Users may add listings for sale
+* Displays a feed of photos and descriptions of fashion items for sale
+* Users may create listings for sale
 * Users are able to update their listings
 * Users may delete their listings
 
@@ -20,9 +24,17 @@ All features require user authorization in order to access
 
 **3. Likes**
 * Users may like items the want to save for later
+* Listings may have many likes
+* Brands may have many likes
+* Users can remove their 'like'
 
 **4.Search**
 * Users may search the site for desirable items based on item title  
+
+***Bonus Feature***
+
+**5. Comments**
+* Users may leave comments on items to reflect their experience with the item and help other users with the information
 
 
 # Technologies Used
@@ -34,4 +46,4 @@ All features require user authorization in order to access
 ![alt text](https://camo.githubusercontent.com/3b6655d2610a0c0ecfaaaea3b5947ddcf1689f3762a1a4c4f62069db730db015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d466c61736b2d3030303030303f7374796c653d666c61742d737175617265266c6f676f3d466c61736b266c6f676f436f6c6f723d7768697465)
 ![alt text](https://camo.githubusercontent.com/f70d9d9438b04e316fbba35c08d92860203762cec6212ef53ddd02d930014866/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f6c6f676f3d43535333)
 
-_This full stack application was developed by Ayla Basha as her Capstone Project at App Academy's Software Engineering Bootcamp in November of 2021_
+_This full stack application was developed by [Ayla Basha](https://www.linkedin.com/in/aylabasha/) as a Capstone Project for [App Academy's](https://github.com/appacademy) Software Engineering Bootcamp in November of 2021_ 
