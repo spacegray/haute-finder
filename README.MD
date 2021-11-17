@@ -29,6 +29,9 @@ All features require user authorization. Demo-login is provided.
 **4.Search**
 * Users may search the site for desirable items based on item title  
 
+**5. Comments**
+* Users may leave comments on items to reflect their experience with the item and help other users with the information
+
 
 # Technologies Used
 ![alt text](https://camo.githubusercontent.com/a194f5f466da233b84ca5728247f6bc3c338d2d7b80041784dd81e1a6dbc8afd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d507974686f6e2d3337373641423f7374796c653d666c61742d737175617265266c6f676f3d507974686f6e266c6f676f436f6c6f723d776869746526)
