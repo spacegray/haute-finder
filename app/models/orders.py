@@ -1,7 +1,7 @@
 from .db import db
 
-class ShoppingCart(db.Model):
-    __tablename__ = 'shoppingCarts'
+class Orders(db.Model):
+    __tablename__ = 'orders'
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -9,8 +9,8 @@ class ShoppingCart(db.Model):
     quantity = db.Column(db.Integer, nullable=True, default=0)
     price = db.Column(db.Float, nullable=True, default=0)
 
-    user = db.relationship('User', backref=db.backref('shoppingCarts', lazy=True))
-    listing = db.relationship('Listing', backref=db.backref('shoppingCarts', lazy=True))
+    user = db.relationship('User', backref=db.backref('orders', lazy=True))
+    listing = db.relationship('Listing', backref=db.backref('orders', lazy=True))
 
 
     def to_dict(self):
