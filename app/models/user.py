@@ -59,4 +59,11 @@ class User(db.Model, UserMixin):
         self.photoURL = photoURL if photoURL else self.photoURL
         self.password = password if password else self.password
         return self
+    
+    @classmethod
+    def create(cls, first_name, last_name, username, email, photoURL, hashed_password):
+        user = cls(first_name=first_name, last_name=last_name, username=username, email=email, photoURL=photoURL, hashed_password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        return user
 
