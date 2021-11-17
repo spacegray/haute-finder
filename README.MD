@@ -13,7 +13,7 @@ HauteFinder is a clone of [Poshmark](https://poshmark.com/)
 All features require user authorization. Demo-login is provided.
 
 **1. Item Listings CRUD**
-* Displays a feed of photos and descriptions of fashion items for sale
+* Displays a feed of listings which include photos and descriptions of fashion items for sale
 * Users may create listings for sale
 * Users are able to update their listings
 * Users may delete their listings
@@ -21,7 +21,7 @@ All features require user authorization. Demo-login is provided.
 **2. Shopping Cart CRUD**
 * Users can view items added to their shopping cart
 * Users may add items to their shopping cart 
-* Users may edit items in their cart
+* Users may edit the items quantity in their cart
 * Users may delete items from cart
 
 **3. Likes**
