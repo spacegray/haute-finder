@@ -9,10 +9,10 @@ class Like(db.Model):
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
     brandId = db.Column(db.Integer, db.ForeignKey('brands.id'))
 
-      # def to_dict(self):
-      #     return {
+    #   def to_dict(self):
+    #       return {
               
-      #     }    
+    #       }    
     # def to_dict(self):
     #     return {
     #         'id': self.id,

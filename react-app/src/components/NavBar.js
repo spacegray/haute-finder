@@ -115,6 +115,7 @@ const NavBar = () => {
           </NavLink>
         </li>
       </nav>
+      <LogoutButton />
     </>
   );
 }

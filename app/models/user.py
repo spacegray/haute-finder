@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
 
     
     likes = db.relationship('Like', backref='users', lazy=True)
-    orders = db.relationship('Order', backref='users', lazy=True)
+    orders = db.relationship('Order', backref='orders', lazy=True)
     listings = db.relationship('Listing', backref='users', lazy=True)
 
     @property
@@ -34,7 +34,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profileURL': self.profileURL,
+            'photoURL': self.photoURL,
             'listings': [listing.to_simple_dict() for listing in self.listings],
             'likes': [like.to_simple_dict() for like in self.likes],
             'orders': [order.to_simple_dict() for order in self.orders]
@@ -44,7 +44,7 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'profileURL': self.photoURL, 
+            'photoURL': self.photoURL, 
             'likes': self.likes,
             'orders': self.orders
         }
