@@ -59,10 +59,11 @@ const NavBar = () => {
           height: "110px",
           width: "100%",
           display: "flex",
-          margin: "0 auto",
           justifyContent: "flex-end",
+          alignItems: "flex-end",
           decoration: "none",
           listStyle: "none",
+          fontSize: "20px",
         }}
       >
         <li>
@@ -78,7 +79,7 @@ const NavBar = () => {
               padding: "10px",
             }}
           >
-            Login
+            Login |
           </NavLink>
         </li>
         <li>
@@ -94,7 +95,7 @@ const NavBar = () => {
               padding: "10px",
             }}
           >
-            Sign Up
+            Sign Up |
           </NavLink>
         </li>
         <li>
