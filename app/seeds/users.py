@@ -4,30 +4,48 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140235/HauteFinder/Images/icons/default_profile_photo_dm6yzf.png')
+        username='Demo', email='demo@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140235/HauteFinder/Images/icons/default_profile_photo_dm6yzf.png', 
+        hashed_password='password'
+        )
     sara = User(
-        username='sara', email='sara@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/sara_mid6oz.jpg')
+        username='sara', email='sara@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/sara_mid6oz.jpg', 
+        hashed_password='password'
+        )
     jessie = User(
-        username='jessie', email='jessie@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/jessie_ebzs5w.jpg')
+        username='jessie', email='jessie@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/jessie_ebzs5w.jpg', 
+        hashed_password='password'
+        )
     jason = User(
-        username='jason', email='jason@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Jason_cmlkw4.jpg')
+        username='jason', email='jason@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Jason_cmlkw4.jpg', 
+        hashed_password='password'
+        )
     gabriel = User(
-        username='gabriel', email='gabriel@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/gabriel_h0vzrb.jpg')
+        username='gabriel', email='gabriel@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/gabriel_h0vzrb.jpg', 
+        hashed_password='password'
+        )
     josh = User(
-        username='josh', email='josh@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Josh_ctdlsm.jpg')
+        username='josh', email='josh@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Josh_ctdlsm.jpg', 
+        hashed_password='password'
+        )
     jennifer = User(
-        username='jennifer', email='jennifer@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Jason_cmlkw4.jpg')
+        username='jennifer', email='jennifer@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/Jason_cmlkw4.jpg', 
+        hashed_password='password'
+        )
     alicia = User(
-        username='alicia', email='alicia@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/alicia_vsr4gi.jpg'
+        username='alicia', email='alicia@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190101/HauteFinder/Images/userProfilePhotos/alicia_vsr4gi.jpg', 
+        hashed_password='password'
     )
     jade = User(
-        username='jade', email='jade@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192201/HauteFinder/Images/userProfilePhotos/jade_ufaoa7.jpg'
+        username='jade', email='jade@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192201/HauteFinder/Images/userProfilePhotos/jade_ufaoa7.jpg', 
+        hashed_password='password'
     )
     adrian = User(
-        username='adrian', email='adrian@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192154/HauteFinder/Images/userProfilePhotos/adrian_twqdur.jpg'
+        username='adrian', email='adrian@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192154/HauteFinder/Images/userProfilePhotos/adrian_twqdur.jpg', 
+        hashed_password='password'
     )
     elijah = User(
-        username='elijah', email='elijah@aa.io', password='password', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192154/HauteFinder/Images/userProfilePhotos/elijah_nsrogp.jpg'
+        username='elijah', email='elijah@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192154/HauteFinder/Images/userProfilePhotos/elijah_nsrogp.jpg', 
+        hashed_password='password'
     )
 
     db.session.add(demo)

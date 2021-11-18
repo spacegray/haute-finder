@@ -11,13 +11,13 @@ class Listing(db.Model):
     imageURL = db.Column(db.String(500), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    brandId = db.Column(db.String(100), db.ForeignKey('brands.id'), nullable=True)
+    brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
+    user = db.relationship('User', backref=db.backref('listing', lazy=True))
+    brand = db.relationship('Brand', backref=db.backref('brands'))
     likes = db.relationship('Like', backref='listing', lazy=True)
-    user = db.relationship('user', backref=db.backref('listings', lazy=True))
-    brand = db.relationship('brand', backref=db.backref('brands'))
 
     def to_dict(self):
         return {
@@ -36,10 +36,10 @@ class Listing(db.Model):
             'description': self.description,
             'likes': len(self.likes)
         }
-    def update(self, description=None, imageURL=None, price=None, brandId=None):
-        self.description = description if description else self.description
-        self.imageURL = imageURL if imageURL else self.imageURL
-        self.price = price if price else self.price
-        self.brandId = brandId if brandId else self.brandId
-        return self
+    # def update(self, description=None, imageURL=None, price=None, brandId=None):
+    #     self.description = description if description else self.description
+    #     self.imageURL = imageURL if imageURL else self.imageURL
+    #     self.price = price if price else self.price
+    #     self.brandId = brandId if brandId else self.brandId
+    #     return self
 

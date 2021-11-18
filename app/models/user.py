@@ -14,7 +14,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     listings = db.relationship('Listing', backref='user', lazy=True)
-    likes = db.relationship('Likes', backref='user', lazy=True)
+    likes = db.relationship('Like', backref='user', lazy=True)
+    orders = db.relationship('Order', backref='user', lazy=True)
 
     @property
     def password(self):
@@ -34,15 +35,17 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profileURL': self.profileURL,
             'listings': [listing.to_simple_dict() for listing in self.listings],
-            'likes': [like.to_simple_dict() for like in self.likes]
+            'likes': [like.to_simple_dict() for like in self.likes],
+            'orders': [order.to_simple_dict() for order in self.orders]
         }
     
     def to_simple_dict(self):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email,
-            'profileURL': self.photoURL
+            'profileURL': self.photoURL, 
+            'likes': self.likes,
+            'orders': self.orders
         }
     
     def update(self, first_name=None, last_name=None, username=None, email=None, photoURL=None, password=None, **kwargs):

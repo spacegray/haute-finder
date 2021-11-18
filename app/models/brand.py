@@ -10,7 +10,7 @@ class Brand(db.Model):
     imageURL = db.Column(db.String(255), nullable=True,
                          default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140428/HauteFinder/Images/icons/teal-shopping-bag-icon_jxw1lh.jpg")
 
-    listings = db.relationship('listing', backref='brand', lazy=True)
+    listings = db.relationship('Listing', backref='brand', lazy=True)
     
     def to_dict(self):
         return {
