@@ -15,8 +15,9 @@ class Listing(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
-    order = db.relationship('Order', backref='listings', lazy=True)
-    likes = db.relationship('Like', backref='listings', lazy=True)
+    orders = db.relationship('Order', back_populates='listings', cascade='all, delete')
+    likes = db.relationship('Like', back_populates='listings', cascade='all, delete')
+    user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):
         return {
@@ -26,7 +27,7 @@ class Listing(db.Model):
             'imageURL': self.imageURL,
             'price': self.price,
             'userId': self.userId,
-            'brand': self.brand
+            'brand': self.brandId
             # 'likes': self.likes
         }
     def to_simple_dict(self):

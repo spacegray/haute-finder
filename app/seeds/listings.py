@@ -10,7 +10,7 @@ def seed_listings():
         price=2000, 
         userId=3, 
         brandId=1
-    ),
+    )
     torySandals = Listing(
         name="Tory Burch Sandals", 
         description="Like new condition, used 2-3 times. Bright Red. Comes with shoe box and dust bag size 9 but fit a true size 8.5. This style runs small", 
@@ -22,7 +22,7 @@ def seed_listings():
         description="Boho gorgeous! Dainty multi-layered boho choker necklace. Round gold beads and high choker layers accented with metal disc charms. The longest strand features a crescent oxbow/ox horn-shaped pendant. Metaltone zinc alloy, nickel-free.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637193195/HauteFinder/Images/listingPhotos/oxbow-boho-layered-necklace_fqvsyu.jpg", 
         price=40, userId=2, brandId=None
-    ), 
+    )
     michaelKorsHeels = Listing(
         name="Michael Kors Heels", description="""Michael Kors Sandra Caged Platform 9.5. 
         Material: Suede
@@ -34,7 +34,7 @@ def seed_listings():
         Other: T- Strap with Caged detail.""", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/michael-kors-heels_p9vzev.jpg", 
         price=75, userId=7, brandId=3
-    ),
+    )
     fendiSunglasses = Listing(
         name="Fendi Sunglasses", description="""100% AUTHENTIC FENDI SUNGLASSES
         Brand Fendi

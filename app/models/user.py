@@ -14,9 +14,9 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     
-    likes = db.relationship('Like', backref='users', lazy=True)
-    orders = db.relationship('Order', backref='orders', lazy=True)
-    listings = db.relationship('Listing', backref='users', lazy=True)
+    likes = db.relationship('Like', back_populates='user', cascade='all, delete')
+    orders = db.relationship('Order', back_populates='user', cascade='all, delete')
+    listings = db.relationship('Listing', back_populates='user', cascade='all, delete')
 
     @property
     def password(self):
@@ -35,26 +35,26 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'photoURL': self.photoURL,
-            'listings': [listing.to_simple_dict() for listing in self.listings],
-            'likes': [like.to_simple_dict() for like in self.likes],
-            'orders': [order.to_simple_dict() for order in self.orders]
+            'listings': [listing.to_dict() for listing in self.listings if listing],
+            'likes': self.likes.to_dict(),
+            'orders': self.orders.to_dict(),
         }
     
-    def to_simple_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'photoURL': self.photoURL, 
-            'likes': self.likes,
-            'orders': self.orders
-        }
+    # def to_simple_dict(self):
+    #     return {
+    #         'id': self.id,
+    #         'username': self.username,
+    #         'photoURL': self.photoURL, 
+    #         'likes': self.likes,
+    #         'orders': self.orders
+    #     }
     
-    def update(self, first_name=None, last_name=None, username=None, email=None, photoURL=None, password=None, **kwargs):
-        self.username = username if username else self.username
-        self.email = email if email else self.email
-        self.photoURL = photoURL if photoURL else self.photoURL
-        self.password = password if password else self.password
-        return self
+    # def update(self, first_name=None, last_name=None, username=None, email=None, photoURL=None, password=None, **kwargs):
+    #     self.username = username if username else self.username
+    #     self.email = email if email else self.email
+    #     self.photoURL = photoURL if photoURL else self.photoURL
+    #     self.password = password if password else self.password
+    #     return self
     
     @classmethod
     def create(cls, username, email, photoURL, hashed_password):
