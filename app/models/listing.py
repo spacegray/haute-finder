@@ -16,6 +16,7 @@ class Listing(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
     orders = db.relationship('Order', back_populates='listings', cascade='all, delete')
+    brand = db.relationship('Brand', back_populates='listings')
     likes = db.relationship('Like', back_populates='listings', cascade='all, delete')
     user = db.relationship('User', back_populates='listings')
 

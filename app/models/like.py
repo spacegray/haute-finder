@@ -12,6 +12,7 @@ class Like(db.Model):
     user = db.relationship('User', back_populates='likes')
     listings = db.relationship('Listing', back_populates='likes')
 
+
     #   def to_dict(self):
     #       return {
               
@@ -21,17 +22,14 @@ class Like(db.Model):
             'id': self.id,
             'user': self.user.to_simple_dict() if self.user else None,
             'listing': self.listing.to_simple_dict() if self.listing else None,
-            'brand': self.brand.to_simple_dict() if self.brand else None
         }
     # def to_simple_dict(self):
     #     return {
     #         'id': self.id,
     #         'userId': self.userId,
     #         'listingId': self.listingId,
-    #         'brandId': self.brandId
     #     }
     # def update(self, userId=None, listingId=None, brandId=None):
     #     self.userId = userId 
     #     self.listingId = listingId 
-    #     self.brandId = brandId 
     #     return self

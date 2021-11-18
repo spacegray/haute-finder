@@ -9,8 +9,8 @@ class Brand(db.Model):
     description = db.Column(db.String(3000), nullable=True)
     imageURL = db.Column(db.String(255), nullable=True)
     
-    listing=db.relationship('Listing', back_populates='brands')
-    likes = db.relationship('Like', back_populates='brands')
+    listings =db.relationship('Listing', back_populates='brand')
+
      
 
     def to_dict(self):
