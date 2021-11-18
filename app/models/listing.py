@@ -33,7 +33,7 @@ class Listing(db.Model):
         return {
             'id': self.id,
             'description': self.description,
-            'likes': len(self.likes)
+            # 'likes': len(self.likes)
         }
     # def update(self, description=None, imageURL=None, price=None, brandId=None):
     #     self.description = description if description else self.description
