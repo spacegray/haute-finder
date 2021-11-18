@@ -14,9 +14,9 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     
-    likes = db.relationship('Like', backref='user', lazy=True)
-    orders = db.relationship('Order', backref='user', lazy=True)
-    listings = db.relationship('Listing', backref='user', lazy=True)
+    likes = db.relationship('Like', backref='users', lazy=True)
+    orders = db.relationship('Order', backref='users', lazy=True)
+    listings = db.relationship('Listing', backref='users', lazy=True)
 
     @property
     def password(self):

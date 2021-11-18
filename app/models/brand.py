@@ -7,8 +7,7 @@ class Brand(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(700), nullable=True)
-    imageURL = db.Column(db.String(255), nullable=True,
-                         default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140428/HauteFinder/Images/icons/teal-shopping-bag-icon_jxw1lh.jpg"),
+    imageURL = db.Column(db.String(255), nullable=True)
     
     listing=db.relationship('Listing', backref='brands')
     likes = db.relationship('Like', backref='brands')
