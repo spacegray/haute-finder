@@ -2,7 +2,7 @@ from app.models import db, Order
 
 def seed_orders():
     order1 = Order(
-        userId=1, listingId=2, listingId=3, quantity=1, total=145
+        userId=1, listingId=2, quantity=1, total=145
         )
     order2 = Order(
         userId=2, listingId=3, quantity=1, total=75
@@ -14,16 +14,16 @@ def seed_orders():
         userId=7, listingId=1, quantity=1, total=2000
     )
     order5 = Order(
-        userId=1, listingId=6, listingId=7, quantity=1, total=67
+        userId=1, listingId=6, quantity=1, total=67
     )
     order6 = Order(
-        userId=1, listingId=8, listingId=11, quantity=1, total=168
+        userId=1, listingId=8, quantity=1, total=168
     )
     order7 = Order(
-        userId=1, listingId=12, listingId=10, listingId=4, quantity=1, total=1175
+        userId=1, listingId=12, quantity=1, total=1175
     )
     order8 = Order(
-        userId=1, listingId=9, listingId=5, quantity=1, total=564
+        userId=1, listingId=9, total=564
     )
 
 

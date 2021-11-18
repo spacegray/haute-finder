@@ -27,7 +27,7 @@ class Listing(db.Model):
             'price': self.price,
             'userId': self.userId,
             'brand': self.brand
-            'likes': self.likes
+            # 'likes': self.likes
         }
     def to_simple_dict(self):
         return {
