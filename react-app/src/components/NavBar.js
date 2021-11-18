@@ -2,18 +2,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import logo from '../images/haute-logo-bold.png'
 
 const NavBar = () => {
   return (
-    <nav style={{backgroundColor: '#F0F0F0', height: '110px', width:'100%', display: 'flex', margin: '0 auto'}}>
-      <ul>
-        <li>
+    <>
+      <div className='nav-left'>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            <img className="HauteFinder-logo"src={logo} style={{position: 'absolute',marginLeft: '10px', height: '100px', maxHeight:'100%', maxWidth:'100%'}}></img>
           </NavLink>
-        </li>
+        </div>
+      <nav style={{backgroundColor: '#F0F0F0', height: '110px', width:'100%', display: 'flex', margin: '0 auto'}}>
         <li>
-          <NavLink to='/login' exact={true} activeClassName='active' style={{color: '#763B2D', decoration: 'none',}}>
+          <NavLink to='/login' exact={true} activeClassName='active' style={{display: 'flex', color: '#763B2D', decoration: 'none', justifyContent:'flex-end'}}>
             Login
           </NavLink>
         </li>
@@ -30,8 +31,8 @@ const NavBar = () => {
         <li>
           <LogoutButton />
         </li>
-      </ul>
     </nav>
+     </>
   );
 }
 

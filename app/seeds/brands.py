@@ -1,5 +1,4 @@
 from app.models import db, Brand
-from app.models.brand import Brand
 
 def seed_brands():
     louisVuitton = Brand(
@@ -18,27 +17,27 @@ def seed_brands():
     fendi = Brand(
         name="Fendi", description="Fendi Logo. Fendi is a well-known Italian fashion house established in 1925 by Edoardo and Adele Fendi. A subsidiary of LVMH, the company specializes in luxury merchandise, and its 'baguette' handbags are much coveted and appreciated. Fendi's current artistic director is Karl Lagerfeld.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637197716/HauteFinder/Images/brandImages/Fendi_TM_logo-1_tw0s31.png"
-        ),
+        )
     zara = Brand(
         name="Zara", description="Zara is a Spanish clothes and accessories brand, it is the flagship brand of the Inditex group. Few clothing brands keep up with the latest fashion, are of high quality and yet, affordable. It is probably the amalgamation of all these qualities that made Zara, the Spanish clothing brand become the go-to fashion brand for all.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637198172/HauteFinder/Images/brandImages/zara-new-logo-00_d0vpgn.jpg"
-        ),
+        )
     nike = Brand(
         name="Nike", description="Founded as an importer of Japanese shoes, NIKE, Inc. (Nike) has grown to be the world's largest marketer of athletic footwear, holding a g lobal market share of approximately 37 percent. In the United States, Nike products are sold through about 22,000 retail accounts; worldwi de, the company's products are sold in more than 160 countries.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637198054/HauteFinder/Images/brandImages/Nike-emblem_xqdlja.jpg"
-        ),
+        )
     reformation = Brand(
         name="Reformation", description="We've got women's clothing, accessories, sustainable fashion, and eco-friendly things for your wearing pleasure. Filter by color, size, print, type, and price to find whatever you're looking for, or keep browsing and keep it casual. From weddings and bridesmaid dresses to hanging out at home, we've got stuff that'll work for most situations.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637197715/HauteFinder/Images/brandImages/reformation_fkyfoo.jpg"
-        ),
+        )
     timberland = Brand(
         name="Timberland", description="Our mission is to equip people to make a difference in the world. We do this by creating outstanding products and by trying to make a difference in the communities in which we live and work. We demonstrate this philosophy across all facets of our company from our products to our employee involvement in our communities.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637198127/HauteFinder/Images/brandImages/timberland-white_rqnz8r.jpg"
-        ),
+        )
     northface = Brand(
         name="Northface", description="Our Story: Behind The Brand. We are named for the coldest, most unforgiving side of a mountain. We have helped explorers reach the most unfathomable heights of the Himalayas. But The North Face® legend begins, ironically, on a beach. More precisely, San Francisco's North Beach neighborhood, at an altitude of only 150 feet above sea level.", 
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637197715/HauteFinder/Images/brandImages/the-north-face-logo_qomzdx.jpg"
-        ),
+        )
 
     db.session.add(louisVuitton)
     db.session.add(toryBurch)
@@ -49,3 +48,7 @@ def seed_brands():
     db.session.add(reformation)
     db.session.add(timberland)
     db.session.add(northface)
+
+def undo_brands():
+    db.session.execute('TRUNCATE brands RESTART IDENTITY CASCADE;')
+    db.session.commit()

@@ -26,8 +26,8 @@ class Listing(db.Model):
             'imageURL': self.imageURL,
             'price': self.price,
             'userId': self.userId,
-            'brand': self.brand.to_simple_dict() if self.brand else None,
-            'likes': [like.to_simple_dict() for like in self.likes]
+            'brand': self.brand
+            'likes': self.likes
         }
     def to_simple_dict(self):
         return {
