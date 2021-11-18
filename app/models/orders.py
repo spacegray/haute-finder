@@ -7,7 +7,7 @@ class Orders(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
     quantity = db.Column(db.Integer, nullable=True, default=0)
-    price = db.Column(db.Float, nullable=True, default=0)
+    total = db.Column(db.Float, nullable=True, default=0)
 
     user = db.relationship('User', backref=db.backref('orders', lazy=True))
     listing = db.relationship('Listing', backref=db.backref('orders', lazy=True))
@@ -19,7 +19,7 @@ class Orders(db.Model):
             'user': self.user.to_simple_dict() if self.user else None,
             'listing': self.listing.to_simple_dict() if self.listing else None,
             'quantity': self.quantity,
-            'price': self.price
+            'total': self.total
         }
     
     def to_simple_dict(self):
@@ -30,9 +30,9 @@ class Orders(db.Model):
             'quantity': self.quantity,
         }
 
-    def update(self, userId=None, listingId=None, quantity=None, price=None):
+    def update(self, userId=None, listingId=None, quantity=None, total=None):
         self.userId = userId
         self.listingId = listingId
         self.quantity = quantity
-        self.price = price
+        self.total = total
         return self
