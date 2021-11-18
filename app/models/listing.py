@@ -15,9 +15,8 @@ class Listing(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
-    user = db.relationship('User', backref=db.backref('listing', lazy=True))
-    brand = db.relationship('Brand', backref=db.backref('brands'))
-    likes = db.relationship('Like', backref='listing', lazy=True)
+    order = db.relationship('Order', backref='listings', lazy=True)
+    likes = db.relationship('Like', backref='listings', lazy=True)
 
     def to_dict(self):
         return {

@@ -82,7 +82,7 @@ def seed_listings():
         1.Brand New with Tags and product unopened.
         2.All items fit true to official size and available.
         3.All the goods are Authentic and Good service.
-        4.It comes with the original packaging box, dust bag, and a new label""", imageURL="http://", price=1000, user_id=7, brand_id=1
+        4.It comes with the original packaging box, dust bag, and a new label""", imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637207413/HauteFinder/Images/listingPhotos/louis-purse_zeyerf.jpg", price=1000, user_id=7, brand_id=1
     )
 
     

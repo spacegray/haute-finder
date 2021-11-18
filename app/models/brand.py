@@ -8,23 +8,26 @@ class Brand(db.Model):
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(700), nullable=True)
     imageURL = db.Column(db.String(255), nullable=True,
-                         default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140428/HauteFinder/Images/icons/teal-shopping-bag-icon_jxw1lh.jpg")
-
-    listings = db.relationship('Listing', backref='brand', lazy=True)
+                         default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140428/HauteFinder/Images/icons/teal-shopping-bag-icon_jxw1lh.jpg"),
     
+    listing=db.relationship('Listing', backref='brands')
+    likes = db.relationship('Like', backref='brands')
+     
+
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
             'description': self.description,
             'imageURL': self.imageURL,
-            'listings': self.listings.to_simple_dict() if self.listings else None
+            'listings': self.listingId.to_simple_dict() if self.listings else None
         }
     def to_simple_dict(self):
         return {
             'id': self.id,
             'name': self.name,
             'description': self.description,
-            'imageURL': self.imageURL
+            'imageURL': self.imageURL,
+            'listing': self.listingId
         }
            

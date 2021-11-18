@@ -9,9 +9,6 @@ class Order(db.Model):
     quantity = db.Column(db.Integer, nullable=True, default=0)
     total = db.Column(db.Float, nullable=True, default=0)
 
-    user = db.relationship('User', backref=db.backref('orders', lazy=True))
-    listing = db.relationship('Listing', backref=db.backref('orders', lazy=True))
-
 
     def to_dict(self):
         return {

@@ -1,7 +1,6 @@
 from .db import db
 
 
-
 class Like(db.Model):
     __tablename__ = 'likes'
 
@@ -10,9 +9,6 @@ class Like(db.Model):
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
     brandId = db.Column(db.Integer, db.ForeignKey('brands.id'))
 
-    user = db.relationship('User', backref=db.backref('likes'), lazy=True)
-    listing = db.relationship('Listing', backref='likes')
-    brand = db.relationship('Brand', backref='likes')
     
     def to_dict(self):
         return {
