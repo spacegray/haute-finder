@@ -9,7 +9,7 @@ class Order(db.Model):
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
     quantity = db.Column(db.Integer, nullable=True, default=0)
     total = db.Column(db.Float, nullable=True, default=0)
-    orderId = db.Column(db.Integer, db.Integer, nullable=False)
+    orderId = db.Column(db.Integer, db.Integer, nullable=True)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     
