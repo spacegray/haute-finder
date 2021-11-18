@@ -5,7 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav style={{backgroundColor: '#F0F0F0', height: '110px', width:'100%', display: 'flex', margin: '0 auto'}}>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
@@ -13,7 +13,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
+          <NavLink to='/login' exact={true} activeClassName='active' style={{color: '#763B2D', decoration: 'none',}}>
             Login
           </NavLink>
         </li>
