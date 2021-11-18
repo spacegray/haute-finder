@@ -36,14 +36,14 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </Route>
+        <Route path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </Route>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Welcome to HauteFinder</h1>
         </Route>
       </Switch>
     </BrowserRouter>
