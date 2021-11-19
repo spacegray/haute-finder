@@ -20,9 +20,9 @@ class Listing(db.Model):
 
     users = db.relationship('User', back_populates='listings')
 
-    # orders = db.relationship('Order', 
-    #     secondary=order_bag,
-    #     back_populates='listings')
+    orders = db.relationship('Order', 
+        secondary=order_bag,
+        back_populates='listings')
 
     # users = db.relationship('User', 
     #     secondary=like,

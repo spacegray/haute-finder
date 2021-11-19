@@ -17,8 +17,8 @@ class User(db.Model, UserMixin):
     listings = db.relationship(
         'Listing', back_populates='users')
     
-    # orders = db.relationship(
-    #     'Order', back_populates='users')
+    orders = db.relationship(
+        'Order', back_populates='users')
 
 
     # likes = db.relationship(
