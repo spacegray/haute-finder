@@ -25,7 +25,7 @@ def seed_listings():
         price=40  
     )
     michaelKorsHeels = Listing(
-        userId=7,
+        userId=1,
         name="Michael Kors Heels", description="""Michael Kors Sandra Caged Platform 9.5. 
         Material: Suede
         Color: Terra
@@ -38,7 +38,7 @@ def seed_listings():
         price=75
     )
     fendiSunglasses = Listing(
-        userId=7,
+        userId=1,
         name="Fendi Sunglasses", description="""100% AUTHENTIC FENDI SUNGLASSES
         Brand Fendi
         Frame Shape Cat Eye
@@ -57,28 +57,28 @@ def seed_listings():
         price=265
     )
     bohoRings = Listing(
-        userId=7,
+        userId=1,
         name="Boho Ring Set",
         description="An instant favorite! Big set of NINE silver tone tribal Boho Midi Rings featuring turquoise bead settings! Cactus, tribal, and desert sun/cow skull scene designs! Meant to fit on a variety of fingers to wear all at once, mix & match or pick favorites! Boutique - brand new! Nickel-free zinc alloy, acrylic/resin.",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/boho-rings-turquoise-silver_btrass.jpg",
         price=18
     )
     whiteBlouse = Listing(
-        userId=7,
+        userId=1,
         name="White Zara Blouse",
         description="Women’s grid print long sleeve blouse. White and black color. Size Medium",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/white-blouse_ptoyfv.jpg",
         price=49
     )
     mensNike = Listing(
-        userId=7,
+        userId=1,
         name="Nike Airmax",
         description="Nike Mens Air Max Wright Wolf Grey Red Size 9. Excellent condition, small dust mark on one shoe see photo.",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/mens-nike-airmax_yhyxm0.jpg",
         price=108
     )
     reformationGown = Listing(
-        userId=7,
+        userId=1,
         name="Reformation Sienna Gown",
         description="""Reformation Siena Dress Maxi Gown Silk in Red Size 4
         This is a floor length silk dress with adjustable shoulder ties, a detached belt, and a v neckline.
@@ -93,20 +93,20 @@ def seed_listings():
         price=299
     )
     whitePolkaDots = Listing(
-        userId=7,
+        userId=1,
         name="White Polka Dot Dress", description="Beautiful dress for any occaision. Size Small",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/white-derek-lam-dress-dots_asg7ru.jpg",
         price=100
     )
     mensTimbJacket = Listing(
-        userId=7,
+        userId=1,
         name="Mens Timberland Jacket",
         description="Great Jacket for all occasions. Never worn. Color is black, Size Large",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/mens-timberland-jacket_cfgl13.jpg",
         price=50
     )
     mensNorthFace = Listing(
-        userId=7,
+        userId=1,
         name="Mens North Face Jacket",
         description="""Excellent Pre-Owned Condition. Very minor discoloration on zipper as pictured.
         -Covered, secure-zip chest pocket and hand pockets
@@ -127,21 +127,21 @@ def seed_listings():
         price=1000
     )
 
-    db.session.add(louisBackpack)
-    db.session.add(torySandals)
-    db.session.add(layeredNecklace)
-    db.session.add(michaelKorsHeels)
-    db.session.add(fendiSunglasses)
-    db.session.add(bohoRings)
-    db.session.add(whiteBlouse)
-    db.session.add(mensNike)
-    db.session.add(reformationGown)
-    db.session.add(whitePolkaDots)
-    db.session.add(mensTimbJacket)
-    db.session.add(mensNorthFace)
-    db.session.add(louisPurse)
+    # db.session.add(louisBackpack)
+    # db.session.add(torySandals)
+    # db.session.add(layeredNecklace)
+    # db.session.add(michaelKorsHeels)
+    # db.session.add(fendiSunglasses)
+    # db.session.add(bohoRings)
+    # db.session.add(whiteBlouse)
+    # db.session.add(mensNike)
+    # db.session.add(reformationGown)
+    # db.session.add(whitePolkaDots)
+    # db.session.add(mensTimbJacket)
+    # db.session.add(mensNorthFace)
+    # db.session.add(louisPurse)
 
-    db.session.commit()
+    # db.session.commit()
 
 
 

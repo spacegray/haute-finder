@@ -4,18 +4,18 @@ from app.models import db, Order, Listing
 def seed_orders_bags():
 
     orders_list = []
-    for i in range(1, 4):
+    for i in range(1, 3):
         order = Order.query.get(i)
         orders_list.append(order)
 
     listings_list = []
-    for i in range(1, 10):
+    for i in range(1, 8):
         listing = Listing.query.get(i)
         listings_list.append(listing)
 
     count = 0
     for order in orders_list:
-        for i in range(6):
+        for i in range(4):
             order.listings.append(listings_list[count])
             count += 1
 
