@@ -11,26 +11,26 @@ class Listing(db.Model):
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=True)
     imageURL = db.Column(db.Text, nullable=False)
-    price = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
+    price = db.Column(db.Integer, nullable=False)
+    # brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
     # sellerId = db.relationship('User', back_populates='listings')
 
-    userId = db.relationship('User', back_populates='listings')
+    user = db.relationship('User', back_populates='listings')
 
-    users = db.relationship('User', 
-        secondary=like,
-        back_populates='listings')
+    # orders = db.relationship('Order', 
+    #     secondary=order_bag,
+    #     back_populates='listings')
 
-    orders = db.relationship('Order', 
-        secondary=order_bag,
-        back_populates='listings')
+    # users = db.relationship('User', 
+    #     secondary=like,
+    #     back_populates='listings')
 
    
-    brand = db.relationship('Brand', back_populates='listings')
+    # brand = db.relationship('Brand', back_populates='listings')
     # user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):

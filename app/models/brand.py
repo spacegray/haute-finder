@@ -9,7 +9,7 @@ class Brand(db.Model):
     description = db.Column(db.Text, nullable=True)
     imageURL = db.Column(db.Text, nullable=True)
     
-    listings =db.relationship('Listing', back_populates='brand')
+    # listings =db.relationship('Listing', back_populates='brand')
 
      
 

@@ -14,15 +14,15 @@ class User(db.Model, UserMixin):
         255), default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140235/HauteFinder/Images/icons/default_profile_photo_dm6yzf.png", nullable=True,)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    
-    orders = db.relationship(
-        'Order', back_populates='users')
-
     listings = db.relationship(
-        'Listing', back_populates='users')
+        'Listing', back_populates='user')
+    
+    # orders = db.relationship(
+    #     'Order', back_populates='users')
 
-    likes = db.relationship(
-        'Listing', secondary=like, back_populates='users')
+
+    # likes = db.relationship(
+    #     'Listing', secondary=like, back_populates='users')
 
     @property
     def password(self):

@@ -11,11 +11,11 @@ class Order(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     
-    users = db.relationship('User', back_populates='orders')
+    # users = db.relationship('User', back_populates='orders')
     # listings = db.relationship('Listing', back_populates='orders')
 
-    listings = db.relationship('Listing',  
-        secondary=order_bag, back_populates='orders')
+    # listings = db.relationship('Listing',  
+    #     secondary=order_bag, back_populates='orders')
 
 
     def to_dict(self):
