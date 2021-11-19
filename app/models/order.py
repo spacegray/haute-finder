@@ -9,7 +9,7 @@ class Order(db.Model):
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
     quantity = db.Column(db.Integer, nullable=True, default=0)
     total = db.Column(db.Float, nullable=True, default=0)
-    orderId = db.Column(db.Integer, nullable=True)
+    orderNum = db.Column(db.Integer, nullable=True)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
     
@@ -24,7 +24,7 @@ class Order(db.Model):
             'listing': self.listing.to_simple_dict() if self.listing else None,
             'quantity': self.quantity,
             'total': self.total,
-            'orderId': self.orderId,
+            'orderNum': self.orderNum,
         }
     
     def to_simple_dict(self):

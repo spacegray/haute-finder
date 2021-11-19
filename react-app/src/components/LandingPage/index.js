@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import './landingPage.css'
 
 
 function LandingPage() {
@@ -26,11 +27,11 @@ function LandingPage() {
               alt="splash"
             />
             <div className="welcomePageMessage">
-                <h2>
-                {" "}
-                The place for haute finds. Buy, sell and discover fashion, home
-                decor and more
-                </h2>
+              <h2>
+              The place for haute finds. <br/>
+              Buy, sell and discover fashion, home
+              decor and more
+              </h2>
           </div>
           </div>
         </div>

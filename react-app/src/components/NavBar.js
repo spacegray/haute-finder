@@ -10,13 +10,50 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   if (sessionUser) {
     return (
-      
-      <nav
-        style={{ backgroundColor: "#F0F0F0", height: "100px", display: "flex", position: 'right', listStyle: "none", padding: "0px" }}
-      >
-     
+      <>
+        <div className="nav-left" style={{ width: "400px" }}>
+          <NavLink to="/" exact={true} activeClassName="active">
+            <img
+              className="HauteFinder-logo"
+              src={logo}
+              style={{
+                position: "absolute",
+                marginLeft: "10px",
+                height: "100px",
+                maxHeight: "100%",
+                maxWidth: "100%",
+              }}
+            ></img>
+          </NavLink>
+        </div>
+
+        <nav
+          style={{
+            display: "flex",
+            backgroundColor: "#F0F0F0",
+            height: "110px",
+            width: "100%",
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            decoration: "none",
+            listStyle: "none",
+            fontSize: "20px",
+          }}
+        >
           <li>
-            <NavLink to="/" exact={true} activeClassName="active">
+            <NavLink
+              to="/"
+              exact={true}
+              activeClassName="active"
+              style={{
+                display: "flex",
+                color: "#763B2D",
+                decoration: "none",
+                justifyContent: "flex-end",
+                padding: "10px",
+              }}
+            >
               Home
             </NavLink>
           </li>
@@ -28,10 +65,11 @@ const NavBar = () => {
           <li>
             <LogoutButton />
           </li>
-      
-      </nav>
+        </nav>
+      </>
     );
-
+    
+        
   } else {
 
   return (
@@ -115,7 +153,7 @@ const NavBar = () => {
           </NavLink>
         </li>
       </nav>
-      <LogoutButton />
+    
     </>
   );
 }

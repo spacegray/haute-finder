@@ -7,7 +7,6 @@ class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     listingId = db.Column(db.Integer, db.ForeignKey('listings.id'))
-    brandId = db.Column(db.Integer, db.ForeignKey('brands.id'))
 
     user = db.relationship('User', back_populates='likes')
     listings = db.relationship('Listing', back_populates='likes')

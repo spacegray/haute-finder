@@ -7,8 +7,8 @@ class Listing(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.String(3000), nullable=True)
-    imageURL = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    imageURL = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
