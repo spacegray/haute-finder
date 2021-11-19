@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from app.forms import OrderForm
 from app.models import Order, db, Listing 
+from app.forms import OrderForm
 
 order_routes = Blueprint('order', __name__)
 

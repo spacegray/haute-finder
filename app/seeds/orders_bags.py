@@ -15,7 +15,7 @@ def seed_orders_bags():
 
     count = 0
     for order in orders_list:
-        for i in range(4):
+        for i in range(3):
             order.listings.append(listings_list[count])
             count += 1
 
