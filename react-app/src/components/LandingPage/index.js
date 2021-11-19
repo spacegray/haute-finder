@@ -22,10 +22,10 @@ function LandingPage() {
       <>
         <div className="landingPageContainer">
           <div className="splashImage">
-            <img
+            {/* <img
               src="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg"
               alt="splash"
-            />
+            /> */}
             <div className="welcomePageMessage">
               <h2>
               The place for haute finds. <br/>
