@@ -8,10 +8,10 @@ class Listing(db.Model):
     __tablename__ = 'listings'
 
     id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=True)
     imageURL = db.Column(db.Text, nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     price = db.Column(db.Integer, nullable=False)
     # brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
