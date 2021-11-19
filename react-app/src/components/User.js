@@ -19,8 +19,10 @@ function User() {
   if (!user) {
     return null;
   }
+  const profileImg = user.photoURL;
 
   return (
+    
     <ul>
       <li>
         <strong>User Id</strong> {userId}
@@ -30,6 +32,10 @@ function User() {
       </li>
       <li>
         <strong>Email</strong> {user.email}
+      </li>
+      <li>
+        <img src={profileImg} alt="profile" style={{height: "150px"}} />
+        
       </li>
     </ul>
   );
