@@ -20,8 +20,8 @@
 
   width: 600px;
   height: 100px;
-  right: 15%;
-  top: 20%;
+  right: 10%;
+  top: 25%;
   font-size: 36px;
   margin-left: 700px;
   /* line-height: 44px; */
@@ -35,7 +35,7 @@
   justify-content: justify;
   width: 100%;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .welcomePageMessage {
     display: none;
     transition: 2s;
