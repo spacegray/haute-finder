@@ -1,6 +1,7 @@
 from app.models import db, Order, Listing
 
-def seed_order_bags():
+
+def seed_orders_bags():
 
     orders_list = []
     for i in range(1, 4):
@@ -11,12 +12,12 @@ def seed_order_bags():
     for i in range(1, 10):
         listing = Listing.query.get(i)
         listings_list.append(listing)
-    
+
     count = 0
     for order in orders_list:
         for i in range(6):
             order.listings.append(listings_list[count])
-            count += 1 
+            count += 1
 
     db.session.commit()
 
@@ -26,6 +27,6 @@ def seed_order_bags():
 # the auto incrementing primary key
 
 
-def undo_collections_quotes():
+def undo_orders_bags():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()

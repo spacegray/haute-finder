@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .like import like
 
 
 class User(db.Model, UserMixin):
@@ -13,12 +14,15 @@ class User(db.Model, UserMixin):
         255), default="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637140235/HauteFinder/Images/icons/default_profile_photo_dm6yzf.png", nullable=True,)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    likes = db.relationship(
-        'Like', back_populates='user', cascade='all, delete')
+    
     orders = db.relationship(
-        'Order', back_populates='user', cascade='all, delete')
+        'Order', back_populates='users')
+
     listings = db.relationship(
-        'Listing', back_populates='user', cascade='all, delete')
+        'Listing', back_populates='users')
+
+    likes = db.relationship(
+        'Listing', secondary=like, back_populates='users')
 
     @property
     def password(self):
@@ -59,10 +63,10 @@ class User(db.Model, UserMixin):
     #     self.password = password if password else self.password
     #     return self
 
-    @classmethod
-    def create(cls, username, email, photoURL, hashed_password):
-        user = cls(username=username, email=email,
-                   photoURL=photoURL, hashed_password=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        return user
+    # @classmethod
+    # def create(cls, username, email, photoURL, hashed_password):
+    #     user = cls(username=username, email=email,
+    #                photoURL=photoURL, hashed_password=hashed_password)
+        # db.session.add(user)
+        # db.session.commit()
+        # return user
