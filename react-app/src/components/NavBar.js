@@ -39,6 +39,7 @@ const NavBar = () => {
             decoration: "none",
             listStyle: "none",
             fontSize: "20px",
+            zIndex: "1",
           }}
         >
           <li>
