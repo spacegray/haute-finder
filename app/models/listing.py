@@ -13,7 +13,7 @@ class Listing(db.Model):
     description = db.Column(db.Text, nullable=True)
     imageURL = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer, nullable=False)
-    # brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
+    brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
@@ -30,7 +30,7 @@ class Listing(db.Model):
     #     back_populates='listings')
 
    
-    # brand = db.relationship('Brand', back_populates='listings')
+    brand = db.relationship('Brand', back_populates='listings')
     # user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):
