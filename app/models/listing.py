@@ -1,5 +1,7 @@
 from .db import db
 import datetime
+from .like import Like
+from .order import Order
 
 
 class Listing(db.Model):
@@ -15,9 +17,18 @@ class Listing(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
-    orders = db.relationship('Order', back_populates='listings', cascade='all, delete')
+    sellers = db.relationship('User', back_populates='listings')
+
+    userLikes = db.relationship('User', 
+        secondary=Like,
+        back_populates='listings')
+
+    orders = db.relationship('Order', 
+        secondary=Order,
+        back_populates='listings')
+
+   
     brand = db.relationship('Brand', back_populates='listings')
-    likes = db.relationship('Like', back_populates='listings', cascade='all, delete')
     user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):

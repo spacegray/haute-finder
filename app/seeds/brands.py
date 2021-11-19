@@ -50,5 +50,5 @@ def seed_brands():
     db.session.add(northface)
 
 def undo_brands():
-    db.session.execute('TRUNCATE brands RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()

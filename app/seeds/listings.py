@@ -146,5 +146,5 @@ def seed_listings():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_listings():
-    db.session.execute('TRUNCATE listings RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
