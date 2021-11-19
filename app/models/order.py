@@ -22,7 +22,7 @@ class Order(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'quantity': self.quantity,
+            'bag_name': self.bag_name,
         }
     
     # def to_simple_dict(self):
