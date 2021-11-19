@@ -13,10 +13,11 @@ function UsersList() {
     fetchData();
   }, []);
 
+
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
+      <li key={user.id} >
+        <NavLink to={`/users/${user.id}`}>{user.username }  </NavLink>
       </li>
     );
   });
@@ -24,7 +25,8 @@ function UsersList() {
   return (
     <>
       <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+     <div className="User-List"  ></div> 
+      <ul style={{fontSize:"30px"}}>{userComponents}</ul>
     </>
   );
 }

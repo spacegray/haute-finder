@@ -19,23 +19,21 @@ function User() {
   if (!user) {
     return null;
   }
-  const profileImg = user.photoURL;
+    const profileImg = user.photoURL;
 
   return (
-    
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <strong style={{ fontSize: "20" }}>User Id {userId}</strong>
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong style={{ fontSize: "20" }}>Username {user.username}</strong>
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong style={{ fontSize: "20" }}>Email {user.email}</strong>
       </li>
       <li>
-        <img src={profileImg} alt="profile" style={{height: "150px"}} />
-        
+        <img src={profileImg} alt="profile" style={{ height: "200px", object:"fit-cover", borderRadius:"20%"}} />
       </li>
     </ul>
   );

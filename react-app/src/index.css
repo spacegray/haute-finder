@@ -21,3 +21,14 @@ margin: 0;
 list-style: none;
 padding: 0;
 }
+
+a:link {
+    text-decoration: none;
+    color: #763B2D
+}
+a:visited {
+    color: #763B2D
+}
+a:hover {
+    color: #cebe49
+}
