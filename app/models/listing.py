@@ -7,16 +7,18 @@ class Listing(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.String(3000), nullable=True)
-    imageURL = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    imageURL = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
-    order = db.relationship('Order', backref='listings', lazy=True)
-    likes = db.relationship('Like', backref='listings', lazy=True)
+    orders = db.relationship('Order', back_populates='listings', cascade='all, delete')
+    brand = db.relationship('Brand', back_populates='listings')
+    likes = db.relationship('Like', back_populates='listings', cascade='all, delete')
+    user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):
         return {
@@ -26,14 +28,14 @@ class Listing(db.Model):
             'imageURL': self.imageURL,
             'price': self.price,
             'userId': self.userId,
-            'brand': self.brand.to_simple_dict() if self.brand else None,
-            'likes': [like.to_simple_dict() for like in self.likes]
+            'brand': self.brandId
+            # 'likes': self.likes
         }
     def to_simple_dict(self):
         return {
             'id': self.id,
             'description': self.description,
-            'likes': len(self.likes)
+            # 'likes': len(self.likes)
         }
     # def update(self, description=None, imageURL=None, price=None, brandId=None):
     #     self.description = description if description else self.description

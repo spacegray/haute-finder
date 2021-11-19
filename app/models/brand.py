@@ -6,11 +6,11 @@ class Brand(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.String(700), nullable=True)
-    imageURL = db.Column(db.String(255), nullable=True)
+    description = db.Column(db.Text, nullable=True)
+    imageURL = db.Column(db.Text, nullable=True)
     
-    listing=db.relationship('Listing', backref='brands')
-    likes = db.relationship('Like', backref='brands')
+    listings =db.relationship('Listing', back_populates='brand')
+
      
 
     def to_dict(self):

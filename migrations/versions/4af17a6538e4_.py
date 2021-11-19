@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1f54acb90606
+Revision ID: 4af17a6538e4
 Revises: 
-Create Date: 2021-11-17 18:13:25.360482
+Create Date: 2021-11-18 15:13:37.062327
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1f54acb90606'
+revision = '4af17a6538e4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,8 +21,8 @@ def upgrade():
     op.create_table('brands',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.String(length=700), nullable=True),
-    sa.Column('imageURL', sa.String(length=255), nullable=True),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('imageURL', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
@@ -38,8 +38,8 @@ def upgrade():
     op.create_table('listings',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.String(length=3000), nullable=True),
-    sa.Column('imageURL', sa.String(length=500), nullable=False),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('imageURL', sa.Text(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('brandId', sa.Integer(), nullable=True),
@@ -53,8 +53,6 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('listingId', sa.Integer(), nullable=True),
-    sa.Column('brandId', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['brandId'], ['brands.id'], ),
     sa.ForeignKeyConstraint(['listingId'], ['listings.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -65,6 +63,9 @@ def upgrade():
     sa.Column('listingId', sa.Integer(), nullable=True),
     sa.Column('quantity', sa.Integer(), nullable=True),
     sa.Column('total', sa.Float(), nullable=True),
+    sa.Column('orderNum', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['listingId'], ['listings.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

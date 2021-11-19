@@ -2,6 +2,14 @@
 
 This is the starter for the Flask React project.
 
+## Create Database
+
+CREATE DATABASE haute_finder_db WITH OWNER haute_finder_user;
+
+flask db init (if needing to add alembic again)
+flask db migrate
+flask db upgrade
+
 ## Getting started
 
 1. Clone this repository (only this branch)
