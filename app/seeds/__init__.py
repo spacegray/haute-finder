@@ -5,7 +5,7 @@ from .listings import seed_listings, undo_listings
 # from .orders import seed_orders, undo_orders
 # from .orders_bags import seed_orders_bags, undo_orders_bags
 # from .likes import seed_likes, undo_likes
-# from .brands import seed_brands, undo_brands
+
 
 
 # Creates a seed group to hold our commands
@@ -27,7 +27,6 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    # undo_brands()
     # undo_likes()
     # undo_orders()
     undo_listings()

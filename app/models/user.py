@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     listings = db.relationship(
-        'Listing', back_populates='user')
+        'Listing', back_populates='users')
     
     # orders = db.relationship(
     #     'Order', back_populates='users')

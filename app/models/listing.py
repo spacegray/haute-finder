@@ -13,13 +13,12 @@ class Listing(db.Model):
     description = db.Column(db.Text, nullable=True)
     imageURL = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer, nullable=False)
-    brandId = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     
     # sellerId = db.relationship('User', back_populates='listings')
 
-    user = db.relationship('User', back_populates='listings')
+    users = db.relationship('User', back_populates='listings')
 
     # orders = db.relationship('Order', 
     #     secondary=order_bag,
@@ -30,18 +29,16 @@ class Listing(db.Model):
     #     back_populates='listings')
 
    
-    brand = db.relationship('Brand', back_populates='listings')
     # user = db.relationship('User', back_populates='listings')
 
     def to_dict(self):
         return {
             'id': self.id,
+            'userId': self.userId,
             'name': self.name, 
             'description': self.description,
             'imageURL': self.imageURL,
             'price': self.price,
-            'userId': self.userId,
-            'brand': self.brandId
             # 'likes': self.likes
         }
     # def to_simple_dict(self):
