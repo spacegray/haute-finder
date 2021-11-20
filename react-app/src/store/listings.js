@@ -27,5 +27,20 @@ export const getAllListings = () => async (dispatch) => {
 export const getUserListing = (userId) => async (dispatch) => {
     const response = await fetch(`/api/listings/user/${userId}/`);
     const listings = await response.json();
-    dispatch(getListingOne(listings));
+    dispatch(getOneListing(listings));
+}
+
+const listingReducer = (state = {}, action) => {
+    let newState = state;
+    switch (action.type) {
+        case GET_LISTING:
+            newState = {...state}
+            action.listings[listing.id].forEach(listing => {
+                newState[listing.id] = listing;
+            });
+            return newState;
+        case ADD_LISTING:
+            newState = {...state}
+            newState[action.listing.id] = action.listing;
+    }
 }
