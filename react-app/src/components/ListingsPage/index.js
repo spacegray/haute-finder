@@ -1,34 +1,48 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
+import { useSelector, useDispatch} from 'react-redux';
+import { getAllListings} from '../../store/listings';
+// import session from '../../store/session';
+
+
 
 function ListingsPage() {
-    const [listings, setListings] = useState([]);
-    const { userId } = useParams();
-    
+    const [listingContent, setListingContent] = useState([]);
+    // const { userId } = useParams();
+    const listings = useSelector(state => state.listings);
+    const listing = Object.values(listings);
+    const dispatch = useDispatch();
+
+
     useEffect(() => {
-        (async () => {
-        const response = await fetch(`/api/users/${userId}/listings`);
-        const listings = await response.json();
-        setListings(listings);
-        })();
-    }, [userId]);
-    
+        dispatch(getAllListings())
+        // dispatch(getUserListing(userId))
+    }, [dispatch]);
+
     if (!listings) {
         return null;
     }
-    
+
+
     return (
-        <div>
-        <h1>Listings</h1>
-        <ul>
-            {listings.map(listing => (
-            <li key={listing.id}>
-                <strong style={{ fontSize: "20" }}>
-                Listing Id {listing.id}
-                </strong>
-            </li>
-            ))}
-        </ul>
+      <div>
+        <div className="listing-page container">
+          <h1>Listings</h1>
+          <div
+            className="display-listings">
+            {listing.map((list) => {
+              return (
+                <div className="listing-card" key={list.id} style={{width: '500px', justifyContent: 'center'}}>
+                  <h3>{list.title}</h3>
+                  <img src={list.imageURL}></img>
+                  <p>{list.description}</p>
+                  <p>{list.price}</p>
+                </div>
+              );
+            })}{" "}
+          </div>
         </div>
+      </div>
     );
 }
+export default ListingsPage;
