@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import LandingPage from "./components/LandingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ListingsPage from "./components/ListingsPage/index";
+import ListingView from "./components/ListingView";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path="/listings" exact={true}>
           <ListingsPage />
+        </Route>
+        <Route path="/listings/:id" exact={true}>
+          <ListingView />
         </Route>
       </Switch>
     </BrowserRouter>
