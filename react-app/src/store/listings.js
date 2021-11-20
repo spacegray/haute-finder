@@ -44,64 +44,64 @@ export const getOneListing = (listingId) => async (dispatch) => {
     const listing = await response.json();
     dispatch(getSingleListing(listing));
 
-
+}
 // GET User Listing
-// export const getUserListing = (userId) => async (dispatch) => {
-//     const response = await fetch(`/api/listings/user/${userId}/`);
-//       const listings = await response.json();
-//       dispatch(getUserListings(listings));
-// }
+export const getUserListing = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/listings/user/${userId}/`);
+      const listings = await response.json();
+      dispatch(getUserListings(listings));
+}
 
 // POST Listing
-// export const addListing = (userId, name, description, imageURL, price) => async (dispatch) => {
-//     const response = await fetch(`/api/listings/user/${userId}`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             name,
-//             description,
-//             imageURL,
-//             price
+export const addListing = (userId, name, description, imageURL, price) => async (dispatch) => {
+    const response = await fetch(`/api/listings/user/${userId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name,
+            description,
+            imageURL,
+            price
 
-//         })
-//     });
-//     const listing = await response.json();
-//     dispatch(addListing(listing));
-//     return;
-// }
+        })
+    });
+    const listing = await response.json();
+    dispatch(addListing(listing));
+    return;
+}
 
 // Edit listing
-// export const editListing = (id, name, description, imageURL, price) => async (dispatch) => {
-//       const response = await fetch(`/api/listings/${id}/edit`, {
-//           method: "PUT",
-//           headers: {
-//               "Content-Type": "application/json"
-//           },
-//           body: JSON.stringify({
-//               name,
-//               description,
-//               imageURL,
-//               price
-//           })
-//       });
-//       const listing = await response.json();
-//       dispatch(updateListing(listing));
-//       return;
-// }
+export const editListing = (id, name, description, imageURL, price) => async (dispatch) => {
+      const response = await fetch(`/api/listings/${id}/edit`, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              name,
+              description,
+              imageURL,
+              price
+          })
+      });
+      const listing = await response.json();
+      dispatch(updateListing(listing));
+      return;
+}
 
   // Delete listing
-// export const removeListing = (id) => async (dispatch) => {
-//     const response = await fetch(`/api/listings/${id}/delete`, {
-//         method: "DELETE",
-//     });
-//     const listing = await response.json();
-//     dispatch(deleteListing(listing));
-//     return;
-// }
+export const removeListing = (id) => async (dispatch) => {
+    const response = await fetch(`/api/listings/${id}/delete`, {
+        method: "DELETE",
+    });
+    const listing = await response.json();
+    dispatch(deleteListing(listing));
+    return;
+}
 
-const listingReducer = (state={}, action) => {
+ const listingReducer = (state={}, action) => {
     let newState;
     switch (action.type){
         case GET_LISTING:

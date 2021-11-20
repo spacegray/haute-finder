@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneListing} from '../../store/listings';
+import { getOneListing, addListing, editListing} from '../../store/listings';
+
 
 import './listingView'
 
-function ListingView() {
+function ListingView({ListingPage}) {
     const [listingContent, setListingContent] = useState([]);
     const { userId } = useParams();
     const listings = useSelector(state => state.listings);

@@ -7,6 +7,7 @@ import { getAllListings} from '../../store/listings';
 import './listingsPage.css'
 
 
+
 function ListingsPage() {
     // const [listingContent, setListingContent] = useState([]);
     // const { userId } = useParams();
