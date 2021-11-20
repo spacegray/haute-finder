@@ -139,7 +139,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            to="/users"
+            to="/listings"
             exact={true}
             activeClassName="active"
             style={{
@@ -150,7 +150,7 @@ const NavBar = () => {
               padding: "10px",
             }}
           >
-            Users
+            Listings
           </NavLink>
         </li>
       </nav>

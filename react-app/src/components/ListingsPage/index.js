@@ -3,7 +3,7 @@ import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux';
 import { getAllListings} from '../../store/listings';
 // import session from '../../store/session';
-
+import './listingsPage.css'
 
 
 function ListingsPage() {

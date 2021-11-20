@@ -11,7 +11,7 @@ function LandingPage() {
     const sessionUser = useSelector((state) => state.sessionUser);
 
     if (sessionUser) {
-        return <Redirect to="/home" />;
+        return <Redirect to="/listings" />;
     }
     const handleSubmit = (e) => {
             e.preventDefault();
