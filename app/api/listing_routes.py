@@ -13,10 +13,10 @@ def get_listings():
     return {'listings': [listing.to_dict() for listing in listings]}
 
 
-@listing_routes.route('/<int:id>', methods=['GET'])
+@listing_routes.route('/<id>', methods=['GET'])
 # @login_required
-def one_listing(id):
-    listing = Listing.query.get(id)
+def one_listing(listingId):
+    listing = Listing.query.get(listingId)
     return listing.to_dict()
 
 
@@ -69,7 +69,7 @@ def edit_listing(id):
     
     if len(form.data['price']) > 0:
         listing.price = form.data['price']
-        
+
     db.session.commit()
     return listing.to_dict()
 
