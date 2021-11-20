@@ -36,7 +36,7 @@ function ListingsPage() {
                   <h3>{list.title}</h3>
                   <img src={list.imageURL}></img>
                   <p>{list.description}</p>
-                  <p>{list.price}</p>
+                  <p>${list.price}</p>
                 </div>
               );
             })}{" "}
