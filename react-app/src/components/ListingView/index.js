@@ -18,6 +18,7 @@ function ListingView() {
         dispatch(getAllListings(id));
     }, [dispatch, id]);
 
+    console.log(item)
 
   return (
     <div>
