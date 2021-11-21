@@ -1,19 +1,19 @@
 const GET_LISTING = "listing/GET_LISTING";
-// const GET_ONE = "listing/GET_ONE";
+const GET_ONE = "listing/GET_ONE";
 const ADD_LISTING = "listing/ADD_LISTING";
 const UPDATE_LISTING = "listing/UPDATE_LISTING";
 const DELETE_LISTING = "listing/DELETE_LISTING";
 
 // actions
-const getListings = (listings) => ({
+const getAllListings = (listings) => ({
     type: GET_LISTING,
     listings
 });
 
-// const getSingleListing = (listingId) => ({
-//     type: GET_ONE,
-//     listing: listingId
-// })
+const getSingleListing = (listingId) => ({
+    type: GET_ONE,
+    listingId
+})
 
 const getUserListings = (userId) => ({
     type: GET_LISTING,
@@ -31,21 +31,21 @@ const deleteListing = (listing) => ({
 // Thunk actions
 
 //GET All Listings
-export const getAllListings = () => async (dispatch) => {
+export const getListings = () => async (dispatch) => {
     const response = await fetch('/api/listings');
     if (!response.ok) throw response;
     const listings = await response.json();
     // console.log('FrontEnd********Testing Listings Get******', listings);
-    dispatch(getListings(listings));
+    dispatch(getAllListings(listings));
 }
 
-// export const getOneListing = (listingId) => async (dispatch) => {
-//     const response = await fetch(`/api/listings/${listingId}`);
-//     if (!response.ok) throw response;
-//     const listing = await response.json();
-//     dispatch(getSingleListing(listing));
+export const getOneListing = (listingId) => async (dispatch) => {
+    const response = await fetch(`/api/listings/${listingId}`);
+    if (!response.ok) throw response;
+    const listing = await response.json();
+    dispatch(getSingleListing(listing));
 
-// }
+}
 // GET User Listing
 export const getUserListing = (userId) => async (dispatch) => {
     const response = await fetch(`/api/listings/user/${userId}/`);
@@ -107,10 +107,13 @@ export const removeListing = (id) => async (dispatch) => {
     switch (action.type){
         case GET_LISTING:
             newState = {...state}
-            action.listings.listings.forEach(listing => {
+            action.listings['listings'].forEach(listing => {
                 newState[listing.id] = listing
             });
             return newState;
+        case GET_ONE:
+            return {...state}
+
   
         case ADD_LISTING:
             newState = {...state}

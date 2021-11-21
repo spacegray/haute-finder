@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllListings } from "../../store/listings";
+import { getListings } from "../../store/listings";
 // import session from '../../store/session';
 import "./listingsPage.css";
 
@@ -14,7 +14,7 @@ function ListingsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllListings());
+    dispatch(getListings());
     // dispatch(getUserListing(userId))
   }, [dispatch]);
 

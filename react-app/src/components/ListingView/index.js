@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllListings, addListing, editListing } from "../../store/listings";
+import { getListings, getOneListing, addListing, editListing } from "../../store/listings";
 
 import "./listingView.css";
 
@@ -15,7 +15,7 @@ function ListingView() {
  
 
     useEffect(() => {
-        dispatch(getAllListings(id));
+        dispatch(getOneListing(id));
     }, [dispatch, id]);
 
     console.log(item)
