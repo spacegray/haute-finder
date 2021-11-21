@@ -112,7 +112,9 @@ export const removeListing = (id) => async (dispatch) => {
             });
             return newState;
         case GET_ONE:
-            return {...state}
+            newState = {...state}
+            newState[action.listingId['id']] = action.listingId
+            return newState;
 
   
         case ADD_LISTING:
