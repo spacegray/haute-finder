@@ -1,43 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneListing, addListing, editListing } from "../../store/listings";
+import { getAllListings, addListing, editListing } from "../../store/listings";
 
-// import "./listingView";
+import "./listingView.css";
 
 function ListingView() {
-  const [listingContent, setListingContent] = useState();
-  const { id } = useParams();
-  const listingId = Number(id);
-  const listings = useSelector((state) => state.listings);
-  const listingObj = Object.values(listings);
-  const dispatch = useDispatch();
-  // if state is empty, trigger the dispatch
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    //const sessionUser = useSelector((state) => state.session.user);
+    const listings = useSelector((state) => state.listings);
+    const listingObj = Object.values(listings);
+    const item = useSelector((state) => state.listings[id]);
+ 
 
     useEffect(() => {
-        if (!listingObj.length) {
-            (async () => {
-              const item = await dispatch(getOneListing(listingId));
-              setListingContent(item);
-              // dispatch(getUserListing(userId))
-              console.log('TEST 3',listingContent);
-            })();
-        } else {
-        // if not empty, then grab it from the state
-        const item = listings.listingId;
-        setListingContent(item);
-        console.log("TEST 4", listingContent, listingId);
-        }
-    }, [getOneListing, addListing, editListing, dispatch]);
-    console.log(typeof listingId)
+        dispatch(getAllListings(id));
+    }, [dispatch, id]);
+
 
   return (
     <div>
       <h1>Listing View</h1>
-      {console.log("TEST 5", listingContent,listingId)}
-      {/* <h2>{listingContent.item}</h2>
-      <h3>{listing.description}</h3>
-      <h4>{listing.price}</h4> */}
+        <div className="listing-view-container">
+            {/* {item.map((value) => {
+                return (
+                    <div className="listing-view-item">
+                        <h2>{value.title}</h2>
+                        <p>{value.description}</p>
+                        <p>{value.price}</p>
+                    
+                        <p>{value.imageUrl}</p>
+                    </div>
+                );
+            })} */}
+        </div>
+        
     </div>
   );
 }

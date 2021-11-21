@@ -13,10 +13,10 @@ def get_listings():
     return {'listings': [listing.to_dict() for listing in listings]}
 
 
-@listing_routes.route('/<id>', methods=['GET'])
+@listing_routes.route('/<int:id>', methods=['GET'])
 # @login_required
-def one_listing(listingId):
-    listing = Listing.query.get(listingId)
+def one_listing(id):
+    listing = Listing.query.get(id)
     return listing.to_dict()
 
 

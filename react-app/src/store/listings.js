@@ -1,4 +1,5 @@
 const GET_LISTING = "listing/GET_LISTING";
+// const GET_ONE = "listing/GET_ONE";
 const ADD_LISTING = "listing/ADD_LISTING";
 const UPDATE_LISTING = "listing/UPDATE_LISTING";
 const DELETE_LISTING = "listing/DELETE_LISTING";
@@ -9,10 +10,10 @@ const getListings = (listings) => ({
     listings
 });
 
-const getSingleListing = (listingId) => ({
-    type: GET_LISTING,
-    listingId
-})
+// const getSingleListing = (listingId) => ({
+//     type: GET_ONE,
+//     listing: listingId
+// })
 
 const getUserListings = (userId) => ({
     type: GET_LISTING,
@@ -38,13 +39,13 @@ export const getAllListings = () => async (dispatch) => {
     dispatch(getListings(listings));
 }
 
-export const getOneListing = (listingId) => async (dispatch) => {
-    const response = await fetch(`/api/listings/${listingId}`);
-    if (!response.ok) throw response;
-    const listing = await response.json();
-    dispatch(getSingleListing(listing));
+// export const getOneListing = (listingId) => async (dispatch) => {
+//     const response = await fetch(`/api/listings/${listingId}`);
+//     if (!response.ok) throw response;
+//     const listing = await response.json();
+//     dispatch(getSingleListing(listing));
 
-}
+// }
 // GET User Listing
 export const getUserListing = (userId) => async (dispatch) => {
     const response = await fetch(`/api/listings/user/${userId}/`);
@@ -106,11 +107,11 @@ export const removeListing = (id) => async (dispatch) => {
     switch (action.type){
         case GET_LISTING:
             newState = {...state}
-            action.listings['listings'].forEach(listing => {
+            action.listings.listings.forEach(listing => {
                 newState[listing.id] = listing
             });
             return newState;
-
+  
         case ADD_LISTING:
             newState = {...state}
             newState[action.listing['id']] = action.listing
@@ -118,7 +119,7 @@ export const removeListing = (id) => async (dispatch) => {
         
         case UPDATE_LISTING:
             newState = {...state}
-            newState[action.listing['id']] = action.listing
+            newState[action.listing.id] = action.listing
             return newState;
 
         case DELETE_LISTING:

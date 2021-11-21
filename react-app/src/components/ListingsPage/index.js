@@ -21,7 +21,8 @@ function ListingsPage() {
   if (!listings) {
     return null;
   }
-
+  console.log("Test from Listing feed", listingObj);
+  console.log("Test 2 from Listing feed", listings);
   return (
     <div>
       <div className="listing-page container">
