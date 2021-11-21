@@ -32,7 +32,7 @@ function ListingsPage() {
             return (
               <NavLink to={`/listings/${listing.id}`} key={listing.id}>
                 <div
-                  className="listinging-card"
+                  className="listing-card"
                   style={{ width: "500px", justifyContent: "center" }}
                 >
                   <h3>{listing.title}</h3>

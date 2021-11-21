@@ -1,7 +1,7 @@
 const GET_LISTING = "listing/GET_LISTING";
 const GET_ONE = "listing/GET_ONE";
 const ADD_LISTING = "listing/ADD_LISTING";
-const UPDATE_LISTING = "listing/UPDATE_LISTING";
+// const UPDATE_LISTING = "listing/UPDATE_LISTING";
 const DELETE_LISTING = "listing/DELETE_LISTING";
 
 // actions
@@ -10,17 +10,17 @@ const getAllListings = (listings) => ({
     listings
 });
 
-const getSingleListing = (listingId) => ({
-    type: GET_ONE,
-    listingId
-})
+// const getSingleListing = (listing) => ({
+//     type: GET_LISTING,
+//     listing
+// })
 
 const getUserListings = (userId) => ({
     type: GET_LISTING,
     userId
 })
-const updateListing = (listing) => ({
-    type: UPDATE_LISTING,
+const addListing = (listing) => ({
+    type: ADD_LISTING,
     listing
 })
 const deleteListing = (listing) => ({
@@ -39,11 +39,13 @@ export const getListings = () => async (dispatch) => {
     dispatch(getAllListings(listings));
 }
 
+//GET SINGLE LISTING
 export const getOneListing = (listingId) => async (dispatch) => {
     const response = await fetch(`/api/listings/${listingId}`);
     if (!response.ok) throw response;
-    const listing = await response.json();
-    dispatch(getSingleListing(listing));
+    const listing = [await response.json()];
+    dispatch(getAllListings(listing));
+
 
 }
 // GET User Listing
@@ -54,7 +56,7 @@ export const getUserListing = (userId) => async (dispatch) => {
 }
 
 // POST Listing
-export const addListing = (userId, name, description, imageURL, price) => async (dispatch) => {
+export const createListing = (userId, name, description, imageURL, price) => async (dispatch) => {
     const response = await fetch(`/api/listings/user/${userId}`, {
         method: "POST",
         headers: {
@@ -88,7 +90,7 @@ export const editListing = (id, name, description, imageURL, price) => async (di
           })
       });
       const listing = await response.json();
-      dispatch(updateListing(listing));
+      dispatch(addListing(listing));
       return;
 }
 
@@ -102,6 +104,12 @@ export const removeListing = (id) => async (dispatch) => {
     return;
 }
 
+// const newState = {};
+// for (let article of action.list) {
+//   newState[article.id] = article;
+// }
+// return newState;
+
  const listingReducer = (state={}, action) => {
     let newState;
     switch (action.type){
@@ -111,21 +119,19 @@ export const removeListing = (id) => async (dispatch) => {
                 newState[listing.id] = listing
             });
             return newState;
-        case GET_ONE:
-            newState = {...state}
-            newState[action.listingId['id']] = action.listingId
-            return newState;
-
-  
+        // case GET_ONE:
+        //     newState = {...state}
+        //     newState[action.listing['id']]
+        //     return newState;  
         case ADD_LISTING:
-            newState = {...state}
-            newState[action.listing['id']] = action.listing
-            return newState;
-        
-        case UPDATE_LISTING:
             newState = {...state}
             newState[action.listing.id] = action.listing
             return newState;
+        
+        // case UPDATE_LISTING:
+        //     newState = {...state}
+        //     newState[action.listing.id] = action.listing
+        //     return newState;
 
         case DELETE_LISTING:
             newState = {...state};

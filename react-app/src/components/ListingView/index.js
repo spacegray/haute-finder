@@ -15,7 +15,7 @@ function ListingView() {
  
 
     useEffect(() => {
-        dispatch(getOneListing(id));
+        dispatch(getListings(id));
     }, [dispatch, id]);
 
     console.log(item)
@@ -23,20 +23,13 @@ function ListingView() {
   return (
     <div>
       <h1>Listing View</h1>
-        <div className="listing-view-container">
-            {/* {item.map((value) => {
-                return (
-                    <div className="listing-view-item">
-                        <h2>{value.title}</h2>
-                        <p>{value.description}</p>
-                        <p>{value.price}</p>
-                    
-                        <p>{value.imageUrl}</p>
-                    </div>
-                );
-            })} */}
+      <div className="listing-view-container">
+        <img src={item?.imageURL} alt="item-for-sale"></img>
+        <div className="listing-view-info">
+          {item?.description}
+          ${item?.price}
         </div>
-        
+      </div>
     </div>
   );
 }
