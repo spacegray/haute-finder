@@ -20,48 +20,57 @@ function NewListingModal() {
   // const listingObj = Object.values(listings);
   // const user = useSelector((state) => state.session.user);
   // const item = useSelector((state) => state.listings[id]);
-     
-  const handleSubmit = async (e, error = false) => {
+    
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
-      const errors = [];
-      if (name.length < 1) {
-        errors.push("Name is required");
-      }
-      if (name.length > 50) {
-        error = true;
-        setErrors(prevState => [...prevState, "Name must be less than 50 characters"]);
-      }
-      if (description.length < 1) {
-        error = true;
-        error=true;
-        setErrors(prevState => [...prevState, "Description is required"]);
-      }
-      if (imageURL.length < 1) {
-        error=true;
-        setErrors(prevState => [...prevState, "Image URL is required"]);
-      }
-      if (price.length < 1) {
-        error=true;
-        setErrors((prevState) => [...prevState, "Price is required"]);
-      }
-      if (typeof price != Number) {
-        error=true;
-        setErrors((prevState) => [...prevState, "Price must be a number"]);
-      }
+    setName("");
+    setDescription("");
+    setImageURL("");
+    setPrice("");
+    setModalOpen(false);
+    dispatch(createListing(name, description, imageURL, price));
+  }
+  // const handleSubmit = async (e, error = false) => {
+  //   e.preventDefault();
+  //   setErrors([]);
+  //     const errors = [];
+  //     if (name.length < 1) {
+  //       errors.push("Name is required");
+  //     }
+  //     if (name.length > 50) {
+  //       error = true;
+  //       setErrors(prevState => [...prevState, "Name must be less than 50 characters"]);
+  //     }
+  //     if (description.length < 1) {
+  //       error = true;
+  //       error=true;
+  //       setErrors(prevState => [...prevState, "Description is required"]);
+  //     }
+  //     if (imageURL.length < 1) {
+  //       error=true;
+  //       setErrors(prevState => [...prevState, "Image URL is required"]);
+  //     }
+  //     if (price.length < 1) {
+  //       error=true;
+  //       setErrors((prevState) => [...prevState, "Price is required"]);
+  //     }
+  //     if (typeof price != Number) {
+  //       error=true;
+  //       setErrors((prevState) => [...prevState, "Price must be a number"]);
+  //     }
 
-      if (!error) {
-        const data = { name, description, imageURL, price, };
-        if (data) {
-          const listingData = await dispatch(createListing(data));
-          setShowCreateListing(false)
-          setModalOpen(false);
-          if (listingData.errors) {
-            setErrors(listingData.errors);
-          }
-        }
-       }
-      }
+  //     if (!error) {
+  //       const data = { name, description, imageURL, price, };
+  //       if (data) {
+  //         const listingData = await dispatch(createListing(data));
+  //         // setShowCreateListing(false)
+  //         setModalOpen(false);
+  //         if (listingData.errors) {
+  //           setErrors(listingData.errors);
+  //         }
+  //       }
+  //      }
+  //     }
 
 
   const cancelListingHandler = (e) => {
@@ -72,7 +81,7 @@ function NewListingModal() {
     setImageURL("");
     setPrice("");
     setModalOpen(false);
-    setShowCreateListing(false);
+    // setShowCreateListing(false);
   };
 
   //different way to do this

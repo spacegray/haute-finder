@@ -55,24 +55,44 @@ export const getUserListing = (userId) => async (dispatch) => {
       dispatch(getUserListings(listings));
 }
 
+//Create Listing
+export const createListing =
+  (name, description, imageURL, price) => async (dispatch) => {
+    const response = await fetch('/api/listings/add', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        description,
+        imageURL,
+        price,
+      }),
+    });
+    const listing = await response.json();
+    dispatch(addListing(listing));
+    return;
+  };
+
 // POST Listing
-export const createListing = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/listings/add`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    })
-        if (response.ok) {
-            const data = await response.json();
-            if (data.errors) {
-                return data;
-            }
-            dispatch(addListing(data.listing))
-            return data;
-        }
-}
+// export const createListing = (payload) => async (dispatch) => {
+//     const response = await fetch(`/api/listings/add`, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(payload)
+//     })
+//         if (response.ok) {
+//             const data = await response.json();
+//             if (data.errors) {
+//                 return data;
+//             }
+//             dispatch(addListing(data.listing))
+//             return data;
+//         }
+// }
 
 
 // Edit listing
