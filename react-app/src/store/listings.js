@@ -50,7 +50,7 @@ export const getOneListing = (listingId) => async (dispatch) => {
 }
 // GET User Listing
 export const getUserListing = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/listings/user/${userId}/`);
+    const response = await fetch(`/api/listings/users/${userId}/`);
       const listings = await response.json();
       dispatch(getUserListings(listings));
 }

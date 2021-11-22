@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+// import { useSelector, useDispatch } from "react-redux";
+// import { getUserListing } from '../store/listings'
 
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  // const dispatch = useDispatch();
+  // const userListings = useSelector((state) => state.listings[userId]);
 
   useEffect(() => {
     if (!userId) {
@@ -14,13 +18,14 @@ function User() {
       const user = await response.json();
       setUser(user);
     })();
+    // dispatch(getUserListing(userId));
   }, [userId]);
 
   if (!user) {
     return null;
   }
     const profileImg = user.photoURL;
-
+  // console.log(userListings)
   return (
     <ul>
       <li>
