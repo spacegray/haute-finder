@@ -1,34 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getListings } from "../../store/listings";
+// import session from '../../store/session';
+import "./listingsPage.css";
 
 function ListingsPage() {
-    const [listings, setListings] = useState([]);
-    const { userId } = useParams();
-    
-    useEffect(() => {
-        (async () => {
-        const response = await fetch(`/api/users/${userId}/listings`);
-        const listings = await response.json();
-        setListings(listings);
-        })();
-    }, [userId]);
-    
-    if (!listings) {
-        return null;
-    }
-    
-    return (
-        <div>
+  // const [listingContent, setListingContent] = useState([]);
+  // const { userId } = useParams();
+  const listings = useSelector((state) => state.listings);
+  const listingObj = Object.values(listings);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getListings());
+    // dispatch(getUserListing(userId))
+  }, [dispatch]);
+
+  if (!listings) {
+    return null;
+  }
+  console.log("Test from Listing feed", listingObj);
+  console.log("Test 2 from Listing feed", listings);
+  return (
+    <div>
+      <div className="listing-page container">
         <h1>Listings</h1>
-        <ul>
-            {listings.map(listing => (
-            <li key={listing.id}>
-                <strong style={{ fontSize: "20" }}>
-                Listing Id {listing.id}
-                </strong>
-            </li>
-            ))}
-        </ul>
+        <div className="display-listings">
+          {listingObj.map((listing) => {
+            return (
+              <NavLink to={`/listings/${listing.id}`} key={listing.id}>
+                <div
+                  className="listing-card"
+                  style={{ width: "500px", justifyContent: "center" }}
+                >
+                  <h3>{listing.title}</h3>
+                  <img src={listing.imageURL} alt="item-for-sale"></img>
+                  <p>{listing.description}</p>
+                  <p>${listing.price}</p>
+                </div>
+              </NavLink>
+            );
+          })}{" "}
         </div>
-    );
+      </div>
+    </div>
+  );
 }
+export default ListingsPage;
