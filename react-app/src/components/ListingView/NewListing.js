@@ -3,6 +3,8 @@ import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
+// import { Redirect } from "react-router";
+import "./listingView.css";
 
 Modal.setAppElement("#root");
 
@@ -16,6 +18,7 @@ function NewListingModal() {
   const [errors, setErrors] = useState("");
   const { userId } = useParams();
   const dispatch = useDispatch();
+
   // const listings = useSelector((state) => state.listings);
   // const listingObj = Object.values(listings);
   // const user = useSelector((state) => state.session.user);
@@ -29,6 +32,7 @@ function NewListingModal() {
     setPrice("");
     setModalOpen(false);
     dispatch(createListing(name, description, imageURL, price));
+    
   }
   // const handleSubmit = async (e, error = false) => {
   //   e.preventDefault();
@@ -121,49 +125,55 @@ return (
         isOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
       >
-        <h2> Sell Your Stuff </h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name"> Item Name </label>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Give your Listing a name"
-            required
-          />
-          <label htmlFor="description"> Description </label>
-          <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Describe your item"
-            required
-          />
-          <label htmlFor="imageURL"> Item Image </label>
-          <input
-            value={imageURL}
-            onChange={(e) => setImageURL(e.target.value)}
-            placeholder="Enter a URL to upload your image"
-            required
-          />
-          <label htmlFor="price"> Price </label>
-          <input
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Enter a price"
-            required
-          />
-          <div id="create-listing-btn-div">
-            <button id="submit-listing" type="submit">
-              {" "}
-              Create Listing{" "}
-            </button>
-            <button
-              id="cancel-listing"
-              onClick={(e) => cancelListingHandler(e)}
-            >
-              Cancel
-            </button>
+        <div className="create-listing-modal-content">
+          <div className="modal-title">
+            <h1> Sell Your Stuff </h1>
           </div>
-        </form>
+          <div className="create-listing-form">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="name"> Item Name </label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Give your Listing a name"
+                required
+              />
+              <label htmlFor="description"> Description </label>
+              <input
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Describe your item"
+                required
+              />
+              <label htmlFor="imageURL"> Item Image </label>
+              <input
+                value={imageURL}
+                onChange={(e) => setImageURL(e.target.value)}
+                placeholder="Enter a URL to upload your image"
+                required
+              />
+              <label htmlFor="price"> Price </label>
+              <input
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Enter a price"
+                required
+              />
+              <div id="create-listing-btn-div">
+                <button id="submit-listing" type="submit">
+                  {" "}
+                  Create Listing{" "}
+                </button>
+                <button
+                  id="cancel-listing"
+                  onClick={(e) => cancelListingHandler(e)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </Modal>
     </div>
   </>

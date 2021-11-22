@@ -58,11 +58,38 @@ const NavBar = () => {
               Home
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/listings" exact={true} activeClassName="active">
+          <li>
+            <NavLink
+              to="/listings"
+              exact={true}
+              activeClassName="active"
+              style={{
+                display: "flex",
+                color: "#763B2D",
+                decoration: "none",
+                justifyContent: "flex-end",
+                padding: "10px",
+              }}
+            >
               Listings
             </NavLink>
-          </li> */}
+          </li>
+          <li>
+            <NavLink
+              to="/users"
+              exact={true}
+              activeClassName="active"
+              style={{
+                display: "flex",
+                color: "#763B2D",
+                decoration: "none",
+                justifyContent: "flex-end",
+                padding: "10px",
+              }}
+            >
+              Users
+            </NavLink>
+          </li>
           <li>
             <LogoutButton />
           </li>
@@ -151,6 +178,22 @@ const NavBar = () => {
               Listings
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/users"
+              exact={true}
+              activeClassName="active"
+              style={{
+                display: "flex",
+                color: "#763B2D",
+                decoration: "none",
+                justifyContent: "flex-end",
+                padding: "10px",
+              }}
+            >
+              Users
+            </NavLink>
+            </li>
         </nav>
       </>
     );

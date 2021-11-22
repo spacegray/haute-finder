@@ -52,7 +52,6 @@ function ListingView() {
       <h1>Listing View</h1>
       <NewListingModal />
 
-
       <div className="create-listing-view">
         </div>
 
@@ -60,7 +59,9 @@ function ListingView() {
         <img src={item?.imageURL} alt="item-for-sale"></img>
         <div className="listing-view-info">
           {item?.description}
-          ${item?.price}
+          <div classname="price-section">
+            ${item?.price}
+          </div>
         </div>
       </div>
     </div>
