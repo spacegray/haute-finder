@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from 'react-modal';
-import { getListings } from "../../store/listings";
+import { getListings, createListing } from "../../store/listings";
+import NewListingModal from './NewListing'
 
 import "./listingView.css";
 
