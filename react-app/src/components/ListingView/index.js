@@ -49,7 +49,7 @@ function ListingView() {
 
   return (
     <div>
-      <h1>Listing View</h1>
+      <h1>{item?.name}</h1>
       <NewListingModal />
 
       <div className="create-listing-view">

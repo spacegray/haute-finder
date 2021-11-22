@@ -8,8 +8,10 @@
   padding: 0;
   margin: 0;
 }
-.listing-view-container h1 {
-    
+h1 {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
 }
 
 .listing-view-container {
@@ -84,8 +86,9 @@ input {
     height: 50px;
     background: #8A3E4B;
     color: white;
-    font-size: 15px;
-    border-radius: 10px;
+    font-size: 17px;
+    border-radius: 3px;
+    margin-left: 20px;
 }
 
 
