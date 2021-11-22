@@ -27,7 +27,6 @@ All features require user authorization. Demo-login is provided.
 **3. Likes**
 * Users may like items the want to save for later
 * Listings may have many likes
-* Brands may have many likes
 * Users can remove their 'like'
 
 **4.Search**
