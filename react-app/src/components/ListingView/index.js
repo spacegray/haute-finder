@@ -15,6 +15,8 @@ function ListingView() {
     // const [imageURL, setImageURL] = useState('');
     // const [price, setPrice] = useState('');
     // const [image, setImage] = useState('');
+    const [modalOpen, setModalOpen] = useState('');
+    const [listing, setListing] = useState('');
     const { id, userId } = useParams();
     // const { userId } = useParams();
     //const sessionUser = useSelector((state) => state.session.user);
@@ -35,7 +37,7 @@ function ListingView() {
   return (
     <div>
       <h1>Listing View</h1>
-      {/* <button onClick={() => dispatch(createListing(item))}>Add Listing</button> */}
+      <NewListingModal />
       <div className="listing-view-container">
         <img src={item?.imageURL} alt="item-for-sale"></img>
         <div className="listing-view-info">
