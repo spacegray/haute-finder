@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from 'react-modal';
-import { getListings, createListing } from "../../store/listings";
+import { getListings, createListing, removeListing } from "../../store/listings";
 import NewListingModal from './NewListing'
 
 import "./listingView.css";
@@ -24,6 +25,7 @@ function ListingView() {
     const [price, setPrice] = useState("");
     const [errors, setErrors] = useState("");
     const { id, userId} = useParams();
+    const history = useHistory();
     // const { userId } = useParams();
     //const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
@@ -38,30 +40,53 @@ function ListingView() {
       dispatch(createListing(listing.id))
       setListingId(listing.id)
       setListing(listingId)
+      // dispatch(removeListing(item?.id))
     }
 
+    const deleteItem = async() => {
+      dispatch(removeListing(item?.id));
+      history.push(`/listings`)
+    }
+
+    // const createListing = async(listing) => {
+    //   dispatch(createListing(listing.id));
+    //   history.push(`/listings${id}`)
+    // }
+
+    // const redirection = (listingId) => {
+    //   if (!listingId) {
+    //     return <Redirect to={`/listings/${listingId}`} />
+    //   }
+
     useEffect(() => {
-        dispatch(getListings(id));    
+        dispatch(getListings(id));
+        // if (!item) {
+        //     return <Redirect to="/listings" />;
+        // }    
     }, [dispatch, id]);
 
-    console.log(item)
-    console.log("test est test",user)
+
 
   return (
     <div>
       <h1>{item?.name}</h1>
-      <NewListingModal />
-
-      <div className="create-listing-view">
-        </div>
+      <div className="side-bar">
+        <NewListingModal />
+        <button
+          className="delete-listing-btn"
+          onClick={deleteItem} 
+        >
+          {" "}
+          Delete Listing
+        </button>
+      </div>
+      <div className="create-listing-view"></div>
 
       <div className="listing-view-container">
         <img src={item?.imageURL} alt="item-for-sale"></img>
         <div className="listing-view-info">
           {item?.description}
-          <div classname="price-section">
-            ${item?.price}
-          </div>
+          <div classname="price-section">${item?.price}</div>
         </div>
       </div>
     </div>

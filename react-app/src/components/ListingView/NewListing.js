@@ -3,6 +3,7 @@ import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
+import {useHistory} from "react-router-dom";
 // import { Redirect } from "react-router";
 import "./listingView.css";
 
@@ -18,13 +19,14 @@ function NewListingModal() {
   const [errors, setErrors] = useState("");
   const { userId } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // const listings = useSelector((state) => state.listings);
   // const listingObj = Object.values(listings);
   // const user = useSelector((state) => state.session.user);
   // const item = useSelector((state) => state.listings[id]);
     
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, id) => {
     e.preventDefault();
     setName("");
     setDescription("");
@@ -32,8 +34,14 @@ function NewListingModal() {
     setPrice("");
     setModalOpen(false);
     dispatch(createListing(name, description, imageURL, price));
+    history.push(`/listings`);
     
   }
+
+      // const createListing = async (listing) => {
+      //   dispatch(createListing(listing.id));
+      //   history.push(`/listings${id}`);
+      // };
   // const handleSubmit = async (e, error = false) => {
   //   e.preventDefault();
   //   setErrors([]);
