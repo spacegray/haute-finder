@@ -20,16 +20,42 @@ function NewListing() {
   // const user = useSelector((state) => state.session.user);
   // const item = useSelector((state) => state.listings[id]);
      
-  const handleSubmit = (e) => {
-       e.preventDefault();
-       setErrors([]);
-       setName("");
-       setDescription("");
-       setImageURL("");
-       setPrice("");
-       dispatch(createListing(name, description, imageURL, price, userId));
-       setModalOpen(false);
-     };
+  const handleSubmit = (e, error = false) => {
+    e.preventDefault();
+    setErrors([]);
+      const errors = [];
+      if (name.length < 1) {
+        errors.push("Name is required");
+      }
+      if (name.length > 50) {
+        error = true;
+        setErrors(prevState => [...prevState, "Name must be less than 50 characters"]);
+      }
+      if (description.length < 1) {
+        error = true;
+        error=true;
+        setErrors("Description is required");
+      }
+      if (imageURL.length < 1) {
+        error=true;
+        setErrors("Image URL is required");
+      }
+      if (price.length < 1) {
+        error=true;
+        setErrors("Price is required");
+      }
+      if (typeof price != Number) {
+        error=true;
+        setErrors("Price must be a number")
+      }
+
+    setName("");
+    setDescription("");
+    setImageURL("");
+    setPrice("");
+    dispatch(createListing(name, description, imageURL, price, userId));
+    setModalOpen(false);
+  };
   // useEffect(() => {
   //   const errors = [];
   //   if (name.length < 1) {

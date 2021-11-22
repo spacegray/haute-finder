@@ -56,24 +56,24 @@ export const getUserListing = (userId) => async (dispatch) => {
 }
 
 // POST Listing
-export const createListing = (userId, name, description, imageURL, price) => async (dispatch) => {
-    const response = await fetch(`/api/listings/user/${userId}`, {
+export const createListing = (payload) => async (dispatch) => {
+    const response = await fetch(`/api/listings/add`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            name,
-            description,
-            imageURL,
-            price
-
-        })
-    });
-    const listing = await response.json();
-    dispatch(addListing(listing));
-    return;
+        body: JSON.stringify(payload)
+    })
+        if (response.ok) {
+            const data = await response.json();
+            if (data.errors) {
+                return data;
+            }
+            dispatch(addListing(data.listing))
+            return data;
+        }
 }
+
 
 // Edit listing
 export const editListing = (id, name, description, imageURL, price) => async (dispatch) => {
