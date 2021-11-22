@@ -71,7 +71,7 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              Listings
+              Listings |
             </NavLink>
           </li>
           <li>
@@ -175,7 +175,7 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              Listings
+              Listings |
             </NavLink>
           </li>
           <li>
