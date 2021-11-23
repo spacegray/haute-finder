@@ -91,7 +91,7 @@ export const createListing =
 
 // Edit listing
 export const editListing =
-  ( name, description, imageURL, price, id) => async (dispatch) => {
+  (name, description, imageURL, price, id) => async (dispatch) => {
     const response = await fetch(`/api/listings/${id}/`, {
       method: "PUT",
       headers: {
@@ -102,7 +102,7 @@ export const editListing =
         description,
         imageURL,
         price,
-        id
+        id,
       }),
     });
     const listing = await response.json();
