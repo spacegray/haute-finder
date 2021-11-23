@@ -128,7 +128,7 @@ function ListingView() {
         <img src={item?.imageURL} alt="item-for-sale"></img>
         <div className="listing-view-info">
           {item?.description}
-          <div classname="price-section">${item?.price}</div>
+          <div className="price-section">${item?.price}</div>
         </div>
       </div>
     </div>
