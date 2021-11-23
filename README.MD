@@ -18,16 +18,15 @@ All features require user authorization. Demo-login is provided.
 * Users are able to update their listings
 * Users may delete their listings
 
-**2. Shopping Cart CRUD**
-* Users can view items added to their shopping cart
-* Users may add items to their shopping cart 
-* Users may edit the items quantity in their cart
-* Users may delete items from cart
+**2. Shopping Bag CRUD**
+* Users can view items added to their Bag in a section of their profile 
+* Users may add items to their bag from listing view 
+* Users may delete items from their bag
+* Users are able to edit the name of their bag
 
 **3. Likes**
 * Users may like items the want to save for later
 * Listings may have many likes
-* Brands may have many likes
 * Users can remove their 'like'
 
 **4.Search**

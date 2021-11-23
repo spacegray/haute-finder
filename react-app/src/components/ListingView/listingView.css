@@ -76,6 +76,7 @@ h1 {
     height: 300px;
     align-items: center;
     font-size: 30px;
+    padding: 10px;
     color: rgb(248, 244, 244)
 }
 .create-listing-modal-content input {
@@ -86,8 +87,10 @@ h1 {
     padding: 5px;
     width: 200px;
     height: 100px;
+    font-size: 20px;
     
 }
+
 .side-bar {
     display: flex;
     flex-direction: column;
@@ -98,6 +101,32 @@ h1 {
     padding: 0;
     margin: 0;
 }
+
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 200px;
+}
+
+#submit-listing {
+    height: 40px;
+    background-color: #82a7a3;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#cancel-listing {
+    height: 40px;
+    margin-left: 10px;
+    width: 90px;
+    font-size: 15px;
+    background-color: #c0b6b5;
+    border-radius: 5px;
+}
+
+
+
 .create-listing-btn {
     position: relative;   
     width: 150px;
