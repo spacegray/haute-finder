@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from 'react-modal';
-import { getListings, createListing } from "../../store/listings";
+import { getListings, removeListing, editListing } from "../../store/listings";
 import NewListingModal from './NewListing'
 
 import "./listingView.css";
@@ -10,58 +11,129 @@ import "./listingView.css";
 Modal.setAppElement('#root');
 
 function ListingView() {
-    // const [name, setName] = useState('');
-    // const [description, setDescription] = useState('');
-    // const [imageURL, setImageURL] = useState('');
-    // const [price, setPrice] = useState('');
-    // const [image, setImage] = useState('');
     const [modalOpen, setModalOpen] = useState('');
-    const [listing, setListing] = useState('');
-    const [listingId, setListingId] = useState('');
+    // const [listing, setListing] = useState('');
+    // const [listingId, setListingId] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageURL, setImageURL] = useState("");
     const [price, setPrice] = useState("");
-    const [errors, setErrors] = useState("");
-    const { id, userId} = useParams();
+    // const [errors, setErrors] = useState("");
+    const { id} = useParams();
+    const history = useHistory();
     // const { userId } = useParams();
     //const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
-    const listings = useSelector((state) => state.listings);
-    // const listingObj = Object.values(listings);
-    const user = useSelector((state) => state.session.user)
+    // const listings = useSelector((state) => state.listings);
     const item = useSelector((state) => state.listings[id]);
-    const userListings = Object.values(listings).filter(
-    (listing) => listing.userId == userId );
 
-    const onClickSettings = (listing) => {
-      dispatch(createListing(listing.id))
-      setListingId(listing.id)
-      setListing(listingId)
+    const deleteItem = async() => {
+       dispatch(removeListing(item?.id));
+      history.push(`/listings`)
     }
 
-    useEffect(() => {
-        dispatch(getListings(id));    
-    }, [dispatch, id]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setName("");
+    setDescription("");
+    setImageURL("");
+    setPrice("");
 
-    console.log(item)
-    console.log("test est test",user)
+    dispatch(editListing(name, description, imageURL, price, id));
+    setModalOpen(false);
+    history.push(`/listings/${id}`);
+  };
+    const cancelListingHandler = (e) => {
+      e.preventDefault();
+      // setErrors([]);
+      setName("");
+      setDescription("");
+      setImageURL("");
+      setPrice("");
+      setModalOpen(false);
+    };
+
+    useEffect(() => {
+        dispatch(getListings(id));
+        // dispatch(getListings(listingId));
+
+    }, [dispatch, id]);
 
   return (
     <div>
       <h1>{item?.name}</h1>
-      <NewListingModal />
-
-      <div className="create-listing-view">
-        </div>
+      <div className="side-bar">
+        <NewListingModal />
+        <button className="delete-listing-btn" onClick={deleteItem}>
+          {" "}
+          Delete Listing
+        </button>
+        <button className="edit-listing-btn" onClick={() => setModalOpen(true)}>
+          Edit Listing
+        </button>
+        <Modal
+          className="site-modal"
+          isOpen={modalOpen}
+          onRequestClose={() => setModalOpen(false)}
+        >
+          <div className="create-listing-modal-content">
+            <div className="modal-title">
+              <h1> Edit Your Listing </h1>
+            </div>
+            <div className="create-listing-form">
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="name"> Item Name </label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={item?.name}
+                  
+                />
+                <label htmlFor="description"> Description </label>
+                <input
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder={item?.description}
+               
+                />
+                <label htmlFor="imageURL"> Item Image </label>
+                <input
+                  value={imageURL}
+                  onChange={(e) => setImageURL(e.target.value)}
+                  placeholder={item?.imageURL}
+                  
+                />
+                <label htmlFor="price"> Price </label>
+                <input
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder={item?.price}
+                  
+                />
+                <div id="create-listing-btn-div">
+                  <button id="submit-listing" type="submit">
+                    {" "}
+                    Submit Edit {" "}
+                  </button>
+                  <button
+                    id="cancel-listing"
+                    onClick={(e) => cancelListingHandler(e)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </Modal>
+      </div>
+      <div className="create-listing-view"></div>
 
       <div className="listing-view-container">
         <img src={item?.imageURL} alt="item-for-sale"></img>
         <div className="listing-view-info">
           {item?.description}
-          <div classname="price-section">
-            ${item?.price}
-          </div>
+          <div classname="price-section">${item?.price}</div>
         </div>
       </div>
     </div>

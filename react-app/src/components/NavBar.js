@@ -33,7 +33,6 @@ const NavBar = () => {
             backgroundColor: "#F0F0F0",
             height: "110px",
             width: "100%",
-            display: "flex",
             justifyContent: "flex-end",
             alignItems: "flex-end",
             decoration: "none",
@@ -71,7 +70,7 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              Listings
+              Listings |
             </NavLink>
           </li>
           <li>
@@ -122,12 +121,12 @@ const NavBar = () => {
             backgroundColor: "#F0F0F0",
             height: "110px",
             width: "100%",
-            display: "flex",
             justifyContent: "flex-end",
             alignItems: "flex-end",
             decoration: "none",
             listStyle: "none",
             fontSize: "20px",
+            zIndex: "2",
           }}
         >
           <li>
@@ -175,7 +174,7 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              Listings
+              Listings |
             </NavLink>
           </li>
           <li>
