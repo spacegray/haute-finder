@@ -79,7 +79,6 @@ def edit_listing(id):
     elif len(form.data['description']):
         listing.description = form.data['description']
     
-
     if (form.data['imageURL']) == None:
         listing.imageURL = listing.imageURL
 
