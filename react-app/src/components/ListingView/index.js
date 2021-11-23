@@ -11,11 +11,6 @@ import "./listingView.css";
 Modal.setAppElement('#root');
 
 function ListingView() {
-    // const [name, setName] = useState('');
-    // const [description, setDescription] = useState('');
-    // const [imageURL, setImageURL] = useState('');
-    // const [price, setPrice] = useState('');
-    // const [image, setImage] = useState('');
     const [modalOpen, setModalOpen] = useState('');
     const [listing, setListing] = useState('');
     const [listingId, setListingId] = useState('');
@@ -48,21 +43,16 @@ function ListingView() {
       history.push(`/listings`)
     }
 
-    // const createListing = async(listing) => {
+    // const createListing = async(id) => {
     //   dispatch(createListing(listing.id));
-    //   history.push(`/listings${id}`)
+    //   history.push(`/listings/${id}`)
     // }
 
-    // const redirection = (listingId) => {
-    //   if (!listingId) {
-    //     return <Redirect to={`/listings/${listingId}`} />
-    //   }
+
 
     useEffect(() => {
         dispatch(getListings(id));
-        // if (!item) {
-        //     return <Redirect to="/listings" />;
-        // }    
+
     }, [dispatch, id]);
 
 
