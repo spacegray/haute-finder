@@ -30,7 +30,7 @@ const deleteListing = (listing) => ({
 
 //GET All Listings
 export const getListings = () => async (dispatch) => {
-  const response = await fetch("/api/listings");
+  const response = await fetch("/api/listings/");
   if (!response.ok) throw response;
   const listings = await response.json();
   dispatch(getAllListings(listings));
