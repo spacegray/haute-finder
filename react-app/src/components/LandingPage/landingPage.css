@@ -56,7 +56,11 @@
   border: 2px solid #853e4a;
   color: #853e4a;
   border-radius: 3px;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  /* text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25); */
 
+}
+.demo-login-btn:hover {
+  background-color: #853e4a;
+  color: white;
 }
 
