@@ -5,7 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import LandingPage from "./components/LandingPage";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+// import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ListingsPage from "./components/ListingsPage/index";
 import ListingView from "./components/ListingView";
 import UsersList from "./components/UsersList";

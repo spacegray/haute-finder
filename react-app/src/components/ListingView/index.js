@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from 'react-modal';
-import { getListings, createListing, removeListing, editListing } from "../../store/listings";
+import { getListings, removeListing, editListing } from "../../store/listings";
 import NewListingModal from './NewListing'
 
 import "./listingView.css";
@@ -12,31 +12,20 @@ Modal.setAppElement('#root');
 
 function ListingView() {
     const [modalOpen, setModalOpen] = useState('');
-    const [listing, setListing] = useState('');
-    const [listingId, setListingId] = useState('');
+    // const [listing, setListing] = useState('');
+    // const [listingId, setListingId] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageURL, setImageURL] = useState("");
     const [price, setPrice] = useState("");
-    const [errors, setErrors] = useState("");
-    const { id, userId} = useParams();
+    // const [errors, setErrors] = useState("");
+    const { id} = useParams();
     const history = useHistory();
     // const { userId } = useParams();
     //const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
-    const listings = useSelector((state) => state.listings);
-    // const listingObj = Object.values(listings);
-    const user = useSelector((state) => state.session.user)
+    // const listings = useSelector((state) => state.listings);
     const item = useSelector((state) => state.listings[id]);
-    const userListings = Object.values(listings).filter(
-    (listing) => listing.userId == userId );
-
-    const onClickSettings = (listing) => {
-      dispatch(createListing(listing.id))
-      setListingId(listing.id)
-      setListing(listingId)
-      // dispatch(removeListing(item?.id))
-    }
 
     const deleteItem = async() => {
        dispatch(removeListing(item?.id));
@@ -52,33 +41,17 @@ function ListingView() {
 
     dispatch(editListing(name, description, imageURL, price, id));
     setModalOpen(false);
-    // history.push(`/listings`);
+    history.push(`/listings/${id}`);
   };
     const cancelListingHandler = (e) => {
       e.preventDefault();
-      setErrors([]);
+      // setErrors([]);
       setName("");
       setDescription("");
       setImageURL("");
       setPrice("");
       setModalOpen(false);
-      // setShowCreateListing(false);
     };
-    // const editItem = async() => {
-    //   dispatch(
-        // editListing(
-
-        //   item?.name,
-        //   item?.description,
-        //   item?.imageURL,
-        //   item?.price
-        // )
-    //   );
-    // }
-    // const createListing = async(id) => {
-    //   dispatch(createListing(listing.id));
-    //   history.push(`/listings/${id}`)
-    // }
 
     useEffect(() => {
         dispatch(getListings(id));
@@ -95,7 +68,7 @@ function ListingView() {
           {" "}
           Delete Listing
         </button>
-        <button className="edit-listing" onClick={() => setModalOpen(true)}>
+        <button className="edit-listing-btn" onClick={() => setModalOpen(true)}>
           Edit Listing
         </button>
         <Modal

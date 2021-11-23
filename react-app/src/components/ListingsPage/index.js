@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getListings, createListing } from "../../store/listings";
+import { getListings} from "../../store/listings";
 import Modal from "react-modal";
 import NewListingModal from "../ListingView/NewListing";
 // import session from '../../store/session';
@@ -42,7 +41,7 @@ function ListingsPage() {
                   className="listing-card"
                   style={{ width: "500px", justifyContent: "center" }}
                 >
-                  <h3>{listing.title}</h3>
+                  <h2>{listing.name}</h2>
                   <img src={listing.imageURL} alt="item-for-sale"></img>
                   <p>{listing.description}</p>
                   <p>${listing.price}</p>

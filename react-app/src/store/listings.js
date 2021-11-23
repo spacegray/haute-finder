@@ -1,7 +1,5 @@
 const GET_LISTING = "listing/GET_LISTING";
-const GET_ONE = "listing/GET_ONE";
 const ADD_LISTING = "listing/ADD_LISTING";
-// const UPDATE_LISTING = "listing/UPDATE_LISTING";
 const DELETE_LISTING = "listing/DELETE_LISTING";
 
 // actions
@@ -35,7 +33,6 @@ export const getListings = () => async (dispatch) => {
   const response = await fetch("/api/listings");
   if (!response.ok) throw response;
   const listings = await response.json();
-  // console.log('FrontEnd********Testing Listings Get******', listings);
   dispatch(getAllListings(listings));
 };
 
@@ -124,8 +121,8 @@ export const removeListing = (id) => async (dispatch) => {
 };
 
 // const newState = {};
-// for (let article of action.list) {
-//   newState[article.id] = article;
+// for (let listing of action.list) {
+//   newState[listing.id] = listing;
 // }
 // return newState;
 
@@ -134,23 +131,15 @@ const listingReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_LISTING:
       newState = { ...state };
-      action.listings["listings"].forEach((listing) => {
+      action.listings.listings.forEach((listing) => {
         newState[listing.id] = listing;
       });
       return newState;
-    // case GET_ONE:
-    //     newState = {...state}
-    //     newState[action.listing['id']]
-    //     return newState;
+
     case ADD_LISTING:
       newState = { ...state };
-      newState[action.listing['id']] = action.listing;
+      newState[action.listing.id] = action.listing;
       return newState;
-
-    // case UPDATE_LISTING:
-    //     newState = {...state}
-    //     newState[action.listing.id] = action.listing
-    //     return newState;
 
     case DELETE_LISTING:
       newState = { ...state };

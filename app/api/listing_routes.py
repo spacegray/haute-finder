@@ -55,7 +55,7 @@ def add_listing():
 
         db.session.add(new_listing)
         db.session.commit()
-        # print(new_listing.to_dict())
+ 
         return new_listing.to_dict()
     return {'errors': validation_errors_list(form.errors)}
 
@@ -65,12 +65,7 @@ def add_listing():
 def edit_listing(id):
     form = ListingForm()
     listing = Listing.query.get(id)
-    # name = listing.get('name')
-    # description = listing.get('description')
-    # imageURL = listing.get('imageURL')
-    # price = listing.get('price')
-
-    # print('BACKEND TEST',name, description, imageURL, price)
+    
 
     if (form.data['name']) == None:
         listing.name = listing.name
@@ -100,7 +95,7 @@ def edit_listing(id):
 
     db.session.commit()
     return listing.to_dict()
-
+    # return {'errors': validation_errors_list(form.errors)}
 
 @listing_routes.route('/<id>/delete', methods=['DELETE'])
 def delete_listing(id):

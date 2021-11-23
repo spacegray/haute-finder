@@ -39,6 +39,14 @@ h1 {
 
 /* Modal */
 
+.create-listing-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+   
+}
 .modal-title {
     display:flex;
     height:200px;
@@ -94,7 +102,7 @@ input {
     position: relative;   
     width: 150px;
     height: 50px;
-    background: #8A3E4B;
+    background: #3e7f8a;
     color: white;
     font-size: 17px;
     border-radius: 3px;
@@ -111,12 +119,18 @@ input {
     border-radius: 3px;
     margin-left: 20px;
 }
-
-.create-listing-modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-   
+.edit-listing-btn {
+    position: relative;   
+    width: 150px;
+    height: 50px;
+    border: 2px solid #853e4a;
+    /* background: #c0ac52; */
+    /* color: white; */
+    color: #853e4a;
+    font-size: 17px;
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
+
+
