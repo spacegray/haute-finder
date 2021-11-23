@@ -34,7 +34,7 @@ function NewListingModal() {
     setPrice("");
     setModalOpen(false);
     dispatch(createListing(name, description, imageURL, price));
-    history.push(`/listings`);
+    history.push(`/listings/`);
     
   }
 

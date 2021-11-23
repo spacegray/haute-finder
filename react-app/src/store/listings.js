@@ -94,8 +94,8 @@ export const createListing =
 
 // Edit listing
 export const editListing =
-  (id, name, description, imageURL, price) => async (dispatch) => {
-    const response = await fetch(`/api/listings/${id}/edit`, {
+  ( name, description, imageURL, price, id) => async (dispatch) => {
+    const response = await fetch(`/api/listings/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -105,6 +105,7 @@ export const editListing =
         description,
         imageURL,
         price,
+        id
       }),
     });
     const listing = await response.json();
@@ -143,7 +144,7 @@ const listingReducer = (state = {}, action) => {
     //     return newState;
     case ADD_LISTING:
       newState = { ...state };
-      newState[action.listing.id] = action.listing;
+      newState[action.listing['id']] = action.listing;
       return newState;
 
     // case UPDATE_LISTING:
