@@ -37,7 +37,7 @@ def user_listings(userId):
     return {'listings': [listing.to_dict() for listing in listings]}
 
 
-@listing_routes.route('/add', methods=['POST'])
+@listing_routes.route('/add/', methods=['POST'])
 # @login_required
 def add_listing():
     data = request.json

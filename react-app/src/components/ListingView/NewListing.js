@@ -24,7 +24,7 @@ function NewListingModal() {
   // const user = useSelector((state) => state.session.user);
   // const item = useSelector((state) => state.listings[id]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setName("");
     setDescription("");

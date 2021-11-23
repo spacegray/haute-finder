@@ -53,7 +53,7 @@ export const getUserListing = (userId) => async (dispatch) => {
 //Create Listing
 export const createListing =
   (name, description, imageURL, price) => async (dispatch) => {
-    const response = await fetch("/api/listings/add", {
+    const response = await fetch("/api/listings/add/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
