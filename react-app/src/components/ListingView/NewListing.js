@@ -44,10 +44,11 @@ function NewListingModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const new_listing = { name, description, imageURL, price };
-    const errors = validate();
+    const [errors] = validate();
 
     if (errors.length > 0) {
       setValidationErrors(errors);
+      console.log(validationErrors);
     } else {
       setValidationErrors([]);
       const added = await dispatch(createListing(new_listing));
@@ -66,29 +67,51 @@ function NewListingModal() {
   const validate = () => {
     const validationErrors = [];
     if (name.length < 1) {
-      validationErrors.push("A listing Name is required");
+      validationErrors.push({id:"1", content:"A listing Name is required"});
     }
     if (description.length < 2) {
-      validationErrors.push("A description is required");
+      validationErrors.push({ id: "2", content: "A description is required" });
     }
     if (description.length > 2999) {
-      validationErrors.push("Description is too long");
+      validationErrors.push({ id: "3", content: "Description is too long"});
     }
     if (!imageURL) {
-      validationErrors.push("An image URL is required for listings");
+      validationErrors.push({ id: "4", content: "An image URL is required for listings"});
     }
     if (price === '') {
-      validationErrors.push("Price is required");
+      validationErrors.push({ id: "5", content: "Price is required" });
     }
     if (isNaN(price)) {
-      validationErrors.push("Price must be an integer");
+      validationErrors.push({ id: "6", content: "Price must be an integer" });
     }
     return validationErrors;
   };
 
-  // const isNumber = (num) => {
-
-  // }
+  // const validate = () => {
+  //   const validationErrors = [];
+  //   if (name.length < 1) {
+  //     validationErrors.push({ id: "1", content: "A listing Name is required" });
+  //   }
+  //   if (description.length < 2) {
+  //     validationErrors.push({ id: "2", content: "A description is required" });
+  //   }
+  //   if (description.length > 2999) {
+  //     validationErrors.push({ id: "3", content: "Description is too long" });
+  //   }
+  //   if (!imageURL) {
+  //     validationErrors.push({
+  //       id: "4",
+  //       content: "An image URL is required for listings",
+  //     });
+  //   }
+  //   if (price === "") {
+  //     validationErrors.push({ id: "5", content: "Price is required" });
+  //   }
+  //   if (isNaN(price)) {
+  //     validationErrors.push({ id: "6", content: "Price must be an integer" });
+  //   }
+  //   return validationErrors;
+  // };
 
   const cancelListingHandler = (e) => {
     e.preventDefault();
@@ -145,8 +168,8 @@ function NewListingModal() {
                       The following errors were found:{" "}
                     </h3>
                     <ol className="error-list">
-                      {validationErrors.map((error, ind) => (
-                        <li  key={ind}>
+                      {validationErrors.map((error) => (
+                        <li key={error.id}>
                           {" "}
                           {error}{" "}
                         </li>
