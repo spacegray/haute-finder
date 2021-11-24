@@ -45,30 +45,37 @@ const LoginForm = () => {
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
-            <label htmlFor="email">Email</label>
-            <input
-              name="email"
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={updateEmail}
-            />
-
-            <label htmlFor="password">Password</label>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={updatePassword}
-            />
-            <button type="submit">Login</button>
+          </div>
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+          />
+          <div id="login-btns">
+            <button type="submit" id="login-btn">
+              Login
+            </button>
+            <button
+              type="submit"
+              id="demo-login-btn-auth-pages"
+              onClick={demoSubmit}
+            >
+              {" "}
+              Demo Login
+            </button>
           </div>
         </form>
-        <button type="submit" className="demo-login-btn" onClick={demoSubmit}>
-          {" "}
-          Demo Login
-        </button>
       </div>
     </div>
   );

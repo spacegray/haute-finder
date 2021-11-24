@@ -10,12 +10,12 @@
 
 .login-form-container  {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     align-items: center;
-    justify-content: center;
-    align-content: center;
+    justify-content: center; */
+    /* align-content: center; */
     height: 400px;
-    width: 600px;
+    width: 400px;
     padding: 20px;
     margin: 20px;
     border-radius: 10%;
@@ -29,7 +29,7 @@
     align-items: center;
     align-self: center;
     margin-top: 20px;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     height: 300px;
     width: 400px;
 }
@@ -53,30 +53,50 @@
     height: 100%;
     width: 100%;
 }
-#login-form label {
-    width: 100%;
+/* .sign-up-label {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
+    justify-content: flex-start;
+    align-content: flex-start;
+} */
 #login-form input {
     height: 40px;
     width: 300px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    padding: 0 10px;
+    /* padding: 0 10px; */
+}
+#login-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+   
 }
 
-#login-form button {
+#login-btn {
     /* display: inline-block; */
     /* flex-direction: column; */
     height: 40px;
-    width: 100px;
+    width: 150px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0 10px;
+}
+
+#demo-login-btn-auth-pages {
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+#demo-login-btn-auth-pages:hover {
+  background-color: #853e4a;
+  color: white;
 }

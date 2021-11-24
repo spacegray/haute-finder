@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -23,6 +24,11 @@ const SignUpForm = () => {
       }
     }
   };
+
+    const demoSubmit = (e) => {
+      e.preventDefault();
+      dispatch(sessionActions.login("demo@aa.io", "password"));
+    };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -51,7 +57,7 @@ const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <div className="sign-up-form-container">
-        <form id='sign-up-form' onSubmit={onSignUp}>
+        <form id="sign-up-form" onSubmit={onSignUp}>
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
@@ -93,7 +99,11 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit" id="sign-up-btn">Sign Up</button>
+          <button type="submit" id="demo-login-btn-auth-pages" onClick={demoSubmit}>
+            {" "}
+            Demo Login
+          </button>
         </form>
       </div>
     </div>
