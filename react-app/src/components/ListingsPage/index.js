@@ -48,7 +48,7 @@ function ListingsPage() {
                 </div>
               </NavLink>
             );
-          })}{" "}
+          }).reverse()}{" "}
         </div>
       </div>
     </div>

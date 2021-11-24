@@ -93,7 +93,7 @@ export const createListing =
 export const editListing =
   (name, description, imageURL, price, id) => async (dispatch) => {
     const response = await fetch(`/api/listings/${id}/`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
