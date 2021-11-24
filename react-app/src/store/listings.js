@@ -65,9 +65,11 @@ export const createListing =
         price,
       }),
     });
-    const listing = await response.json();
-    dispatch(addListing(listing));
-    return;
+    if (response.ok) {
+      const listing = await response.json();
+      dispatch(addListing(listing));
+      return;
+    }
   };
 
 // POST Listing

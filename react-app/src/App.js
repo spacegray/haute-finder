@@ -49,6 +49,7 @@ function App() {
         </Route>
         <Route path="/listings" exact={true}>
           <ListingsPage />
+        
         </Route>
         <Route path="/listings/:id" exact={true}>
           <ListingView />
