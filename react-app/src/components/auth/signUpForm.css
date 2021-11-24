@@ -72,14 +72,28 @@
     padding: 0 10px;
 }
 
-#sign-up-form button {
+#sign-up-btn {
     /* display: inline-block; */
     /* flex-direction: column; */
     height: 40px;
-    width: 100px;
+    width: 150px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0 10px;
+}
+
+#demo-login-btn-auth-pages {
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+#demo-login-btn-auth-pages:hover {
+  background-color: #853e4a;
+  color: white;
 }
