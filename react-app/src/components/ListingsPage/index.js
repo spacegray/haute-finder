@@ -13,7 +13,7 @@ function ListingsPage() {
   // const [listingContent, setListingContent] = useState([]);
   // const { userId } = useParams();
   const listings = useSelector((state) => state.listings);
-  const listingObj = Object.values(listings);
+  const listingObj = Object.values(listings).reverse();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +25,6 @@ function ListingsPage() {
     return null;
   }
 
-
   return (
     <div>
       <div className="listing-page container">
@@ -34,9 +33,8 @@ function ListingsPage() {
           <NewListingModal />
         </div>
         <div className="display-listings">
-          {listingObj.map((listing) => {
-            return (
-              <NavLink to={`/listings/${listing.id}`} key={listing.id}>
+          {listingObj.map((listing) => (
+              <NavLink to={`/listings/${listing.id}`} key={`listings${listing.id}`}>
                 <div
                   className="listing-card"
                   style={{ width: "500px", justifyContent: "center" }}
@@ -47,8 +45,7 @@ function ListingsPage() {
                   <p>${listing.price}</p>
                 </div>
               </NavLink>
-            );
-          }).reverse()}{" "}
+            ))}
         </div>
       </div>
     </div>
