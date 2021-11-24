@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
 import { useHistory } from "react-router-dom";
+// import errorListItems from "./ErorrHandler";
+// import {errorList} from "./ErorrHandler";
 
 import "./listingView.css";
 
@@ -41,10 +43,14 @@ function NewListingModal() {
   useEffect(() => {
     // setValidationErrors([]);
   });
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const new_listing = { name, description, imageURL, price };
-    const [errors] = validate();
+    const [...errors] = validate();
 
     if (errors.length > 0) {
       setValidationErrors(errors);
@@ -63,26 +69,25 @@ function NewListingModal() {
       }
     }
   };
-
   const validate = () => {
     const validationErrors = [];
     if (name.length < 1) {
-      validationErrors.push({id:"1", content:"A listing Name is required"});
+      validationErrors.push({id:"E1", content:"A listing Name is required"});
     }
     if (description.length < 2) {
-      validationErrors.push({ id: "2", content: "A description is required" });
+      validationErrors.push({ id: "E2", content: "A description is required" });
     }
     if (description.length > 2999) {
-      validationErrors.push({ id: "3", content: "Description is too long"});
+      validationErrors.push({ id: "E3", content: "Description is too long"});
     }
     if (!imageURL) {
-      validationErrors.push({ id: "4", content: "An image URL is required for listings"});
+      validationErrors.push({ id: "E4", content: "An image URL is required for listings"});
     }
     if (price === '') {
-      validationErrors.push({ id: "5", content: "Price is required" });
+      validationErrors.push({ id: "E5", content: "Price is required" });
     }
     if (isNaN(price)) {
-      validationErrors.push({ id: "6", content: "Price must be an integer" });
+      validationErrors.push({ id: "E6", content: "Price must be an integer" });
     }
     return validationErrors;
   };
@@ -126,18 +131,19 @@ function NewListingModal() {
 
   return (
     <>
-      {/* {validationErrors.length > 0 && (
+      {/* <errorList errors={errors} /> */}
+      {validationErrors.length > 0 && (
         <div className="errors">
           <p className="error-title"> The following errors were found: </p>
           <ul className="error-list">
-            {validationErrors.map((error, index) => (
-              <li className="error-list" key={index}>
-                {error}
+            {validationErrors.map((error) => (
+              <li className="error-list" key={error.id}>
+                {error.content}
               </li>
             ))}
           </ul>
         </div>
-      )} */}
+      )}
       <div>
         <button
           className="create-listing-btn"
@@ -161,7 +167,7 @@ function NewListingModal() {
                 {/* {validationErrors.map((error, ind) => {
                   <div key={ind}>{error}</div>;
                 })} */}
-                {validationErrors.length > 0 && (
+                {/* {validationErrors.length > 0 && (
                   <div className="errors-listing-form-modal">
                     <h3 className="error-title">
                       {" "}
@@ -176,7 +182,7 @@ function NewListingModal() {
                       ))}
                     </ol>
                   </div>
-                )}
+                )} */}
               </div>
               <form onSubmit={handleSubmit} className="create-listing-form">
                 <label htmlFor="name"> Item Name </label>
