@@ -15,7 +15,7 @@ function NewListingModal() {
   const [description, setDescription] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [price, setPrice] = useState("");
-  // const [errors, setErrors] = useState("");
+  const [errors, setErrors] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -26,6 +26,7 @@ function NewListingModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors([]);
     setName("");
     setDescription("");
     setImageURL("");
@@ -35,55 +36,11 @@ function NewListingModal() {
     history.push(`/listings/`);
   };
 
-  // const createListing = async (listing) => {
-  //   dispatch(createListing(listing.id));
-  //   history.push(`/listings${id}`);
-  // };
-  // const handleSubmit = async (e, error = false) => {
-  //   e.preventDefault();
-  //   setErrors([]);
-  //     const errors = [];
-  //     if (name.length < 1) {
-  //       errors.push("Name is required");
-  //     }
-  //     if (name.length > 50) {
-  //       error = true;
-  //       setErrors(prevState => [...prevState, "Name must be less than 50 characters"]);
-  //     }
-  //     if (description.length < 1) {
-  //       error = true;
-  //       error=true;
-  //       setErrors(prevState => [...prevState, "Description is required"]);
-  //     }
-  //     if (imageURL.length < 1) {
-  //       error=true;
-  //       setErrors(prevState => [...prevState, "Image URL is required"]);
-  //     }
-  //     if (price.length < 1) {
-  //       error=true;
-  //       setErrors((prevState) => [...prevState, "Price is required"]);
-  //     }
-  //     if (typeof price != Number) {
-  //       error=true;
-  //       setErrors((prevState) => [...prevState, "Price must be a number"]);
-  //     }
 
-  //     if (!error) {
-  //       const data = { name, description, imageURL, price, };
-  //       if (data) {
-  //         const listingData = await dispatch(createListing(data));
-  //         // setShowCreateListing(false)
-  //         setModalOpen(false);
-  //         if (listingData.errors) {
-  //           setErrors(listingData.errors);
-  //         }
-  //       }
-  //      }
-  //     }
 
   const cancelListingHandler = (e) => {
     e.preventDefault();
-    // setErrors([]);
+    setErrors([]);
     setName("");
     setDescription("");
     setImageURL("");

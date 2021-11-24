@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
@@ -17,6 +18,11 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+  };
+
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login("demo@aa.io", "password"))
   };
 
   const updateEmail = (e) => {
@@ -47,7 +53,7 @@ const LoginForm = () => {
               value={email}
               onChange={updateEmail}
             />
-          
+
             <label htmlFor="password">Password</label>
             <input
               name="password"
@@ -59,6 +65,10 @@ const LoginForm = () => {
             <button type="submit">Login</button>
           </div>
         </form>
+        <button type="submit" className="demo-login-btn" onClick={demoSubmit}>
+          {" "}
+          Demo Login
+        </button>
       </div>
     </div>
   );

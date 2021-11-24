@@ -61,7 +61,7 @@ def add_listing():
 
 
 
-@listing_routes.route('/<id>/', methods=['PUT'])
+@listing_routes.route('/<id>/', methods=['PATCH'])
 def edit_listing(id):
     form = ListingForm()
     listing = Listing.query.get(id)
@@ -83,13 +83,11 @@ def edit_listing(id):
         listing.imageURL = listing.imageURL
 
     elif len(form.data['imageURL']):
-        listing.imageURL = form.data['imageURL']
-    
+        listing.imageURL = form.data['imageURL']  
  
     if (form.data['price']) == None:
         listing.price = listing.price
-
-    elif len(form.data['price']):
+    else:
         listing.price = form.data['price']
 
     db.session.commit()
