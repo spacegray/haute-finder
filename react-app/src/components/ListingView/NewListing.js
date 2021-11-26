@@ -29,16 +29,20 @@ function NewListingModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const new_listing = { name, description, imageURL, price };
+    const new_listing = { name, description, imageURL, price }
     const [...errors] = validate();
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-      console.log(validationErrors);
+      console.log('ERROR TEST',validationErrors);
+      //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
       const added = await dispatch(createListing(new_listing));
-
+      setModalOpen(false);
+      history.push('/listings')
+      console.log('AWAIT TEST',added);
+      // the entry is added to db, but this console log is empty
       if (added) {
         setName("");
         setDescription("");

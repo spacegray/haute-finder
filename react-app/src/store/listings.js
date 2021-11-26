@@ -58,12 +58,12 @@ export const createListing =
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
         name,
         description,
         imageURL,
         price,
-      }),
+      ),
     });
     if (response.ok) {
       const listing = await response.json();
