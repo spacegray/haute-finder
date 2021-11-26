@@ -70,13 +70,13 @@ function ListingView() {
     // if (description.length > 2999) {
     //   validationErrors.push("Description is too long");
     // }
-    if (imageURL.length > 1 && !isURL) {
+    if (imageURL.length > 0 && !isURL) {
       validationErrors.push("An image URL is required for listings");
     }
     // if (price === "") {
     //   validationErrors.push("Price is required");
     // }
-    if (price.length > 1 && isNaN(price)) {
+    if (price.length > 0 && isNaN(price)) {
       validationErrors.push("Price must be an integer");
     }
     return validationErrors;
@@ -131,6 +131,24 @@ function ListingView() {
               <h1> Edit Your Listing </h1>
             </div>
             <div className="create-listing-form">
+              <div className="errors-container">
+                {/* {validationErrors.map((error, ind) => {
+                  <div key={ind}>{error}</div>;
+                })} */}
+                {validationErrors.length > 0 && (
+                  <div className="errors-listing-form-modal">
+                    <h3 className="error-title">
+                      {" "}
+                      The following errors were found:{" "}
+                    </h3>
+                    <ol className="error-list">
+                      {validationErrors.map((error) => (
+                        <li key={`EditErrorValidation${error}`}> {error} </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+              </div>
               <form onSubmit={handleEditSubmit}>
                 <label htmlFor="name"> Item Name </label>
                 <input
