@@ -18,10 +18,9 @@ function ListingView() {
   const [description, setDescription] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [price, setPrice] = useState("");
-  // const [errors, setErrors] = useState("");
+  const [validationErrors, setValidationErrors] = useState("");
   const { id } = useParams();
   const history = useHistory();
-  // const { userId } = useParams();
   //const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   // const listings = useSelector((state) => state.listings);
@@ -32,20 +31,72 @@ function ListingView() {
     history.push(`/listings`);
   };
 
-  const handleSubmit = (e) => {
+  const handleEditSubmit = async (e) => {
     e.preventDefault();
-    setName("");
-    setDescription("");
-    setImageURL("");
-    setPrice("");
+    // const edited_listing = ( name, description, imageURL, price, id );
+    const [...errors] = validate();
 
-    dispatch(editListing(name, description, imageURL, price, id));
-    setModalOpen(false);
-    history.push(`/listings/${id}`);
+    if (errors.length > 0) {
+      setValidationErrors(errors);
+      console.log("Edit ERROR TEST", validationErrors);
+      //this console log is empty unless you click submit a second time
+    } else {
+      setValidationErrors([]);
+      await dispatch(editListing( name, description, imageURL, price, id ));
+      // history.push("/listings");
+      // console.log("Edit TEST", edited_listing);
+      // the entry is added to db, but this console log is empty
+      // if (added) {
+        setName("");
+        setDescription("");
+        setImageURL("");
+        setPrice("");
+        setModalOpen(false);
+        history.push(`/listings/${id}`);
+      
+    }
   };
+  const validate = () => {
+    const validationErrors = [];
+    const regex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+    let isURL = imageURL.match(regex);
+
+    // if (name.length < 1) {
+    //   validationErrors.push("A listing Name is required");
+    // }
+    // if (description.length < 2) {
+    //   validationErrors.push("A description is required");
+    // }
+    // if (description.length > 2999) {
+    //   validationErrors.push("Description is too long");
+    // }
+    if (imageURL.length > 1 && !isURL) {
+      validationErrors.push("An image URL is required for listings");
+    }
+    // if (price === "") {
+    //   validationErrors.push("Price is required");
+    // }
+    if (price.length > 1 && isNaN(price)) {
+      validationErrors.push("Price must be an integer");
+    }
+    return validationErrors;
+  };
+
+  // without error handling
+  // const handleEditSubmit = (e) => {
+  //   e.preventDefault();
+  //   setName("");
+  //   setDescription("");
+  //   setImageURL("");
+  //   setPrice("");
+
+  // dispatch(editListing(name, description, imageURL, price, id));
+  // setModalOpen(false);
+  // history.push(`/listings/${id}`);
+  // };
   const cancelListingHandler = (e) => {
     e.preventDefault();
-    // setErrors([]);
+    setValidationErrors([]);
     setName("");
     setDescription("");
     setImageURL("");
@@ -80,7 +131,7 @@ function ListingView() {
               <h1> Edit Your Listing </h1>
             </div>
             <div className="create-listing-form">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleEditSubmit}>
                 <label htmlFor="name"> Item Name </label>
                 <input
                   value={name}
