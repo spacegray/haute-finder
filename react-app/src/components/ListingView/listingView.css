@@ -178,3 +178,12 @@ input {
   margin-left: 20px;
   margin-top: 20px;
 }
+
+.add-to-bag-btn {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background: #389CD7;
+  color: white;
+  font-size: 17px;
+}

@@ -199,6 +199,7 @@ function ListingView() {
           {item?.description}
           <div className="price-section">${item?.price}</div>
         </div>
+        <button className="add-to-bag-btn"> ADD TO BAG </button>
       </div>
     </div>
   );
