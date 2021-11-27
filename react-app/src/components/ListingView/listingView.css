@@ -9,157 +9,172 @@
   margin: 0;
 }
 h1 {
-    display: flex;
-    font-size: 50px;
-    justify-content: center;
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
 }
 
 .listing-view-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .listing-view-info {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    justify-content: justify;
-    width: 600px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  justify-content: justify;
+  width: 600px;
 }
 
 .price-section {
-    margin-top: 20px;
-    padding: 20px;
+  margin-top: 20px;
+  padding: 20px;
 }
 
 /* Modal */
 
 .create-listing-modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .modal-title {
-    display:flex;
-    height:200px;
-    font-size: 40px;
-    font-weight: bold;
-    justify-content: center;
-    align-content: flex-end;
-
+  display: flex;
+  height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: center;
+  align-content: flex-end;
 }
 
 .create-listing-form {
-    height: 600px;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 700px;
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #6d1915;
+  opacity: 0.9;
+  align-content: center;
+  border-radius: 20px;
+}
+
+/* Error Handling */
+
+/* .errors-container {
+    height: 20%;
+    margin-bottom: 20px;
+    padding: 20px;
+    top: 20px;
+} */
+.errors-listing-form-modal {
     justify-content: center;
-    background-color: #6d1915;
-    opacity: 0.9;
     align-content: center;
-    border-radius: 20px;
-}
-.create-listing-modal-content form {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 300px;
-    align-items: center;
-    font-size: 30px;
-    padding: 10px;
-    color: rgb(248, 244, 244)
-}
-.create-listing-modal-content input {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(175, 174, 174);
+    height: 155px;
+    width: 390px;
+    margin-bottom: 5px;
     padding: 5px;
-    width: 200px;
-    height: 100px;
     font-size: 20px;
-    
+    color: rgb(223, 29, 29);
+    background-color: #82a7a3;
+    border-radius: 10px;
+}
+
+
+.create-listing-modal-content form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  color: rgb(248, 244, 244);
+}
+
+.create-listing-modal-content input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(175, 174, 174);
+  padding: 5px;
+  width: 300px;
+  height: 100px;
+  font-size: 20px;
 }
 
 .side-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-
 input {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
-    width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 200px;
 }
 
 #submit-listing {
-    height: 40px;
-    background-color: #82a7a3;
-    border-radius: 5px;
-    font-size: 15px;
+  height: 40px;
+  background-color: #82a7a3;
+  border-radius: 5px;
+  font-size: 15px;
 }
 #cancel-listing {
-    height: 40px;
-    margin-left: 10px;
-    width: 90px;
-    font-size: 15px;
-    background-color: #c0b6b5;
-    border-radius: 5px;
+  height: 40px;
+  margin-left: 10px;
+  width: 90px;
+  font-size: 15px;
+  background-color: #c0b6b5;
+  border-radius: 5px;
 }
-
-
 
 .create-listing-btn {
-    position: relative;   
-    width: 150px;
-    height: 50px;
-    background: #3e7f8a;
-    color: white;
-    font-size: 17px;
-    border-radius: 3px;
-    margin-left: 20px;
-    margin-bottom: 20px;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background: #3e7f8a;
+  color: white;
+  font-size: 17px;
+  border-radius: 3px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 .delete-listing-btn {
-    position: relative;   
-    width: 150px;
-    height: 50px;
-    background: #8A3E4B;
-    color: white;
-    font-size: 17px;
-    border-radius: 3px;
-    margin-left: 20px;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background: #8a3e4b;
+  color: white;
+  font-size: 17px;
+  border-radius: 3px;
+  margin-left: 20px;
 }
 .edit-listing-btn {
-    position: relative;   
-    width: 150px;
-    height: 50px;
-    border: 2px solid #853e4a;
-    /* background: #c0ac52; */
-    /* color: white; */
-    color: #853e4a;
-    font-size: 17px;
-    border-radius: 3px;
-    margin-left: 20px;
-    margin-top: 20px;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #853e4a;
+  /* background: #c0ac52; */
+  /* color: white; */
+  color: #853e4a;
+  font-size: 17px;
+  border-radius: 3px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
-
-

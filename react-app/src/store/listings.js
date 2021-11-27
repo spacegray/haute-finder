@@ -58,16 +58,18 @@ export const createListing =
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
         name,
         description,
         imageURL,
         price,
-      }),
+      ),
     });
-    const listing = await response.json();
-    dispatch(addListing(listing));
-    return;
+    if (response.ok) {
+      const listing = await response.json();
+      dispatch(addListing(listing));
+      return;
+    }
   };
 
 // POST Listing
