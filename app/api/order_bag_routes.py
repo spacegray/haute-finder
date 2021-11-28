@@ -13,12 +13,6 @@ def get_orders():
     order_bags = Order.query.join(order_bag).all()
     return {'order_bags': [order.to_dict() for order in order_bags]}
 
-#works but seems to only return User 1 orders   
-# @order_bag_routes.route('/', methods=['GET'])
-# def get_orders():
-#     order_bags = Order.query.join(order_bag).all()
-#     return {'order_bags': [order.to_dict() for order in order_bags]}
-
 @order_bag_routes.route('/<userId>')
 def userOrders(userId):
   

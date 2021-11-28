@@ -24,9 +24,9 @@ class Listing(db.Model):
         secondary=order_bag,
         back_populates='listings')
 
-    # users = db.relationship('User', 
-    #     secondary=like,
-    #     back_populates='listings')
+    users = db.relationship('User', 
+        secondary=like,
+        back_populates='listings')
 
    
     # user = db.relationship('User', back_populates='listings')
