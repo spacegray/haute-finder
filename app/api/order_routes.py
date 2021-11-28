@@ -14,18 +14,7 @@ def get_orders():
     return {'orders': [order.to_dict() for order in orders]}
 
 
-@order_routes.route('/<userId>/<listingId>/')
-def userOrders(userId, listingId):
-    user = User.query.get(id)
-    listing = Listing.query.get(id)
-    orders = Order.query.filter(userId=user.id)
-    # order_bagId = order_bag.query.filter(orderId=orders.id)
-    listings = Listing.query.filter(listingId=listing.id, order_bag=orders.id)
-    listingsInBag = order_bag.filter(listingId=listingId, orderId=orders.id)
 
-    return {'userOrders': [order.to_dict() for order in orders]}
-            #  'listings': [listing.to_dict() for listing in listings],
-            #  'listingsInBag': [listing.to_dict() for listing in listingsInBag]}  
             
 
 
@@ -60,13 +49,12 @@ def delete_order(id):
 
 @order_routes.route('/<id>/')
 def orders(id):
-    orderId = Order.query.get(id)
-    orders = order_bag.query.filter_by(orderId=orderId)
+    order = Order.query.get(id)
     # userOrders = db.session.query(Order).filter(Order.userId == current_user.id)
     # bag = db.session.query(order_bag).filter(
     #     order_bag.listingId == id).filter(Order.userId == current_user.id)
 
-    return {'orders': [order.to_dict() for order in orders]}
+    return order.to_dict()
             # 'userOrders': [order.to_dict() for order in userOrders],
             # 'bag': [order.to_dict() for order in bag]}
 

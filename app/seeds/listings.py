@@ -11,7 +11,7 @@ def seed_listings():
         
     )
     torySandals = Listing(
-        userId=1,
+        userId=10,
         name="Tory Burch Sandals",
         description="Like new condition, used 2-3 times. Bright Red. Comes with shoe box and dust bag size 9 but fit a true size 8.5. This style runs small",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/red-tory-burch-sandals_u0rzsp.jpg",
@@ -25,7 +25,7 @@ def seed_listings():
         price=40  
     )
     michaelKorsHeels = Listing(
-        userId=1,
+        userId=11,
         name="Michael Kors Heels", description="""Michael Kors Sandra Caged Platform 9.5. 
         Material: Suede
         Color: Terra
@@ -38,7 +38,7 @@ def seed_listings():
         price=75
     )
     fendiSunglasses = Listing(
-        userId=1,
+        userId=12,
         name="Fendi Sunglasses", description="""100% AUTHENTIC FENDI SUNGLASSES
         Brand Fendi
         Frame Shape Cat Eye
@@ -57,7 +57,7 @@ def seed_listings():
         price=265
     )
     bohoRings = Listing(
-        userId=1,
+        userId=10,
         name="Boho Ring Set",
         description="An instant favorite! Big set of NINE silver tone tribal Boho Midi Rings featuring turquoise bead settings! Cactus, tribal, and desert sun/cow skull scene designs! Meant to fit on a variety of fingers to wear all at once, mix & match or pick favorites! Boutique - brand new! Nickel-free zinc alloy, acrylic/resin.",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637190929/HauteFinder/Images/listingPhotos/boho-rings-turquoise-silver_btrass.jpg",
@@ -127,7 +127,7 @@ def seed_listings():
         price=1000
     )
     michaelKorsJetSet = Listing(
-        userId=3,
+        userId=5,
         name="Michael Kors Jet Set Shoulder bag",
         description="""Destined to go places, this Signature-print Jet Set shoulder bag will lend architectural flair to everyday looks. Convenient side pockets and a secure top-zip fastening render this carryall the perfect travel companion, while a spacious interior boasts more than enough room for your daily essentials.""",
         imageURL="https://res.cloudinary.com/dexkxkrfp/image/upload/v1637197716/HauteFinder/Images/listingPhotos/Michael-Kors-Brown-MK-Signature-JS-Travel-Chain-Shoulder-Bag-Tote-and-Wallet-0_uou15x.jpg",
