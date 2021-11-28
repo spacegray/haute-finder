@@ -36,7 +36,7 @@ const ordersReducer = (state = {}, action) =>{
     switch (action.type) {
         case GET_ITEMS_IN_BAG:
             newState = {...state}
-            action.data['user_order_bags'].forEach(item => {
+            action.data.data['user_order_bags'].forEach(item => {
                 newState[item.id] = item
             });
             return newState;
