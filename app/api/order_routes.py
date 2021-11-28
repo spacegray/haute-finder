@@ -14,34 +14,40 @@ def get_orders():
     return {'orders': [order.to_dict() for order in orders]}
 
 
-@order_routes.route('/users/<id>/')
-def userOrders(userId):
-    userId = User.query.get(userId)
-    orders = Order.query.filter_by(userId=userId)
-    listingsInBag = order_bag.filter(listingId=listingId)
-    return {'orders': [order.to_dict() for order in orders]}
-
-
-@order_routes.route('/add/', methods=['POST'])
-# @login_required
-def add_order():
-    data = request.json
-    form = OrderForm()
+@order_routes.route('/<userId>/<listingId>/')
+def userOrders(userId, listingId):
+    user = User.query.get(id)
     listing = Listing.query.get(id)
-    form['csrf_token'].data = request.cookies['csrf_token']
+    orders = Order.query.filter(userId=user.id)
+    # order_bagId = order_bag.query.filter(orderId=orders.id)
+    listings = Listing.query.filter(listingId=listing.id, order_bag=orders.id)
+    listingsInBag = order_bag.filter(listingId=listingId, orderId=orders.id)
 
-    if form.validate_on_submit():
-        new_order = Order(
-            bag_name=form.bag_name.data,
-            userId=current_user.id,
-            listingId=listing.id
-        )
+    return {'userOrders': [order.to_dict() for order in orders]}
+            #  'listings': [listing.to_dict() for listing in listings],
+            #  'listingsInBag': [listing.to_dict() for listing in listingsInBag]}  
+            
 
-        db.session.add(new_order)
-        db.session.commit()
 
-        return new_order.to_dict()
-    # return {'errors': validation_errors_list(form.errors)}
+# @order_routes.route('/add/', methods=['POST'])
+# # @login_required
+# def add_order():
+#     data = request.json
+#     # form = OrderForm()
+#     listing = Listing.query.get(id)
+#     # form['csrf_token'].data = request.cookies['csrf_token']
+
+#     # if form.validate_on_submit():
+#         new_order = Order(
+#             bag_name=form.bag_name.data,
+#             userId=current_user.id,
+#         )
+
+#         db.session.add(new_order)
+#         db.session.commit()
+
+#     return new_order.to_dict()
+#     # return {'errors': validation_errors_list(form.errors)}
 
 
 @order_routes.route('/<id>/delete', methods=['DELETE'])

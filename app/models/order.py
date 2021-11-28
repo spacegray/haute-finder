@@ -21,10 +21,13 @@ class Order(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'userId': self.userId,
             'bag_name': self.bag_name,
+            'userId': self.userId,
+            'listings': [listing.to_dict() for listing in self.listings],
         }
-    
+     #newly added listings ^
+
+
     # def to_simple_dict(self):
     #     return {
     #         'id': self.id,

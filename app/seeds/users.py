@@ -47,6 +47,14 @@ def seed_users():
         username='elijah', email='elijah@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637192154/HauteFinder/Images/userProfilePhotos/elijah_nsrogp.jpg', 
         hashed_password=generate_password_hash('password')
     )
+    ruby = User(
+        username='ruby', email='ruby@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637721373/HauteFinder/Images/userProfilePhotos/ruby_xgmp9r.jpg',
+        hashed_password=generate_password_hash('password')
+    )
+    suzie = User(
+        username='suzie', email='suzie@aa.io', photoURL='https://res.cloudinary.com/dexkxkrfp/image/upload/v1637994293/HauteFinder/Images/userProfilePhotos/bonaldi-suzie-image_tewmn0.jpg',
+        hashed_password=generate_password_hash('password')
+    )
 
     db.session.add(demo)
     db.session.add(sara)
@@ -59,6 +67,8 @@ def seed_users():
     db.session.add(jade)
     db.session.add(adrian)
     db.session.add(elijah)
+    db.session.add(ruby)
+    db.session.add(suzie)
     
 
 
