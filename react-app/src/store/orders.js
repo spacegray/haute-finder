@@ -3,9 +3,9 @@ const GET_ITEMS_IN_BAG = 'order/GET_ITEMS_IN_BAG';
 const REMOVE_FROM_BAG = 'order/REMOVE_FROM_BAG';
 const DELETE_BAG = 'order/DELETE_BAG';
 
-const getItemsInOrder = (items, userId) => ({
+const getItemsInOrder = ( userId) => ({
     type: GET_ITEMS_IN_BAG,
-    items, userId
+    userId
 });
 
 const addToBag = (item) => ({
@@ -22,20 +22,24 @@ const removeItem = (id) => ({
     id
 })
 
-// export const getItemsForBag = () => async (dispatch) => {
-//     const response = await fetch(`api/orders/${id}`)
+export const getItemsForBag = (userId) => async (dispatch) => {
+    const response = await fetch(`api/order_bags/${userId}`)
 
-//     if (response.ok) {
-//         const data = await response.json()
-//         dispatch(getItemsInOrder(data))
-//     }
-// }
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(getItemsInOrder(data))
+    }
+}
 
 const ordersReducer = (state = {}, action) =>{
-    let newState = {...state}
+    let newState;
     switch (action.type) {
         case GET_ITEMS_IN_BAG:
-            return action.items
+            newState = {...state}
+            action.data['user_order_bags'].forEach(item => {
+                newState[item.id] = item
+            });
+            return newState;
         default:
             return state;
     }
