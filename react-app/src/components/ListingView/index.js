@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { getListings, removeListing, editListing } from "../../store/listings";
+import { addCartItem } from "../../store/orders";
 import NewListingModal from "./NewListing";
 
 import "./listingView.css";
@@ -21,7 +22,7 @@ function ListingView() {
   const [validationErrors, setValidationErrors] = useState("");
   const { id } = useParams();
   const history = useHistory();
-  //const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   // const listings = useSelector((state) => state.listings);
   const item = useSelector((state) => state.listings[id]);
@@ -30,6 +31,15 @@ function ListingView() {
     dispatch(removeListing(item?.id));
     history.push(`/listings`);
   };
+  const addItem = async () => {
+   const added = await dispatch (addCartItem(item.id));
+    if (added) {
+      window.alert("Your item has been added");
+    } else {
+      window.alert("You already have this item in your cart");
+    }
+  }
+    
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
@@ -114,6 +124,8 @@ function ListingView() {
       <h1>{item?.name}</h1>
       <div className="side-bar">
         <NewListingModal />
+        {sessionUser && sessionUser?.id === item?.userId && (
+          <>
         <button className="delete-listing-btn" onClick={deleteItem}>
           {" "}
           Delete Listing
@@ -121,6 +133,8 @@ function ListingView() {
         <button className="edit-listing-btn" onClick={() => setModalOpen(true)}>
           Edit Listing
         </button>
+        </>
+        )}
         <Modal
           className="site-modal"
           isOpen={modalOpen}
@@ -199,6 +213,7 @@ function ListingView() {
           {item?.description}
           <div className="price-section">${item?.price}</div>
         </div>
+        <button className="add-to-bag-btn" onClick={() => addItem()} > ADD TO BAG </button>
       </div>
     </div>
   );

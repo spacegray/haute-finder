@@ -10,6 +10,7 @@ import ListingsPage from "./components/ListingsPage/index";
 import ListingView from "./components/ListingView";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import MyBag from "./components/MyBag/index";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/listings/:id" exact={true}>
           <ListingView />
+        </Route>
+        <Route path="/order_bag/user/:userId" exact={true}>
+          <MyBag />
         </Route>
       </Switch>
     </BrowserRouter>

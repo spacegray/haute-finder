@@ -86,7 +86,23 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              Users
+              Users |
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`/order_bag/user/${sessionUser.id}`}
+              exact={true}
+              activeClassName="active"
+              style={{
+                display: "flex",
+                color: "#763B2D",
+                decoration: "none",
+                justifyContent: "flex-end",
+                padding: "10px",
+              }}
+            >
+              My Bag
             </NavLink>
           </li>
           <li>
