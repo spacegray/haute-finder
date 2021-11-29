@@ -43,14 +43,14 @@ export const deleteCartItem = (id) => async (dispatch) => {
 };
 
 // Add item to bag
-// export const addCartItem = (id) => async (dispatch) => {
-//   const response = await fetch(`/api/order_bag/${id}/add`, {
-//     method: "POST",
-//   });
-//   const newCartItem = await response.json();
-//   dispatch(addToBag(newCartItem));
-//   return;
-// };
+export const addCartItem = (id) => async (dispatch) => {
+  const response = await fetch(`/api/order_bag/${id}/add`, {
+    method: "POST",
+  });
+  const newCartItem = await response.json();
+  dispatch(addToBag(newCartItem));
+  return;
+};
 
 // export const 
 
@@ -76,11 +76,8 @@ const ordersReducer = (state = {}, action) => {
       });
     case ADD_TO_BAG:
       newState = { ...state };
-      action.item.user_order_bags.forEach((cartItem) => {
-        if (cartItem.id === action.id) {
-          delete newState[cartItem.id];
-        }
-      });
+      action.item.user_order_bags.append(action.item);
+      newState[action.item.id] = action.item;
     default:
       return state;
   }

@@ -31,7 +31,7 @@ def delete_order(id):
     # bag = Order.query.filter_by(
     #     userId=userId).join(order_bag).filter_by(listing_id=id).first()
     # print('ORDER QUERY JOINS FILTER ON USERID & LISTINGID', bag)
-    # data = request.json 
+    # data = request.json
     bag = Order.query.get(id)
     # listingId = Listing.query.get(id)
     item = Listing.query.get(id)
@@ -63,8 +63,15 @@ def delete_order(id):
 
 @order_bag_routes.route('/<orderId>/<listingId>/add', methods=['POST'])
 def add_order(orderId, listingId):
-    if request.method == 'POST':
-        addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
-        db.session.execute(addedItem)
-        db.session.commit()
-        return {'order_id': orderId, 'listing_id': listingId}
+    # if request.method == 'POST':
+    #     addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
+    #     db.session.execute(addedItem)
+    #     db.session.commit()
+    #     return {'order_id': orderId, 'listing_id': listingId}
+    
+    order = Order.query.get(orderId)
+    listing = Listing.query.get(listingId)
+    order.item.append(listing)
+    db.session.add(order)
+    db.session.commit()
+    return listing.to_dict()
