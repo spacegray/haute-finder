@@ -21,10 +21,9 @@ All features require user authorization. Demo-login is provided.
 * Users may delete their listings
 
 **2. Shopping Bag CRUD**
-* Users can view items added to their Bag in a section of their profile 
+* Users can view items added to their Bag
 * Users may add items to their bag from listing view 
 * Users may delete items from their bag
-* Users are able to edit the name of their bag
 
 **3. Likes**
 * Users may like items the want to save for later
