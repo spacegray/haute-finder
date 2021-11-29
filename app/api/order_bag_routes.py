@@ -15,7 +15,7 @@ def get_orders():
     return {'order_bags': [order.to_dict() for order in order_bags]}
 
 
-@order_bag_routes.route('/<userId>')
+@order_bag_routes.route('/user/<userId>')
 def userOrders(userId):
 
     user_order_bags = Order.query.filter_by(
@@ -24,19 +24,19 @@ def userOrders(userId):
     return {'user_order_bags': [order.to_dict() for order in user_order_bags]}
 
 
-# @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
-# def delete_order(id):
-#     # userId = current_user.id
+@order_bag_routes.route('/<id>/delete', methods=['DELETE'])
+def delete_order(id):
+    # userId = current_user.id
 
-#     # user_order_bags = Order.query.filter_by(
-#     #     userId=userId).join(order_bag).all()
-#     print('MUSTACHE', id)
-#     bag = db.session.query(order_bag).filter(
-#         order_bag.listing_id == id).first()
-#     # order_bag.query.filter(order_bag.listing_id == id).delete()
-#     bag.delete()
-#     db.session.commit()
-#     return True
+    # user_order_bags = Order.query.filter_by(
+    #     userId=userId).join(order_bag).all()
+    print('MUSTACHE', id)
+    bag = db.session.query(order_bag).filter(
+        order_bag.listing_id == id).first()
+    # order_bag.query.filter(order_bag.listing_id == id).delete()
+    bag.delete()
+    db.session.commit()
+    return True
 
 
 # @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
