@@ -25,7 +25,7 @@ function MyBag() {
     <div className="order-bag">
       <h2>My Bag</h2>
       <div className="order-bag-items">
-        {orderBag && orderBag[userId].listings.map((item) => (
+        {orderBag && orderBag[userId]?.listings.map((item) => (
           <div className="order-bag-item" key={item.id}>
             <img src={item.imageURL} alt={item.name} />
             <div className="order-bag-item-info">
