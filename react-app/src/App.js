@@ -55,7 +55,7 @@ function App() {
         <Route path="/listings/:id" exact={true}>
           <ListingView />
         </Route>
-        <Route path="/order_bags/:id" exact={true}>
+        <Route path="/order_bags/:userId" exact={true}>
           <MyBag />
         </Route>
       </Switch>

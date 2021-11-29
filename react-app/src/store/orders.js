@@ -23,11 +23,12 @@ const removeItem = (id) => ({
 });
 
 export const getItemsForBag = (userId) => async (dispatch) => {
-  const response = await fetch(`api/order_bags/${userId}`);
+  const response = await fetch(`/api/order_bags/${userId}`);
 
   if (response.ok) {
     const data = await response.json();
     dispatch(getItemsInOrder(data));
+    console.log("DATA TEST", data);
   }
 };
 
@@ -38,10 +39,10 @@ const ordersReducer = (state = {}, action) => {
     case GET_ITEMS_IN_BAG:
       console.log("STATE TEST2", action);
       newState = { ...state };
-      action.data.data["user_order_bags"].forEach((item) => {
+      action.userId.user_order_bags.forEach((item) => {
         newState[item.id] = item;
-    });
-    console.log("STATE TEST3", action);
+      });
+      console.log("STATE TEST3", action);
       return newState;
     default:
       return state;

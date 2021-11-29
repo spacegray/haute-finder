@@ -8,20 +8,24 @@ import "./orderBag.css";
 function MyBag() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-    const { userId } = useParams();
-  const orderBag = useSelector((state) => state.orders.items);
-//   const items = Object.values(orderBag);
+  const { userId } = useParams();
+  const orderBag = useSelector((state) => state.orders);
+
+  // const items = Object.values(orderBag[Number(userId)]);
 
   useEffect(() => {
-    dispatch(getItemsForBag());
-  }, []);
+    // console.log(getItemsForBag(userId));
+    dispatch(getItemsForBag(userId));
+
+  }, [dispatch, userId]);
+
   console.log("USER BAG TEST", orderBag);
 
   return (
     <div className="order-bag">
       <h2>My Bag</h2>
-      {/* <div className="order-bag-items">
-        {items.map((item) => (
+      <div className="order-bag-items">
+        {orderBag && orderBag[userId].listings.map((item) => (
           <div className="order-bag-item" key={item.id}>
             <img src={item.imageURL} alt={item.name} />
             <div className="order-bag-item-info">
@@ -31,7 +35,7 @@ function MyBag() {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }
