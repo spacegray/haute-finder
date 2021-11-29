@@ -23,13 +23,23 @@ const removeItem = (id) => ({
 });
 
 export const getItemsForBag = (userId) => async (dispatch) => {
-  const response = await fetch(`/api/order_bags/${userId}`);
+  const response = await fetch(`/api/order_bag/${userId}`);
 
   if (response.ok) {
     const data = await response.json();
     dispatch(getItemsInOrder(data));
     console.log("DATA TEST", data);
   }
+};
+
+// Delete item from bag
+export const deleteCartItem = (id) => async (dispatch) => {
+  const response = await fetch(`/api/order_bag/${id}/delete`, {
+    method: "DELETE",
+  });
+  const cartItem = await response.json();
+  dispatch(removeItem(cartItem));
+  return;
 };
 
 const ordersReducer = (state = {}, action) => {
@@ -43,7 +53,15 @@ const ordersReducer = (state = {}, action) => {
         newState[item.id] = item;
       });
       console.log("STATE TEST3", action);
-      return newState;
+           return newState;
+
+    case REMOVE_FROM_BAG:
+      newState = { ...state };
+      action.userId.user_order_bags.forEach((item) => {
+        if (item.id === action.id) {
+          delete newState[item.id];
+        }
+      });
     default:
       return state;
   }

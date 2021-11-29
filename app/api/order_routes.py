@@ -14,12 +14,12 @@ def get_orders():
     return {'orders': [order.to_dict() for order in orders]}
 
 
-@order_routes.route('/<id>/delete', methods=['DELETE'])
-def delete_order(id):
-    order = Order.query.get(id)
-    db.session.delete(order)
-    db.session.commit()
-    return order.to_dict()
+# @order_routes.route('/<id>/delete', methods=['DELETE'])
+# def delete_order(id):
+#     order = Order.query.get(id)
+#     db.session.delete(order)
+#     db.session.commit()
+#     return order.to_dict()
 
 
 @order_routes.route('/<id>/')
