@@ -19,7 +19,11 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
-
+def empty_field(form, field):
+    # Checking if field is empty
+    if field.data == '':
+        raise ValidationError('This field is required.')
+        
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
 import { useHistory } from "react-router-dom";
@@ -18,11 +18,20 @@ function NewListingModal() {
   const [imageURL, setImageURL] = useState("");
   const [price, setPrice] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
   
 
+  const isUser = () => {
+    if (!sessionUser) {
+      window.alert("You must be logged in to create a listing");
+    } else {
+      setModalOpen(true);
+    }
+  }
 
+  
   useEffect(() => {
     // setValidationErrors([]);
   });
@@ -75,6 +84,9 @@ function NewListingModal() {
     }
     if (isNaN(price)) {
       validationErrors.push("Price must be an integer");
+    }
+    if (!sessionUser) {
+      validationErrors.push("You must be logged in to create a listing");
     }
     return validationErrors;
   };
@@ -134,7 +146,7 @@ function NewListingModal() {
       <div>
         <button
           className="create-listing-btn"
-          onClick={() => setModalOpen(true)}
+          onClick={() => isUser()}
         >
           Create Listing
         </button>

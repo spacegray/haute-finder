@@ -21,7 +21,7 @@ function ListingView() {
   const [validationErrors, setValidationErrors] = useState("");
   const { id } = useParams();
   const history = useHistory();
-  //const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   // const listings = useSelector((state) => state.listings);
   const item = useSelector((state) => state.listings[id]);
@@ -114,6 +114,8 @@ function ListingView() {
       <h1>{item?.name}</h1>
       <div className="side-bar">
         <NewListingModal />
+        {sessionUser && sessionUser?.id === item?.userId && (
+          <>
         <button className="delete-listing-btn" onClick={deleteItem}>
           {" "}
           Delete Listing
@@ -121,6 +123,8 @@ function ListingView() {
         <button className="edit-listing-btn" onClick={() => setModalOpen(true)}>
           Edit Listing
         </button>
+        </>
+        )}
         <Modal
           className="site-modal"
           isOpen={modalOpen}
