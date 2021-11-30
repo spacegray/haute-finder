@@ -13,8 +13,7 @@ Modal.setAppElement("#root");
 
 function ListingView() {
   const [modalOpen, setModalOpen] = useState(false);
-  // const [listing, setListing] = useState('');
-  // const [listingId, setListingId] = useState('');
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [imageURL, setImageURL] = useState("");
@@ -25,13 +24,12 @@ function ListingView() {
   const sessionUser = useSelector((state) => state.session.user);
   const userId = sessionUser?.id;
   const dispatch = useDispatch();
-  // const listings = useSelector((state) => state.listings);
   const item = useSelector((state) => state.listings[id]);
   const order = useSelector((state) => state.orders[userId]?.listings);
 
     useEffect(() => {
-      // console.log(getItemsForBag(userId));
-      dispatch(getItemsForBag(userId, sessionUser));
+
+      dispatch(getItemsForBag(userId));
     }, [dispatch, userId]);
 
   console.log("MY BAG TEST!!@", order, userId);

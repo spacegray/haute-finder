@@ -11,7 +11,7 @@ order_bag_routes = Blueprint('order_bag', __name__)
 @order_bag_routes.route('/', methods=['GET'])
 def get_orders():
     order_bags = Order.query.join(order_bag).all()
-    print('GET TEST!', order_bags)
+    
     return {'order_bags': [order.to_dict() for order in order_bags]}
 
 
@@ -20,16 +20,16 @@ def userOrders(userId):
 
     user_order_bags = Order.query.filter_by(
         userId=userId).join(order_bag).all()
-    # userOrders =
+
     return {'user_order_bags': [order.to_dict() for order in user_order_bags]}
 
 
 @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
 def delete_order(id):
     order = Order.query.filter_by(userId=current_user.id).first()
-    # print('DELETE TEST', order)
+ 
     for item in order.listings:
-        # print('SECOND TEST', item.id)
+  
         if (int(item.id) == int(id)):
             order.listings.remove(item)
             db.session.add(order)
@@ -42,7 +42,7 @@ def delete_order(id):
 # def delete_all_orders(id):
   
 #     order = Order.query.filter_by(userId=current_user.id).first()
-#     print("papaya", order)
+#    
     
 #     for item in order.listings:
         
@@ -90,7 +90,7 @@ def add_order(listingId):
 
 #     # bag = Order.query.filter_by(
 #     #     userId=userId).join(order_bag).filter_by(listing_id=id).first()
-#     # print('ORDER QUERY JOINS FILTER ON USERID & LISTINGID', bag)
+#   
 #     # data = request.json
 #     bag = Order.query.get(id)
 #     # listingId = Listing.query.get(id)
@@ -98,7 +98,7 @@ def add_order(listingId):
 
 #     # bag = db.session.query(order_bag).filter(
 #     #     order_bag.c.listing_id == id).first()
-#     # print('ORDER_BAG QUERY FILTER BY LISTINGID', bag)
+
 
 #     # item = order_bag.query.filter(order_bag.listing_id == id).first()
 #     # db.session.delete(bag)
@@ -113,7 +113,7 @@ def add_order(listingId):
 
 #     # user_order_bags = Order.query.filter_by(
 #     #     userId=userId).join(order_bag).all()
-#     print('MUSTACHE', id)
+
 #     bag = db.session.query(order_bag).filter(
 #         order_bag.listing_id == id).first()
 #     # order_bag.query.filter(order_bag.listing_id == id).delete()
