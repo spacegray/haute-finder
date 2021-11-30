@@ -12,7 +12,7 @@ HauteFinder is a clone of [Poshmark](https://poshmark.com/)
 
 # Features 
 
-All features require user authorization. Demo-login is provided.
+Demo Login is provided. Creating, editing and deleting listings require user authorization. 
 
 **1. Item Listings CRUD**
 * Displays a feed of listings which include photos and descriptions of fashion items for sale
