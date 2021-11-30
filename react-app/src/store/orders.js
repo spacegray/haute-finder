@@ -3,6 +3,7 @@ const GET_ITEMS_IN_BAG = "order/GET_ITEMS_IN_BAG";
 const REMOVE_FROM_BAG = "order/REMOVE_FROM_BAG";
 const DELETE_BAG = "order/DELETE_BAG";
 
+
 const getItemsInOrder = (userId) => ({
   type: GET_ITEMS_IN_BAG,
   userId,
@@ -43,28 +44,27 @@ export const deleteCartItem = (id) => async (dispatch) => {
 };
 
 // Add item to bag
-export const addCartItem = (orderId, listingId) => async (dispatch) => {
-  const response = await fetch(`/api/order_bag/${orderId}/${listingId}/add`, {
+export const addCartItem = (listingId) => async (dispatch) => {
+  const response = await fetch(`/api/order_bag/${listingId}/add`, {
     method: "POST",
   });
   const newCartItem = await response.json();
-  dispatch(addToBag(newCartItem));
-  return;
+  dispatch(getItemsInOrder(newCartItem));
+  return newCartItem;
 };
 
-// export const 
+// export const
 
 const ordersReducer = (state = {}, action) => {
   let newState;
-  
+
   switch (action.type) {
     case GET_ITEMS_IN_BAG:
-
       newState = { ...state };
       action.userId.user_order_bags.forEach((item) => {
         newState[item.id] = item;
       });
-    
+
       return newState;
 
     case REMOVE_FROM_BAG:
