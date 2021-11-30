@@ -26,7 +26,7 @@ All features require user authorization. Demo-login is provided.
 * Users may delete items from their bag
 
 **3. Likes**
-* Users may like items the want to save for later
+* Users may like items they want to save for later
 * Listings may have many likes
 * Users can remove their 'like'
 
