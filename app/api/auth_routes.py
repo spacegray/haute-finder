@@ -71,7 +71,7 @@ def sign_up():
         )
         db.session.add(user)
         db.session.commit()
-        bag = Order(userId=user.id)
+        bag = Order(userId=user.id, bag_name=user.email)
         db.session.add(bag)
         db.session.commit()
         login_user(user)

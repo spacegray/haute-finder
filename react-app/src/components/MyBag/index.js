@@ -22,7 +22,7 @@ function MyBag() {
 
   console.log("USER BAG TEST", orderBag);
   const deleteItem = (itemId) => {
-    dispatch(deleteCartItem(itemId));
+    dispatch(deleteCartItem(itemId, userId));
   };
 
 

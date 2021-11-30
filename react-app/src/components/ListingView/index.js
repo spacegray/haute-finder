@@ -31,7 +31,7 @@ function ListingView() {
 
     useEffect(() => {
       // console.log(getItemsForBag(userId));
-      dispatch(getItemsForBag(userId));
+      dispatch(getItemsForBag(userId, sessionUser));
     }, [dispatch, userId]);
 
   console.log("MY BAG TEST!!@", order, userId);
@@ -45,7 +45,7 @@ function ListingView() {
     const filtered = order?.filter((listItem) => listItem.id === item?.id);
     if (filtered?.length < 1 || filtered === undefined) {
       await dispatch(addCartItem(item.id));
-      console.log('ADDED TEST!!!', item.id)
+     
       window.alert("Your item has been added");
     } else {
       window.alert("You already have this item in your cart");
@@ -59,7 +59,7 @@ function ListingView() {
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-      console.log("Edit ERROR TEST", validationErrors);
+    
       //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
