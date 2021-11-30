@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getItemsForBag, deleteCartItem } from "../../store/orders";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 
 import "./orderBag.css";
 
 function MyBag() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-  const { userId } = useParams();
+  const user = useSelector((state) => state.session.user)
+  const userId = user.id;
+  // const { userId } = useParams();
   const orderBag = useSelector((state) => state.orders);
 
   // const items = Object.values(orderBag[Number(userId)]);
