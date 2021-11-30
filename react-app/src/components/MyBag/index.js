@@ -1,35 +1,64 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getItemsForBag, deleteCartItem } from "../../store/orders";
+import { useHistory } from "react-router-dom";
 // import { useParams } from "react-router";
 
 import "./orderBag.css";
 
 function MyBag() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user)
+  const user = useSelector((state) => state.session.user);
   const userId = user?.id;
   // const { userId } = useParams();
   const orderBag = useSelector((state) => state.orders);
+  const cartTotal = useSelector((state) => state.total);
+  const [count, setCount] = useState(0);
+  const history = useHistory();
+  // const [order] = useSelector((state) => state.orders?.orderBag.listings);
 
-  // const items = Object.values(orderBag[Number(userId)]);
+  const items = orderBag[userId]?.listings;
+  console.log("FRONT END", items, orderBag);
 
   useEffect(() => {
     // console.log(getItemsForBag(userId));
     dispatch(getItemsForBag(userId));
+  }, [dispatch, count]);
 
-  }, [dispatch, userId]);
+  // const emptyBag = (userId) => {
+  //   dispatch(emptyCart(userId, userId));
+  //   history.push(`/order_bag/user/${userId}`);
+  // };
 
-  console.log("USER BAG TEST", orderBag);
-  const deleteItem = (itemId) => {
-    dispatch(deleteCartItem(itemId, userId));
+  const deleteItem = async (itemId) => {
+    await dispatch(deleteCartItem(itemId, userId));
+    setCount(count + 1);
+    history.push(`/order_bag/user/${userId}`);
   };
 
+  let total = 0;
+  orderBag[userId]?.listings.map((item) => {
+    return (total += item.price);
+  });
 
 
   return (
     <div className="order-bag">
       <h2>My Bag</h2>
+      <div className="order-totals">
+        <h2>Total</h2>
+        {orderBag && orderBag[userId]?.listings.length}
+        <p>Price:</p>
+        {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
+          let total;
+           total += item.price
+          })} */}
+        {total} <br></br>
+        {/* <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
+          {" "}
+          Empty Bag
+        </button> */}
+      </div>
       <div className="order-bag-items">
         {orderBag &&
           orderBag[userId]?.listings.map((item) => (
