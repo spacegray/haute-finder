@@ -7,17 +7,19 @@ import "./orderBag.css";
 
 function MyBag() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user)
+  const user = useSelector((state) => state.session.user);
   const userId = user?.id;
   // const { userId } = useParams();
   const orderBag = useSelector((state) => state.orders);
+  const cartTotal = useSelector((state) => state.total);
+  // const [order] = useSelector((state) => state.orders?.orderBag.listings);
 
-  // const items = Object.values(orderBag[Number(userId)]);
+  const items = orderBag[userId]?.listings
+  console.log('FRONT END', items, orderBag)
 
   useEffect(() => {
     // console.log(getItemsForBag(userId));
     dispatch(getItemsForBag(userId));
-
   }, [dispatch, userId]);
 
   console.log("USER BAG TEST", orderBag);
@@ -25,11 +27,27 @@ function MyBag() {
     dispatch(deleteCartItem(itemId, userId));
   };
 
-
+  let total = 0;
+  orderBag[userId]?.listings.map((item) => {
+    return total += item.price;
+  });
+  console.log('lasdkfjlsdfkj', total)
 
   return (
     <div className="order-bag">
       <h2>My Bag</h2>
+      <div className="order-totals">
+        <h2>Total</h2>
+        {orderBag && orderBag[userId]?.listings.length}
+        <p>Price:</p>
+        {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
+          let total;
+           total += item.price
+          })} */}
+          
+        {total}
+
+      </div>
       <div className="order-bag-items">
         {orderBag &&
           orderBag[userId]?.listings.map((item) => (

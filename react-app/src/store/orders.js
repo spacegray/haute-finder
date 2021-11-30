@@ -29,6 +29,7 @@ export const getItemsForBag = (userId) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(getItemsInOrder(data, userId));
+
     console.log("DATA TEST", data);
   }
 };
@@ -58,14 +59,20 @@ export const addCartItem = (listingId) => async (dispatch) => {
 const ordersReducer = (state = {}, action) => {
   let newState;
 
-
   switch (action.type) {
     case GET_ITEMS_IN_BAG:
       newState = { ...state };
+
       action.userId.user_order_bags.forEach((item) => {
         newState[action.user] = item;
       });
 
+      // newState.total = newState[action.user]?.reduce((l, c) => {
+      //   console.log("zdddddd", l?.price, c?.price);
+      //   if (l?.price && c?.price) {
+      //     return l.price + c.price;
+      //   }
+      // });
       return newState;
 
     case REMOVE_FROM_BAG:
