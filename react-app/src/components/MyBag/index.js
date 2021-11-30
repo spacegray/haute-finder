@@ -32,6 +32,7 @@ function MyBag() {
 
   const deleteItem = async (itemId) => {
     await dispatch(deleteCartItem(itemId, userId));
+    dispatch(getItemsForBag(userId));
     setCount(count + 1);
     history.push(`/order_bag/user/${userId}`);
   };
@@ -43,12 +44,12 @@ function MyBag() {
 
 
   return (
-    <div className="order-bag">
-      <h2>My Bag</h2>
+    <div className="order-bag-container">
+      <h2> Items In Bag</h2>
       <div className="order-totals">
-        <h2>Total</h2>
+        <h3>Quantity: </h3> {""}
         {orderBag && orderBag[userId]?.listings.length}
-        <p>Price:</p>
+        <h3>Price:</h3>
         {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
           let total;
            total += item.price
@@ -63,10 +64,10 @@ function MyBag() {
         {orderBag &&
           orderBag[userId]?.listings.map((item) => (
             <div className="order-bag-item" key={item?.id}>
-              <img src={item.imageURL} alt={item.name} />
+              <img src={item.imageURL} alt={item.name} className="bag-img"/>
               <div className="order-bag-item-info">
                 <h3>{item.name}</h3>
-                <p>{item.description}</p>
+                {/* <p>{item.description}</p> */}
                 <p>${item.price}</p>
               </div>
               <button

@@ -1,0 +1,23 @@
+.order-bag-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.order-totals {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.order-totals h3{
+    padding-left: 10px
+}
+.bag-img {
+    height: 20%;
+    width: 20%;
+}
+order-bag-item-info{
+
+}

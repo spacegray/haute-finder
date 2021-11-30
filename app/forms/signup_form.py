@@ -25,8 +25,9 @@ def empty_field(form, field):
         raise ValidationError('This field is required.')
         
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    username = StringField('username', validators=[
+                           DataRequired(), username_exists, empty_field])
+    email = StringField('email', validators=[
+                        DataRequired(), user_exists, empty_field])
     photoURL = StringField('photoURL')
-    password = StringField('password', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired(), empty_field])

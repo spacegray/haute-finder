@@ -25,10 +25,11 @@ const SignUpForm = () => {
     }
   };
 
-    const demoSubmit = (e) => {
-      e.preventDefault();
-      dispatch(sessionActions.login("demo@aa.io", "password"));
-    };
+
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login("demo@aa.io", "password"));
+  };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);

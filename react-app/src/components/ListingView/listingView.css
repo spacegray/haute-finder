@@ -1,3 +1,4 @@
+
 .listing-view-container {
   display: flex;
   flex-direction: column;
@@ -5,8 +6,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 0;
-  margin: 0;
+  margin-bottom: 50%;
 }
 h1 {
   display: flex;
@@ -14,7 +14,7 @@ h1 {
   justify-content: center;
 }
 
-.listing-view-container {
+/* .listing-view-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,13 +23,14 @@ h1 {
   height: 100%;
   padding: 0;
   margin: 0;
-}
+} */
 
 .listing-view-info {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   font-size: 1.5rem;
   justify-content: justify;
   width: 600px;
+  
 }
 
 .price-section {
@@ -47,26 +48,33 @@ h1 {
 }
 .modal-title {
   display: flex;
-  height: 200px;
+  height: 100px;
   font-size: 40px;
   font-weight: bold;
   justify-content: center;
-  align-content: flex-end;
+  /* align-content: flex-end; */
 }
 
 .create-listing-form {
-  height: 700px;
+  height: 600px;
   width: 650px;
+  /* margin-top: 5%; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: #6d1915;
   opacity: 0.9;
   align-content: center;
   border-radius: 20px;
 }
 
+.listing-view-container img {
+  height: 40%;
+  width: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /* Error Handling */
 
 /* .errors-container {
@@ -80,8 +88,9 @@ h1 {
     align-content: center;
     height: 155px;
     width: 390px;
+    margin-top: 0px;
     margin-bottom: 5px;
-    padding: 5px;
+    /* padding: 5px; */
     font-size: 20px;
     color: rgb(223, 29, 29);
     background-color: #82a7a3;
@@ -90,14 +99,14 @@ h1 {
 
 
 .create-listing-modal-content form {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 400px;
-  align-items: center;
-  font-size: 30px;
-  padding: 10px;
-  color: rgb(248, 244, 244);
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    align-items: center;
+    font-size: 30px;
+    padding: 10px;
+    color: #f8f4f4;
 }
 
 .create-listing-modal-content input {
@@ -107,7 +116,7 @@ h1 {
   border: 1px solid rgb(175, 174, 174);
   padding: 5px;
   width: 300px;
-  height: 100px;
+  height: 40px;
   font-size: 20px;
 }
 
@@ -116,10 +125,10 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 100%;
+  width: 100px;
+  /* height: 100%; */
   padding: 0;
-  margin: 0;
+  margin-left: 10%;
 }
 
 input {
@@ -153,7 +162,7 @@ input {
   font-size: 17px;
   border-radius: 3px;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .delete-listing-btn {
   position: relative;
@@ -177,13 +186,16 @@ input {
   border-radius: 3px;
   margin-left: 20px;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .add-to-bag-btn {
   position: relative;
   width: 150px;
   height: 50px;
-  background: #389CD7;
+  background: #5fbaca;
   color: white;
   font-size: 17px;
+  border-radius: 3px;
+  margin-left: 20px;
 }

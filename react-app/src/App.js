@@ -5,6 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import LandingPage from "./components/LandingPage";
+import Footer from "./components/Footer";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ListingsPage from "./components/ListingsPage/index";
 import ListingView from "./components/ListingView";
@@ -50,7 +51,6 @@ function App() {
         </Route>
         <Route path="/listings" exact={true}>
           <ListingsPage />
-        
         </Route>
         <Route path="/listings/:id" exact={true}>
           <ListingView />
@@ -59,6 +59,7 @@ function App() {
           <MyBag />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

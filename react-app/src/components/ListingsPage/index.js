@@ -40,7 +40,7 @@ function ListingsPage() {
                   style={{ width: "500px", justifyContent: "center" }}
                 >
                   <h2>{listing.name}</h2>
-                  <img src={listing.imageURL} alt="item-for-sale"></img>
+                  <img src={listing.imageURL} alt="item-for-sale" className="listings-page-imgs"></img>
                   <p>{listing.description}</p>
                   <p>${listing.price}</p>
                 </div>
