@@ -77,7 +77,7 @@ function NewListingModal() {
       validationErrors.push("Description is too long");
     }
     if (!isURL) {
-      validationErrors.push("An image URL is required for listings");
+      validationErrors.push("An image URL is required for listings. Must have a .jpg, or .png extension");
     }
     if (price === '') {
       validationErrors.push("Price is required");
