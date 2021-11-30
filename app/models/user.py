@@ -36,37 +36,10 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        print('TESTING USER OBJECT!!!!!!' , self)
+     
         return {
             'id': self.id,
             'username': self.username,
             'email': self.email,
             'photoURL': self.photoURL,
-            # 'listings': [listing.to_dict() for listing in self.listings if listing],
-            # 'likes': self.likes.to_dict(),
-            # 'orders': self.orders.to_dict()
         }
-
-    # def to_simple_dict(self):
-    #     return {
-    #         'id': self.id,
-    #         'username': self.username,
-    #         'photoURL': self.photoURL,
-    #         'likes': self.likes,
-    #         'orders': self.orders
-    #     }
-
-    # def update(self, first_name=None, last_name=None, username=None, email=None, photoURL=None, password=None, **kwargs):
-    #     self.username = username if username else self.username
-    #     self.email = email if email else self.email
-    #     self.photoURL = photoURL if photoURL else self.photoURL
-    #     self.password = password if password else self.password
-    #     return self
-
-    # @classmethod
-    # def create(cls, username, email, photoURL, hashed_password):
-    #     user = cls(username=username, email=email,
-    #                photoURL=photoURL, hashed_password=hashed_password)
-        # db.session.add(user)
-        # db.session.commit()
-        # return user

@@ -34,14 +34,29 @@ def delete_order(id):
             order.listings.remove(item)
             db.session.add(order)
             db.session.commit()
-            return userOrders(current_user.id)
+        return userOrders(current_user.id)
     return {'message': 'Order not found'}
+
+
+# @order_bag_routes.route('/<id>/delete/all', methods = ['DELETE'])
+# def delete_all_orders(id):
+  
+#     order = Order.query.filter_by(userId=current_user.id).first()
+#     print("papaya", order)
+    
+#     for item in order.listings:
+        
+#         order.listings.remove(item)
+#         db.session.remove(order)
+#         db.session.commit()
+
+#     return {'message': 'Order Deleted'}
 
 
 @order_bag_routes.route('/<listingId>/add', methods=['POST'])
 def add_order(listingId):
     order = Order.query.filter_by(userId=current_user.id).first()
-        # 
+    #
     order.listings.append(Listing.query.get(listingId))
     db.session.add(order)
     db.session.commit()
@@ -67,8 +82,6 @@ def add_order(listingId):
 #     db.session.add(order)
 #     db.session.commit()
 #     return listing.to_dict()
-
-
 
 
 # @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
@@ -107,5 +120,3 @@ def add_order(listingId):
 #     bag.delete()
 #     db.session.commit()
 #     return True
-
-

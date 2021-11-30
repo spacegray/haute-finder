@@ -1,7 +1,7 @@
 const ADD_TO_BAG = "order/ADD_TO_BAG";
 const GET_ITEMS_IN_BAG = "order/GET_ITEMS_IN_BAG";
 const REMOVE_FROM_BAG = "order/REMOVE_FROM_BAG";
-const DELETE_BAG = "order/DELETE_BAG";
+// const DELETE_BAG = "order/DELETE_BAG";
 
 const getItemsInOrder = (userId, user) => ({
   type: GET_ITEMS_IN_BAG,
@@ -14,9 +14,10 @@ const addToBag = (item) => ({
   item,
 });
 
-const emptyBag = () => ({
-  type: DELETE_BAG,
-});
+// const emptyBag = (id, userId) => ({
+//   type: DELETE_BAG,
+//   id, userId// userId
+// });
 
 const removeItem = (id) => ({
   type: REMOVE_FROM_BAG,
@@ -44,6 +45,16 @@ export const deleteCartItem = (id, userId) => async (dispatch) => {
   return;
 };
 
+//Delete entire cart
+// export const emptyCart = (id) => async (dispatch) => {
+//   const response = await fetch(`/api/order_bag/${id}/delete/all`, {
+//     method: "DELETE",
+//   });
+//   const emptiedCart = await response.json();
+//   dispatch(emptyBag(emptiedCart));
+//   return;
+// };
+
 // Add item to bag
 export const addCartItem = (listingId) => async (dispatch) => {
   const response = await fetch(`/api/order_bag/${listingId}/add`, {
@@ -60,20 +71,27 @@ const ordersReducer = (state = {}, action) => {
   let newState;
 
   switch (action.type) {
+    
     case GET_ITEMS_IN_BAG:
       newState = { ...state };
-
-      action.userId.user_order_bags.forEach((item) => {
+      action?.userId?.user_order_bags?.forEach((item) => {
         newState[action.user] = item;
       });
-
-      // newState.total = newState[action.user]?.reduce((l, c) => {
-      //   console.log("zdddddd", l?.price, c?.price);
-      //   if (l?.price && c?.price) {
-      //     return l.price + c.price;
-      //   }
-      // });
       return newState;
+
+    case ADD_TO_BAG:
+ 
+      newState = { ...state };
+      action.userId.user_order_bags.append(action.item);
+      newState[action.item.id] = action.item;
+      return newState;
+
+    // case DELETE_BAG:
+    //   newState = { ...state };
+
+    //   newState[action.userId] = { listings: [] };
+    //   return newState;
+
 
     case REMOVE_FROM_BAG:
       newState = { ...state };
@@ -83,12 +101,7 @@ const ordersReducer = (state = {}, action) => {
         }
       });
       return newState;
-    case ADD_TO_BAG:
-      console.log("STATE ACTION TEST", action);
-      newState = { ...state };
-      action.userId.user_order_bags.append(action.item);
-      newState[action.item.id] = action.item;
-      return newState;
+
     default:
       return state;
   }
