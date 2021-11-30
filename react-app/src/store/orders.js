@@ -30,8 +30,6 @@ export const getItemsForBag = (userId) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(getItemsInOrder(data, userId));
-
-    console.log("DATA TEST", data);
   }
 };
 
@@ -91,7 +89,6 @@ const ordersReducer = (state = {}, action) => {
 
     //   newState[action.userId] = { listings: [] };
     //   return newState;
-
 
     case REMOVE_FROM_BAG:
       newState = { ...state };
