@@ -38,20 +38,20 @@ def delete_order(id):
     return {'message': 'Order not found'}
 
 
-@order_bag_routes.route('<listingId>/add', methods=['POST'])
-def add_order(listingId):
-    # if request.method == 'POST':
-    #     addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
-    #     db.session.execute(addedItem)
-    #     db.session.commit()
-    #     return {'order_id': orderId, 'listing_id': listingId}
+# @order_bag_routes.route('<listingId>/add', methods=['POST'])
+# def add_order(listingId):
+#     # if request.method == 'POST':
+#     #     addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
+#     #     db.session.execute(addedItem)
+#     #     db.session.commit()
+#     #     return {'order_id': orderId, 'listing_id': listingId}
 
-    order = Order.query.get(orderId)
-    listing = Listing.query.get(listingId)
-    order.item.append(listing)
-    db.session.add(order)
-    db.session.commit()
-    return listing.to_dict()
+#     order = Order.query.get(orderId)
+#     listing = Listing.query.get(listingId)
+#     order.item.append(listing)
+#     db.session.add(order)
+#     db.session.commit()
+#     return listing.to_dict()
 
 
 
