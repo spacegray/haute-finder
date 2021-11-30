@@ -26,20 +26,22 @@ function ListingView() {
   const dispatch = useDispatch();
   // const listings = useSelector((state) => state.listings);
   const item = useSelector((state) => state.listings[id]);
+  // const order = useSelector((state) => state.orders);
+
+  // console.log("MY BAG TEST!!@", order, userId, orderId);
 
   const deleteItem = async () => {
     dispatch(removeListing(item?.id));
     history.push(`/listings`);
   };
-  const addItem = async () => {
-   const added = await dispatch (addCartItem(item.id));
-    if (added) {
-      window.alert("Your item has been added");
-    } else {
-      window.alert("You already have this item in your cart");
-    }
-  }
-    
+  // const addItem = async () => {
+  //   const added = await dispatch(addCartItem(orderId, item.id));
+  //   if (added) {
+  //     window.alert("Your item has been added");
+  //   } else {
+  //     window.alert("You already have this item in your cart");
+  //   }
+  // };
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
@@ -52,18 +54,17 @@ function ListingView() {
       //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
-      await dispatch(editListing( name, description, imageURL, price, id ));
+      await dispatch(editListing(name, description, imageURL, price, id));
       // history.push("/listings");
       // console.log("Edit TEST", edited_listing);
       // the entry is added to db, but this console log is empty
       // if (added) {
-        setName("");
-        setDescription("");
-        setImageURL("");
-        setPrice("");
-        setModalOpen(false);
-        history.push(`/listings/${id}`);
-      
+      setName("");
+      setDescription("");
+      setImageURL("");
+      setPrice("");
+      setModalOpen(false);
+      history.push(`/listings/${id}`);
     }
   };
   const validate = () => {
@@ -126,14 +127,17 @@ function ListingView() {
         <NewListingModal />
         {sessionUser && sessionUser?.id === item?.userId && (
           <>
-        <button className="delete-listing-btn" onClick={deleteItem}>
-          {" "}
-          Delete Listing
-        </button>
-        <button className="edit-listing-btn" onClick={() => setModalOpen(true)}>
-          Edit Listing
-        </button>
-        </>
+            <button className="delete-listing-btn" onClick={deleteItem}>
+              {" "}
+              Delete Listing
+            </button>
+            <button
+              className="edit-listing-btn"
+              onClick={() => setModalOpen(true)}
+            >
+              Edit Listing
+            </button>
+          </>
         )}
         <Modal
           className="site-modal"
@@ -213,9 +217,13 @@ function ListingView() {
           {item?.description}
           <div className="price-section">${item?.price}</div>
         </div>
-        <button className="add-to-bag-btn" onClick={() => addItem()} > ADD TO BAG </button>
+        <button className="add-to-bag-btn" >
+          {" "}
+          ADD TO BAG{" "}
+        </button>
       </div>
     </div>
   );
 }
+// onClick={() => addItem()}
 export default ListingView;
