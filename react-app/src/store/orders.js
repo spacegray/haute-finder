@@ -92,11 +92,14 @@ const ordersReducer = (state = {}, action) => {
 
     case REMOVE_FROM_BAG:
       newState = { ...state };
-      action.userId.user_order_bags.forEach((item) => {
-        if (item.id === action.id) {
-          delete newState[item.id];
-        }
-      });
+      console.log('STATE TESTRRT',newState);
+      delete newState[action.id];
+
+      // action.userId.user_order_bags.forEach((item) => {
+      //   if (item.id === action.id) {
+      //     delete newState[item.id];
+      //   }
+      // });
       return newState;
 
     default:
