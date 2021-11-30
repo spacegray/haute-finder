@@ -38,6 +38,21 @@ def delete_order(id):
     return {'message': 'Order not found'}
 
 
+@order_bag_routes.route('/<listingId>/add', methods=['POST'])
+def add_order(listingId):
+    order = Order.query.filter_by(userId=current_user.id).first()
+        # 
+    order.listings.append(Listing.query.get(listingId))
+    db.session.add(order)
+    db.session.commit()
+    return userOrders(current_user.id)
+    # else:
+    #     order = Order(userId=current_user.id)
+    #     order.listings.append(Listing.query.get(listingId))
+    #     db.session.add(order)
+    #     db.session.commit()
+    #     return userOrders(current_user.id)
+
 # @order_bag_routes.route('<listingId>/add', methods=['POST'])
 # def add_order(listingId):
 #     # if request.method == 'POST':

@@ -8,7 +8,7 @@ import "./orderBag.css";
 function MyBag() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user)
-  const userId = user.id;
+  const userId = user?.id;
   // const { userId } = useParams();
   const orderBag = useSelector((state) => state.orders);
 
@@ -22,7 +22,7 @@ function MyBag() {
 
   console.log("USER BAG TEST", orderBag);
   const deleteItem = (itemId) => {
-    dispatch(deleteCartItem(itemId));
+    dispatch(deleteCartItem(itemId, userId));
   };
 
 

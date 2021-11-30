@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { getListings, removeListing, editListing } from "../../store/listings";
-import { addCartItem } from "../../store/orders";
+import { addCartItem, getItemsForBag } from "../../store/orders";
 import NewListingModal from "./NewListing";
 
 import "./listingView.css";
@@ -23,25 +23,34 @@ function ListingView() {
   const { id } = useParams();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const userId = sessionUser?.id;
   const dispatch = useDispatch();
   // const listings = useSelector((state) => state.listings);
   const item = useSelector((state) => state.listings[id]);
-  // const order = useSelector((state) => state.orders);
+  const order = useSelector((state) => state.orders[userId]?.listings);
 
-  // console.log("MY BAG TEST!!@", order, userId, orderId);
+    useEffect(() => {
+      // console.log(getItemsForBag(userId));
+      dispatch(getItemsForBag(userId, sessionUser));
+    }, [dispatch, userId]);
+
+  console.log("MY BAG TEST!!@", order, userId);
 
   const deleteItem = async () => {
     dispatch(removeListing(item?.id));
     history.push(`/listings`);
   };
-  // const addItem = async () => {
-  //   const added = await dispatch(addCartItem(orderId, item.id));
-  //   if (added) {
-  //     window.alert("Your item has been added");
-  //   } else {
-  //     window.alert("You already have this item in your cart");
-  //   }
-  // };
+
+  const addItem = async () => {
+    const filtered = order?.filter((listItem) => listItem.id === item?.id);
+    if (filtered?.length < 1 || filtered === undefined) {
+      await dispatch(addCartItem(item.id));
+     
+      window.alert("Your item has been added");
+    } else {
+      window.alert("You already have this item in your cart");
+    }
+  };
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +59,7 @@ function ListingView() {
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-      console.log("Edit ERROR TEST", validationErrors);
+    
       //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
@@ -217,7 +226,7 @@ function ListingView() {
           {item?.description}
           <div className="price-section">${item?.price}</div>
         </div>
-        <button className="add-to-bag-btn" >
+        <button className="add-to-bag-btn" onClick={() => addItem()}>
           {" "}
           ADD TO BAG{" "}
         </button>
@@ -225,5 +234,5 @@ function ListingView() {
     </div>
   );
 }
-// onClick={() => addItem()}
+
 export default ListingView;
