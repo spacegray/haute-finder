@@ -26,10 +26,11 @@ h1 {
 } */
 
 .listing-view-info {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   font-size: 1.5rem;
   justify-content: justify;
   width: 600px;
+  
 }
 
 .price-section {
@@ -161,7 +162,7 @@ input {
   font-size: 17px;
   border-radius: 3px;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .delete-listing-btn {
   position: relative;
@@ -185,14 +186,16 @@ input {
   border-radius: 3px;
   margin-left: 20px;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .add-to-bag-btn {
   position: relative;
   width: 150px;
   height: 50px;
-  background: #389CD7;
+  background: #5fbaca;
   color: white;
   font-size: 17px;
-  margin-bottom: 20px;
+  border-radius: 3px;
+  margin-left: 20px;
 }

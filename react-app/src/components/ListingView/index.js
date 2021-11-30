@@ -146,6 +146,10 @@ function ListingView() {
             </button>
           </>
         )}
+        <button className="add-to-bag-btn" onClick={() => addItem()}>
+          {" "}
+          ADD TO BAG{" "}
+        </button>
         <Modal
           className="site-modal"
           isOpen={modalOpen}
@@ -219,10 +223,6 @@ function ListingView() {
       <div className="listing-details">
         <div className="listing-view-container">
           <img src={item?.imageURL} alt="item-for-sale"></img>
-          <button className="add-to-bag-btn" onClick={() => addItem()}>
-            {" "}
-            ADD TO BAG{" "}
-          </button>
           <div className="listing-view-info">
             {item?.description}
             <div className="price-section">${item?.price}</div>
