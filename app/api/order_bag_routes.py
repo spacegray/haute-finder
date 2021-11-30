@@ -26,25 +26,57 @@ def userOrders(userId):
 
 @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
 def delete_order(id):
-    # userId = current_user.id
+    order = Order.query.filter_by(userId=current_user.id).first()
+    # print('DELETE TEST', order)
+    for item in order.listings:
+        # print('SECOND TEST', item.id)
+        if (int(item.id) == int(id)):
+            order.listings.remove(item)
+            db.session.add(order)
+            db.session.commit()
+            return userOrders(current_user.id)
+    return {'message': 'Order not found'}
 
-    # bag = Order.query.filter_by(
-    #     userId=userId).join(order_bag).filter_by(listing_id=id).first()
-    # print('ORDER QUERY JOINS FILTER ON USERID & LISTINGID', bag)
-    # data = request.json
-    bag = Order.query.get(id)
-    # listingId = Listing.query.get(id)
-    item = Listing.query.get(id)
 
-    # bag = db.session.query(order_bag).filter(
-    #     order_bag.c.listing_id == id).first()
-    # print('ORDER_BAG QUERY FILTER BY LISTINGID', bag)
+# @order_bag_routes.route('<listingId>/add', methods=['POST'])
+# def add_order(listingId):
+#     # if request.method == 'POST':
+#     #     addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
+#     #     db.session.execute(addedItem)
+#     #     db.session.commit()
+#     #     return {'order_id': orderId, 'listing_id': listingId}
 
-    # item = order_bag.query.filter(order_bag.listing_id == id).first()
-    # db.session.delete(bag)
-    bag.item.remove(item)
-    db.session.commit()
-    return item.to_dict()
+#     order = Order.query.get(orderId)
+#     listing = Listing.query.get(listingId)
+#     order.item.append(listing)
+#     db.session.add(order)
+#     db.session.commit()
+#     return listing.to_dict()
+
+
+
+
+# @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
+# def delete_order(id):
+#     # userId = current_user.id
+
+#     # bag = Order.query.filter_by(
+#     #     userId=userId).join(order_bag).filter_by(listing_id=id).first()
+#     # print('ORDER QUERY JOINS FILTER ON USERID & LISTINGID', bag)
+#     # data = request.json
+#     bag = Order.query.get(id)
+#     # listingId = Listing.query.get(id)
+#     item = Listing.query.get(id)
+
+#     # bag = db.session.query(order_bag).filter(
+#     #     order_bag.c.listing_id == id).first()
+#     # print('ORDER_BAG QUERY FILTER BY LISTINGID', bag)
+
+#     # item = order_bag.query.filter(order_bag.listing_id == id).first()
+#     # db.session.delete(bag)
+#     bag.item.remove(item)
+#     db.session.commit()
+#     return item.to_dict()
 
 
 # @order_bag_routes.route('/<id>/delete', methods=['DELETE'])
@@ -61,17 +93,4 @@ def delete_order(id):
 #     db.session.commit()
 #     return True
 
-@order_bag_routes.route('/<orderId>/<listingId>/add', methods=['POST'])
-def add_order(orderId, listingId):
-    # if request.method == 'POST':
-    #     addedItem = order_bag.insert().values(order_id=orderId, listing_id=listingId)
-    #     db.session.execute(addedItem)
-    #     db.session.commit()
-    #     return {'order_id': orderId, 'listing_id': listingId}
-    
-    order = Order.query.get(orderId)
-    listing = Listing.query.get(listingId)
-    order.item.append(listing)
-    db.session.add(order)
-    db.session.commit()
-    return listing.to_dict()
+

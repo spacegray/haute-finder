@@ -38,13 +38,13 @@ export const deleteCartItem = (id) => async (dispatch) => {
     method: "DELETE",
   });
   const cartItem = await response.json();
-  dispatch(removeItem(cartItem));
+  dispatch(getItemsInOrder(cartItem));
   return;
 };
 
 // Add item to bag
-export const addCartItem = (id) => async (dispatch) => {
-  const response = await fetch(`/api/order_bag/${id}/add`, {
+export const addCartItem = (orderId, listingId) => async (dispatch) => {
+  const response = await fetch(`/api/order_bag/${orderId}/${listingId}/add`, {
     method: "POST",
   });
   const newCartItem = await response.json();
@@ -56,15 +56,15 @@ export const addCartItem = (id) => async (dispatch) => {
 
 const ordersReducer = (state = {}, action) => {
   let newState;
-  console.log("STATE TEST 1", action);
+  
   switch (action.type) {
     case GET_ITEMS_IN_BAG:
-      console.log("STATE TEST2", action);
+
       newState = { ...state };
       action.userId.user_order_bags.forEach((item) => {
         newState[item.id] = item;
       });
-      console.log("STATE TEST3", action);
+    
       return newState;
 
     case REMOVE_FROM_BAG:
