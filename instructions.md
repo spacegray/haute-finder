@@ -9,6 +9,14 @@ CREATE DATABASE haute_finder_db WITH OWNER haute_finder_user;
 flask db init (if needing to add alembic again)
 flask db migrate
 flask db upgrade
+----
+
+To Update database content:
+
+heroku run -a haute-finder flask seed undo
+heroku run -a haute-finder flask db migrate
+heroku run -a haute-finder flask db upgrade
+heroku run -a haute-finder flask seed all
 
 ## Getting started
 
