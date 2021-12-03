@@ -1,23 +1,43 @@
 .order-bag-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 150px;
+  /* justify-content: center; */
   align-items: center;
+  height: 100%;
   width: 100%;
+  font-size: 20px;
 }
 .order-totals {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: 1px solid #757373;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 10px;
+   
 }
-.order-totals h3{
-    padding-left: 10px
+.order-totals h2{
+    padding: 10px;
+    /* padding-right: 5px; */
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+.order-bag-items {
+    /* display:flex; */
+    /* justify-content: center;
+    align-items: center; */
+    margin-top: 20px;
+    /* border: 1px solid #757373; */
 }
 .bag-img {
-    height: 20%;
-    width: 20%;
+    height: 30%;
+    width: 30%;
 }
-order-bag-item-info{
+.order-bag-item{
+    padding: 15px;
+    border-bottom: 1px solid #757373;
 
 }

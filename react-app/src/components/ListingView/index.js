@@ -79,39 +79,15 @@ function ListingView() {
     const regex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
     let isURL = imageURL.match(regex);
 
-    // if (name.length < 1) {
-    //   validationErrors.push("A listing Name is required");
-    // }
-    // if (description.length < 2) {
-    //   validationErrors.push("A description is required");
-    // }
-    // if (description.length > 2999) {
-    //   validationErrors.push("Description is too long");
-    // }
     if (imageURL.length > 0 && !isURL) {
       validationErrors.push("An image URL is required for listings");
     }
-    // if (price === "") {
-    //   validationErrors.push("Price is required");
-    // }
     if (price.length > 0 && isNaN(price)) {
       validationErrors.push("Price must be an integer");
     }
     return validationErrors;
   };
 
-  // without error handling
-  // const handleEditSubmit = (e) => {
-  //   e.preventDefault();
-  //   setName("");
-  //   setDescription("");
-  //   setImageURL("");
-  //   setPrice("");
-
-  // dispatch(editListing(name, description, imageURL, price, id));
-  // setModalOpen(false);
-  // history.push(`/listings/${id}`);
-  // };
   const cancelListingHandler = (e) => {
     e.preventDefault();
     setValidationErrors([]);
@@ -129,7 +105,9 @@ function ListingView() {
 
   return (
     <div className="listing-view">
-      <h1>{item?.name}</h1>
+      <div className="heading">
+        <h1>{item?.name}</h1>
+      </div>
       <div className="side-bar">
         <NewListingModal />
         {sessionUser && sessionUser?.id === item?.userId && (
@@ -229,6 +207,10 @@ function ListingView() {
           </div>
         </div>
       </div>
+      <div className="right-column">
+        {/* Right Side */}
+      </div>
+      <div className="bottom-bar"></div>
     </div>
   );
 }

@@ -45,16 +45,16 @@ function MyBag() {
 
   return (
     <div className="order-bag-container">
-      <h2> Items In Bag</h2>
+      <h1> Items In Bag</h1>
       <div className="order-totals">
-        <h3>Quantity: </h3> {""}
+        <h2>Quantity: </h2> {""}
         {orderBag && orderBag[userId]?.listings.length}
-        <h3>Price:</h3>
+        <h2>Price:</h2>
         {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
           let total;
            total += item.price
           })} */}
-        {total} <br></br>
+        $ {total} <br></br>
         {/* <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
           {" "}
           Empty Bag
