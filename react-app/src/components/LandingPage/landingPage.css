@@ -13,10 +13,22 @@
     background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
     background-size: cover;
     background-position: center;
-    position: sticky;
+    /* background-repeat: no-repeat; */
+    /* position: sticky; */
     margin-top: 100px;
+    /* background-attachment: fixed; */
    
 }
+/* @media only screen and (max-width: 767px) {
+.splashImage {
+  
+    background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
+    margin-top: 100px;
+    height: 700px;
+   
+   
+}
+} */
 
 .welcomePageMessage {
   
@@ -40,7 +52,7 @@
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
 }
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   .welcomePageMessage {
     display: none;
   }
