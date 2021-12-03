@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import "./users.css";
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -24,9 +25,13 @@ function UsersList() {
 
   return (
     <>
+    <div className="users-list-page">
+
       <h1>User List: </h1>
-     <div className="User-List"  ></div> 
+     <div className="User-List" >
       <ul style={{fontSize:"30px"}}>{userComponents}</ul>
+       </div> 
+    </div>
     </>
   );
 }

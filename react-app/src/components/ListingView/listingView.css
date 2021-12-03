@@ -1,17 +1,45 @@
 
+
+.listing-view {
+  padding-top: 100px;
+}
+.listing-details {
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+height: 100%;
+align-content: flex-start;
+top: 0;
+}
+
 .listing-view-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-start;
+  align-self: center;
+  width: 60%;
   height: 100%;
+  margin-top: 20px;
+
   margin-bottom: 50%;
+  border: 1px solid #a83838;
+  box-shadow: 1px 1px 7px #979494;
+}
+.heading {
+  padding: 20px;
+  padding-top: 50px;
+  width: auto;
+  text-align: center;
+  
 }
 h1 {
   display: flex;
   font-size: 50px;
   justify-content: center;
+
+  /* border-bottom: 1px solid #9b9696; */
+  
 }
 
 /* .listing-view-container {
@@ -26,11 +54,15 @@ h1 {
 } */
 
 .listing-view-info {
-  /* margin-top: 20px; */
+  display: flex;
+  flex-wrap: wrap;
   font-size: 1.5rem;
   justify-content: justify;
-  width: 600px;
-  
+  width: 60%;
+  text-align: center;
+  text-align: justify;
+  color: rgb(68, 66, 66);
+  padding: 20px;
 }
 
 .price-section {
@@ -62,7 +94,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   background-color: #6d1915;
   opacity: 0.9;
   align-content: center;
@@ -70,43 +102,49 @@ h1 {
 }
 
 .listing-view-container img {
-  height: 40%;
-  width: 40%;
+  height: 60%;
+  width: 60%;
+  padding-top: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 /* Error Handling */
 
 /* .errors-container {
-    height: 20%;
-    margin-bottom: 20px;
+    
     padding: 20px;
-    top: 20px;
+   
 } */
+.error-title {
+  padding-top: 5px;
+  text-align: center;
+}
 .errors-listing-form-modal {
-    justify-content: center;
-    align-content: center;
-    height: 155px;
-    width: 390px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    /* padding: 5px; */
-    font-size: 20px;
-    color: rgb(223, 29, 29);
-    background-color: #82a7a3;
-    border-radius: 10px;
+  justify-content: center;
+  align-content: center;
+  
+  height: 155px;
+  width: 390px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  padding-bottom: 2px;
+  color: rgb(185, 45, 45);
+  background-color: #82a7a3;
+  border-radius: 10px;
 }
 
-
 .create-listing-modal-content form {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 400px;
-    align-items: center;
-    font-size: 30px;
-    padding: 10px;
-    color: #f8f4f4;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 30px;
+  padding: 10px;
+  color: #f8f4f4;
 }
 
 .create-listing-modal-content input {
@@ -123,12 +161,16 @@ h1 {
 .side-bar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
+  /* position: fixed; */
+  /* margin-top: 150px; */
+  /* align-items: center; */
+  justify-content: flex-start;
+  width: 15%;
   /* height: 100%; */
   padding: 0;
-  margin-left: 10%;
+  margin-left: 3%;
+  height: 100%;
+  z-index: 1;
 }
 
 input {
@@ -161,7 +203,7 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   margin-bottom: 10px;
 }
 .delete-listing-btn {
@@ -172,7 +214,7 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .edit-listing-btn {
   position: relative;
@@ -184,7 +226,7 @@ input {
   color: #853e4a;
   font-size: 17px;
   border-radius: 3px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -197,5 +239,10 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
+/* .bottom-bar {
+  display: flex;
+  height: 100px;
+  width: 100%;
+} */

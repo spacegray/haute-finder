@@ -10,18 +10,20 @@ const NavBar = () => {
   if (sessionUser) {
     return (
       <>
-        <div className="nav-left" style={{ width: "300px" }}>
+        <div className="nav-left" style={{ width: "300px"}}>
           <NavLink to="/" exact={true} activeClassName="active">
             <img
               className="HauteFinder-logo"
               src={logo}
               alt="haute-logo"
               style={{
-                position: "absolute",
+                position: "fixed",
+                top: "0",
                 marginLeft: "10px",
                 height: "100px",
                 maxHeight: "100%",
                 maxWidth: "100%",
+                zIndex: "2",
               }}
             ></img>
           </NavLink>
@@ -33,6 +35,8 @@ const NavBar = () => {
             backgroundColor: "#F0F0F0",
             height: "110px",
             width: "100%",
+            top: "0px",
+            position: "fixed",
             justifyContent: "flex-end",
             alignItems: "flex-end",
             decoration: "none",
