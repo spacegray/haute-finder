@@ -10,7 +10,7 @@ const NavBar = () => {
   if (sessionUser) {
     return (
       <>
-        <div className="nav-left" style={{ width: "400px" }}>
+        <div className="nav-left" style={{ width: "300px" }}>
           <NavLink to="/" exact={true} activeClassName="active">
             <img
               className="HauteFinder-logo"
