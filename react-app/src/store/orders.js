@@ -72,6 +72,10 @@ const ordersReducer = (state = {}, action) => {
     
     case GET_ITEMS_IN_BAG:
       newState = { ...state };
+      if (action?.userId?.user_order_bags.length == 0) {
+        newState[action.user] = [];
+        return newState;
+      }
       action?.userId?.user_order_bags?.forEach((item) => {
         newState[action.user] = item;
       });
@@ -92,7 +96,7 @@ const ordersReducer = (state = {}, action) => {
 
     case REMOVE_FROM_BAG:
       newState = { ...state };
-      console.log('STATE TESTRRT',newState);
+      console.log('STATE TEST',newState);
       delete newState[action.id];
 
       // action.userId.user_order_bags.forEach((item) => {

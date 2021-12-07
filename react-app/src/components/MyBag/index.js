@@ -38,17 +38,16 @@ function MyBag() {
   };
 
   let total = 0;
-  orderBag[userId]?.listings.map((item) => {
+  orderBag[userId]?.listings?.map((item) => {
     return (total += item.price);
   });
-
 
   return (
     <div className="order-bag-container">
       <h1> Items In Bag</h1>
       <div className="order-totals">
         <h2>Quantity: </h2> {""}
-        {orderBag && orderBag[userId]?.listings.length}
+        {orderBag && orderBag[userId]?.listings?.length}
         <h2>Price:</h2>
         {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
           let total;
@@ -62,9 +61,9 @@ function MyBag() {
       </div>
       <div className="order-bag-items">
         {orderBag &&
-          orderBag[userId]?.listings.map((item) => (
+          orderBag[userId]?.listings?.map((item) => (
             <div className="order-bag-item" key={item?.id}>
-              <img src={item.imageURL} alt={item.name} className="bag-img"/>
+              <img src={item.imageURL} alt={item.name} className="bag-img" />
               <div className="order-bag-item-info">
                 <h3>{item.name}</h3>
                 {/* <p>{item.description}</p> */}

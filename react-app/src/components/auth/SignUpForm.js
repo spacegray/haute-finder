@@ -21,7 +21,10 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, photoURL, password));
       if (data) {
         setErrors(data)
+        console.log("TEST ETST",errors)
       }
+    } else {
+      setErrors(["Passwords don't match"])
     }
   };
 
@@ -58,11 +61,11 @@ const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <div className="sign-up-form-container">
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
         <form id="sign-up-form" onSubmit={onSignUp}>
           <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
             <label>User Name</label>
             <input
               type="text"
