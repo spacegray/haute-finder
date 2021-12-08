@@ -38,19 +38,19 @@ def delete_order(id):
     return {'message': 'Order not found'}
 
 
-# @order_bag_routes.route('/<id>/delete/all', methods = ['DELETE'])
-# def delete_all_orders(id):
+@order_bag_routes.route('/<id>/delete/all', methods = ['DELETE'])
+def delete_all_orders(id):
   
-#     order = Order.query.filter_by(userId=current_user.id).first()
-#    
+    order = Order.query.filter_by(userId=current_user.id).first()
+   
     
-#     for item in order.listings:
+    for item in order.listings:
         
-#         order.listings.remove(item)
-#         db.session.remove(order)
-#         db.session.commit()
+        order.listings.remove(item)
+        # db.session.remove(order)
+        db.session.commit()
 
-#     return {'message': 'Order Deleted'}
+    return {'message': 'Order Deleted'}
 
 
 @order_bag_routes.route('/<listingId>/add', methods=['POST'])
