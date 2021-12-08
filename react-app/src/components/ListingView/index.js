@@ -123,10 +123,7 @@ function ListingView() {
             </button>
           </>
         )}
-        <button className="add-to-bag-btn" onClick={() => addItem()}>
-          {" "}
-          ADD TO BAG{" "}
-        </button>
+        
         <Modal
           className="site-modal"
           isOpen={modalOpen}
@@ -204,6 +201,12 @@ function ListingView() {
             {item?.description}
             <div className="price-section">${item?.price}</div>
           </div>
+            <div  className="add-btn">
+              <button className="add-to-bag-btn" onClick={() => addItem()}>
+              {" "}
+              ADD TO BAG{" "}
+            </button>
+            </div>
         </div>
       </div>
       
