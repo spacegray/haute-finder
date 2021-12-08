@@ -26,8 +26,13 @@ function ListingView() {
   const item = useSelector((state) => state.listings[id]);
   const order = useSelector((state) => state.orders[userId]?.listings);
 
-    useEffect(() => {
+    const orderBag = useSelector((state) => state.orders);
+    let quantity = 0;
+  orderBag && orderBag[userId]?.listings?.forEach((item) => {
+    return (quantity += 1);
+  });
 
+    useEffect(() => {
       dispatch(getItemsForBag(userId));
     }, [dispatch, userId]);
 
@@ -40,6 +45,7 @@ function ListingView() {
     const filtered = order?.filter((listItem) => listItem.id === item?.id);
     if (filtered?.length < 1 || filtered === undefined) {
       await dispatch(addCartItem(item.id));
+      dispatch(getItemsForBag(userId))
      
       window.alert("Your item has been added");
     } else {

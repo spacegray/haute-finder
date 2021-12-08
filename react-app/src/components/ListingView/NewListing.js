@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
@@ -29,10 +29,6 @@ function NewListingModal() {
     }
   }
 
-  
-  useEffect(() => {
-    // setValidationErrors([]);
-  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +37,7 @@ function NewListingModal() {
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-      console.log('ERROR TEST',validationErrors);
+     
     } else {
       setValidationErrors([]);
       const added = await dispatch(createListing(new_listing));
@@ -86,31 +82,6 @@ function NewListingModal() {
     return validationErrors;
   };
 
-  // const validate = () => {
-  //   const validationErrors = [];
-  //   if (name.length < 1) {
-  //     validationErrors.push({ id: "1", content: "A listing Name is required" });
-  //   }
-  //   if (description.length < 2) {
-  //     validationErrors.push({ id: "2", content: "A description is required" });
-  //   }
-  //   if (description.length > 2999) {
-  //     validationErrors.push({ id: "3", content: "Description is too long" });
-  //   }
-  //   if (!imageURL) {
-  //     validationErrors.push({
-  //       id: "4",
-  //       content: "An image URL is required for listings",
-  //     });
-  //   }
-  //   if (price === "") {
-  //     validationErrors.push({ id: "5", content: "Price is required" });
-  //   }
-  //   if (isNaN(price)) {
-  //     validationErrors.push({ id: "6", content: "Price must be an integer" });
-  //   }
-  //   return validationErrors;
-  // };
 
   const cancelListingHandler = (e) => {
     e.preventDefault();
@@ -120,7 +91,6 @@ function NewListingModal() {
     setImageURL("");
     setPrice("");
     setModalOpen(false);
-    // setShowCreateListing(false);
   };
 
   return (
