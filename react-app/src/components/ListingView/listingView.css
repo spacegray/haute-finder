@@ -2,6 +2,7 @@
 
 .listing-view {
   padding-top: 100px;
+ 
 }
 .listing-details {
   display: flex;
@@ -22,7 +23,7 @@
   height: 60%;
   margin-top: 20px;
 
-  margin-bottom: 50%;
+  margin-bottom: 10%;
   border: 1px solid #a83838;
   box-shadow: 1px 1px 7px #979494;
 }
@@ -68,6 +69,17 @@ h1 {
 .price-section {
   margin-top: 20px;
   padding: 20px;
+  /* justify-content: space-between; */
+}
+
+.add-btn {
+  height:200px;
+  width:200px;
+  display:flex;
+  /* justify-content:  center; */
+  /* align-content: center; */
+  /* margin-bottom:  40px; */
+
 }
 
 /* Modal */
