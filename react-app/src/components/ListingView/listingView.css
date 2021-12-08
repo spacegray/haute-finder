@@ -7,9 +7,9 @@
   display: flex;
   justify-content: center;
   /* align-content: center; */
-height: 100%;
-align-content: flex-start;
-top: 0;
+  height: 60%;
+  align-content: flex-start;
+  top: 0;
 }
 
 .listing-view-container {
@@ -19,7 +19,7 @@ top: 0;
   justify-content: flex-start;
   align-self: center;
   width: 60%;
-  height: 100%;
+  height: 60%;
   margin-top: 20px;
 
   margin-bottom: 50%;

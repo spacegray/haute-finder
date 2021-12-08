@@ -200,9 +200,7 @@ function ListingView() {
           </div>
         </div>
       </div>
-      <div className="right-column">
-        {/* Right Side */}
-      </div>
+      
       <div className="bottom-bar"></div>
     </div>
   );
