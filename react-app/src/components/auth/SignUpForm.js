@@ -21,7 +21,6 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, photoURL, password));
       if (data) {
         setErrors(data)
-        console.log("TEST ETST",errors)
       }
     } else {
       setErrors(["Passwords don't match"])

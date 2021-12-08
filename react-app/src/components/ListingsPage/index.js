@@ -10,8 +10,6 @@ import "./listingsPage.css";
 Modal.setAppElement("#root");
 
 function ListingsPage() {
-  // const [listingContent, setListingContent] = useState([]);
-  // const { userId } = useParams();
   const listings = useSelector((state) => state.listings);
   const listingObj = Object.values(listings).reverse();
   const dispatch = useDispatch();

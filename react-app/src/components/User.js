@@ -26,7 +26,6 @@ function User() {
     return null;
   }
     const profileImg = user.photoURL;
-  // console.log(userListings)
   return (
     <div className="users-list-container" 
   //   style={{display: "flex", height: "100%", width: "100%", marginTop: "200px", alignItems: "center",

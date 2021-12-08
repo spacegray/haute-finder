@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { getListings, removeListing, editListing } from "../../store/listings";
@@ -32,8 +31,6 @@ function ListingView() {
       dispatch(getItemsForBag(userId));
     }, [dispatch, userId]);
 
-  console.log("MY BAG TEST!!@", order, userId);
-
   const deleteItem = async () => {
     dispatch(removeListing(item?.id));
     history.push(`/listings`);
@@ -58,14 +55,10 @@ function ListingView() {
     if (errors.length > 0) {
       setValidationErrors(errors);
     
-      //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
       await dispatch(editListing(name, description, imageURL, price, id));
-      // history.push("/listings");
-      // console.log("Edit TEST", edited_listing);
-      // the entry is added to db, but this console log is empty
-      // if (added) {
+      
       setName("");
       setDescription("");
       setImageURL("");

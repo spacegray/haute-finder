@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getItemsForBag, deleteCartItem } from "../../store/orders";
+import { getItemsForBag, deleteCartItem, emptyCart } from "../../store/orders";
 import { useHistory } from "react-router-dom";
-// import { useParams } from "react-router";
 
 import "./orderBag.css";
 
@@ -10,7 +9,6 @@ function MyBag() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const userId = user?.id;
-  // const { userId } = useParams();
   const orderBag = useSelector((state) => state.orders);
   const cartTotal = useSelector((state) => state.total);
   const [count, setCount] = useState(0);
@@ -18,17 +16,16 @@ function MyBag() {
   // const [order] = useSelector((state) => state.orders?.orderBag.listings);
 
   const items = orderBag[userId]?.listings;
-  console.log("FRONT END", items, orderBag);
+
 
   useEffect(() => {
-    // console.log(getItemsForBag(userId));
     dispatch(getItemsForBag(userId));
-  }, [dispatch, count]);
+  }, [dispatch,userId, count]);
 
-  // const emptyBag = (userId) => {
-  //   dispatch(emptyCart(userId, userId));
-  //   history.push(`/order_bag/user/${userId}`);
-  // };
+  const emptyBag = (userId) => {
+    dispatch(emptyCart( userId));
+    history.push(`/order_bag/user/${userId}`);
+  };
 
   const deleteItem = async (itemId) => {
     await dispatch(deleteCartItem(itemId, userId));
@@ -54,10 +51,10 @@ function MyBag() {
            total += item.price
           })} */}
         $ {total} <br></br>
-        {/* <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
+        <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
           {" "}
           Empty Bag
-        </button> */}
+        </button>
       </div>
       <div className="order-bag-items">
         {orderBag &&
