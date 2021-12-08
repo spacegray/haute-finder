@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import { createListing } from "../../store/listings";
 import { useHistory } from "react-router-dom";
-// import errorListItems from "./ErorrHandler";
-// import {errorList} from "./ErorrHandler";
+
 
 import "./listingView.css";
 
@@ -44,14 +42,11 @@ function NewListingModal() {
     if (errors.length > 0) {
       setValidationErrors(errors);
       console.log('ERROR TEST',validationErrors);
-      //this console log is empty unless you click submit a second time
     } else {
       setValidationErrors([]);
       const added = await dispatch(createListing(new_listing));
       setModalOpen(false);
       history.push('/listings')
-      console.log('AWAIT TEST',added);
-      // the entry is added to db, but this console log is empty
       if (added) {
         setName("");
         setDescription("");
@@ -130,19 +125,6 @@ function NewListingModal() {
 
   return (
     <>
-      {/* <errorList errors={errors} /> */}
-      {/* {validationErrors.length > 0 && (
-        <div className="errors">
-          <p className="error-title"> The following errors were found: </p>
-          <ul className="error-list">
-            {validationErrors.map((error) => (
-              <li className="error-list" key={error}>
-                {error}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )} */}
       <div>
         <button
           className="create-listing-btn"
@@ -163,9 +145,6 @@ function NewListingModal() {
 
             <div className="create-listing-form">
               <div className="errors-container">
-                {/* {validationErrors.map((error, ind) => {
-                  <div key={ind}>{error}</div>;
-                })} */}
                 {validationErrors.length > 0 && (
                   <div className="errors-listing-form-modal">
                     <h3 className="error-title">

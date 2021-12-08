@@ -1,7 +1,7 @@
 const ADD_TO_BAG = "order/ADD_TO_BAG";
 const GET_ITEMS_IN_BAG = "order/GET_ITEMS_IN_BAG";
 const REMOVE_FROM_BAG = "order/REMOVE_FROM_BAG";
-// const DELETE_BAG = "order/DELETE_BAG";
+const DELETE_BAG = "order/DELETE_BAG";
 
 const getItemsInOrder = (userId, user) => ({
   type: GET_ITEMS_IN_BAG,
@@ -14,10 +14,10 @@ const addToBag = (item) => ({
   item,
 });
 
-// const emptyBag = (id, userId) => ({
-//   type: DELETE_BAG,
-//   id, userId// userId
-// });
+const emptyBag = (id, userId) => ({
+  type: DELETE_BAG,
+  id, userId// userId
+});
 
 const removeItem = (id) => ({
   type: REMOVE_FROM_BAG,
@@ -43,15 +43,15 @@ export const deleteCartItem = (id, userId) => async (dispatch) => {
   return;
 };
 
-//Delete entire cart
-// export const emptyCart = (id) => async (dispatch) => {
-//   const response = await fetch(`/api/order_bag/${id}/delete/all`, {
-//     method: "DELETE",
-//   });
-//   const emptiedCart = await response.json();
-//   dispatch(emptyBag(emptiedCart));
-//   return;
-// };
+// Delete entire cart
+export const emptyCart = (id, userId) => async (dispatch) => {
+  const response = await fetch(`/api/order_bag/${id}/delete/all`, {
+    method: "DELETE",
+  });
+  const emptiedCart = await response.json();
+  dispatch(emptyBag(emptiedCart, id, userId));
+  return;
+};
 
 // Add item to bag
 export const addCartItem = (listingId) => async (dispatch) => {
@@ -88,22 +88,16 @@ const ordersReducer = (state = {}, action) => {
       newState[action.item.id] = action.item;
       return newState;
 
-    // case DELETE_BAG:
-    //   newState = { ...state };
+    case DELETE_BAG:
+      newState = { ...state };
+      newState[action.userId] = [];
+      return newState;
 
-    //   newState[action.userId] = { listings: [] };
-    //   return newState;
 
     case REMOVE_FROM_BAG:
       newState = { ...state };
-      console.log('STATE TEST',newState);
       delete newState[action.id];
 
-      // action.userId.user_order_bags.forEach((item) => {
-      //   if (item.id === action.id) {
-      //     delete newState[item.id];
-      //   }
-      // });
       return newState;
 
     default:
