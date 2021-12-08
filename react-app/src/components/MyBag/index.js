@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getItemsForBag, deleteCartItem, emptyCart } from "../../store/orders";
 import { useHistory } from "react-router-dom";
@@ -10,17 +10,13 @@ function MyBag() {
   const user = useSelector((state) => state.session.user);
   const userId = user?.id;
   const orderBag = useSelector((state) => state.orders);
-  const cartTotal = useSelector((state) => state.total);
-  const [count, setCount] = useState(0);
   const history = useHistory();
   // const [order] = useSelector((state) => state.orders?.orderBag.listings);
-
-  const items = orderBag[userId]?.listings;
 
 
   useEffect(() => {
     dispatch(getItemsForBag(userId));
-  }, [dispatch,userId, count]);
+  }, [dispatch,userId]);
 
   const emptyBag = (userId) => {
     dispatch(emptyCart( userId));
@@ -30,7 +26,6 @@ function MyBag() {
   const deleteItem = async (itemId) => {
     await dispatch(deleteCartItem(itemId, userId));
     dispatch(getItemsForBag(userId));
-    setCount(count + 1);
     history.push(`/order_bag/user/${userId}`);
   };
 
@@ -39,18 +34,21 @@ function MyBag() {
     return (total += item.price);
   });
 
+  
+    let quantity = 0;
+  orderBag && orderBag[userId]?.listings?.forEach((item) => {
+    return (quantity += 1);
+  });
+
+
   return (
     <div className="order-bag-container">
       <h1> Items In Bag</h1>
       <div className="order-totals">
         <h2>Quantity: </h2> {""}
-        {orderBag && orderBag[userId]?.listings?.length}
+        <h2>{quantity}</h2>
         <h2>Price:</h2>
-        {/* {orderBag && orderBag[userId]?.listings.forEach(item => {
-          let total;
-           total += item.price
-          })} */}
-        $ {total} <br></br>
+        <h2>$ {total} </h2> <br></br>
         <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
           {" "}
           Empty Bag

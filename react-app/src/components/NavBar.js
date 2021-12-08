@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect }from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getItemsForBag } from "../store/orders";
 
 import logo from "../images/haute-logo-bold.png";
 
+
+
 const NavBar = () => {
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const userId = sessionUser?.id;
+  const orderBag = useSelector((state) => state.orders);
+
+  useEffect(() => {
+    dispatch(getItemsForBag(userId));
+  }, [dispatch,userId]);
+
+  const listings =  orderBag &&
+          orderBag[userId]?.listings?.map((item) => {
+            return  item;
+          })
+          
+  let quantity = 0;
+  orderBag && orderBag[userId]?.listings?.forEach((item) => {
+    return (quantity += 1);
+  });
+
+
   if (sessionUser) {
     return (
       <>
@@ -106,7 +128,8 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              My Bag
+              My Bag:  
+              {quantity}
             </NavLink>
           </li>
           <li>

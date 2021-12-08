@@ -72,7 +72,7 @@ const ordersReducer = (state = {}, action) => {
     
     case GET_ITEMS_IN_BAG:
       newState = { ...state };
-      if (action?.userId?.user_order_bags.length == 0) {
+      if (action?.userId?.user_order_bags.length === 0) {
         newState[action.user] = [];
         return newState;
       }
