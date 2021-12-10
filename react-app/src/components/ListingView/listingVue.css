@@ -1,23 +1,19 @@
-
-
 .listing-view {
   padding-top: 100px;
   justify-content: center;
- 
-
+  overflow: hidden;
 }
 .listing-page-container {
- display: flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  /* justify-content: center; */
+  padding: 0px;
+  margin: 0px;
 }
-
 
 .listing-details {
   display: flex;
   justify-content: center;
-  /* align-content: center; */
   height: 60%;
   align-content: flex-start;
   top: 0;
@@ -27,14 +23,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-content: center; */
-  /* justify-self: center; */
-  /* align-self: center; */
   justify-content: center;
-  width: 50%;
-  height: 30%;
+  width: 70%;
+  height: 40%;
   margin-top: 20px;
-
   margin-bottom: 10%;
   border: 1px solid #a83838;
   box-shadow: 1px 1px 7px #979494;
@@ -44,34 +36,18 @@
   padding-top: 50px;
   width: auto;
   text-align: center;
-  
 }
 h1 {
   display: flex;
   font-size: 50px;
   justify-content: center;
-
-  /* border-bottom: 1px solid #9b9696; */
-  
 }
-
-/* .listing-view-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-} */
 
 .listing-view-info {
   display: flex;
   flex-wrap: wrap;
-  font-size: 1.5rem;
-  justify-content: justify;
-  width: 60%;
+  font-size: 30px;
+  width: 70%;
   text-align: center;
   text-align: justify;
   color: rgb(68, 66, 66);
@@ -81,18 +57,15 @@ h1 {
 .price-section {
   margin-top: 20px;
   padding: 20px;
-  /* justify-content: space-between; */
+  margin-left: 0px;
 }
 
-.add-btn {
-  /* height:200px;
-  width:200px;
-  display:flex; */
-  /* justify-content:  center; */
-  /* align-content: center; */
-  /* margin-bottom:  40px; */
+/* .add-btn {
+  height: 200px;
+  width: 200px;
+  display: flex;
 
-}
+} */
 
 /* Modal */
 
@@ -108,13 +81,11 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   justify-content: center;
-  /* align-content: flex-end; */
 }
 
 .create-listing-form {
   height: 600px;
   width: 650px;
-  /* margin-top: 5%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,8 +97,8 @@ h1 {
 }
 
 .listing-view-container img {
-  height: 60%;
-  width: 60%;
+  height: 80%;
+  width: 80%;
   padding-top: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -146,7 +117,7 @@ h1 {
 .errors-listing-form-modal {
   justify-content: center;
   align-content: center;
-  
+
   height: 155px;
   width: 390px;
   margin-top: 0px;
@@ -185,26 +156,19 @@ h1 {
 .side-bar {
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
-  margin-top: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  width: 20%;
-  /* height: 100%; */
+  position: relative;
+  margin-top: 50px;
+  width: 15%;
+  height: 100%;
   padding: 0;
   margin-left: 3%;
   height: 100%;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .right-bar {
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
-  /* margin-top: 150px; */
-  /* align-items: center; */
-  /* justify-content: flex-start; */
   width: 15%;
-  /* height: 100%; */
   padding: 0;
   margin-right: 3%;
 }
@@ -231,18 +195,14 @@ input {
   border-radius: 5px;
 }
 
-.listing-creation {
-
-}
 .create-listing-btn {
-  /* position: relative; */
+  position: relative;
   width: 150px;
   height: 50px;
   background: #3e7f8a;
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  /* margin-left: 20px; */
   margin-bottom: 10px;
 }
 .delete-listing-btn {
@@ -253,20 +213,17 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  /* margin-left: 20px; */
+  margin-top: 10px;
 }
 .edit-listing-btn {
   position: relative;
   width: 150px;
   height: 50px;
   border: 2px solid #853e4a;
-  /* background: #c0ac52; */
-  /* color: white; */
   color: #853e4a;
   font-size: 17px;
   border-radius: 3px;
-  /* margin-left: 20px; */
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -278,7 +235,6 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
-  /* margin-left: 20px; */
 }
 /* .bottom-bar {
   display: flex;

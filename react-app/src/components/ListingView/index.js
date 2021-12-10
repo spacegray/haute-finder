@@ -6,7 +6,7 @@ import { getListings, removeListing, editListing } from "../../store/listings";
 import { addCartItem, getItemsForBag } from "../../store/orders";
 import NewListingModal from "./NewListing";
 
-import "./listingView.css";
+import "./listingVue.css";
 
 Modal.setAppElement("#root");
 
@@ -26,15 +26,16 @@ function ListingView() {
   const item = useSelector((state) => state.listings[id]);
   const order = useSelector((state) => state.orders[userId]?.listings);
 
-    const orderBag = useSelector((state) => state.orders);
-    let quantity = 0;
-  orderBag && orderBag[userId]?.listings?.forEach((item) => {
-    return (quantity += 1);
-  });
+  const orderBag = useSelector((state) => state.orders);
+  let quantity = 0;
+  orderBag &&
+    orderBag[userId]?.listings?.forEach((item) => {
+      return (quantity += 1);
+    });
 
-    useEffect(() => {
-      dispatch(getItemsForBag(userId));
-    }, [dispatch, userId]);
+  useEffect(() => {
+    dispatch(getItemsForBag(userId));
+  }, [dispatch, userId]);
 
   const deleteItem = async () => {
     dispatch(removeListing(item?.id));
@@ -45,8 +46,8 @@ function ListingView() {
     const filtered = order?.filter((listItem) => listItem.id === item?.id);
     if (filtered?.length < 1 || filtered === undefined) {
       await dispatch(addCartItem(item.id));
-      dispatch(getItemsForBag(userId))
-     
+      dispatch(getItemsForBag(userId));
+
       window.alert("Your item has been added");
     } else {
       window.alert("You already have this item in your cart");
@@ -60,11 +61,10 @@ function ListingView() {
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-    
     } else {
       setValidationErrors([]);
       await dispatch(editListing(name, description, imageURL, price, id));
-      
+
       setName("");
       setDescription("");
       setImageURL("");
@@ -110,6 +110,12 @@ function ListingView() {
       <div className="listing-page-container">
         <div className="side-bar">
           <NewListingModal />
+          <div className="add-btn">
+            <button className="add-to-bag-btn" onClick={() => addItem()}>
+              {" "}
+              ADD TO BAG{" "}
+            </button>
+          </div>
           {sessionUser && sessionUser?.id === item?.userId && (
             <>
               <button className="delete-listing-btn" onClick={deleteItem}>
@@ -204,19 +210,11 @@ function ListingView() {
             <img src={item?.imageURL} alt="item-for-sale"></img>
             <div className="listing-view-info">
               {item?.description}
-              <div className="price-section">${item?.price}</div>
-            </div>
-            <div className="add-btn">
-              <button className="add-to-bag-btn" onClick={() => addItem()}>
-                {" "}
-                ADD TO BAG{" "}
-              </button>
+              <div className="price-section">Price: ${item?.price}</div>
             </div>
           </div>
         </div>
-        <div className="right-bar">
-          Placeholder for user info
-        </div>
+        <div className="right-bar"></div>
       </div>
 
       <div className="bottom-bar"></div>
