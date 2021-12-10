@@ -9,29 +9,34 @@
 }
 
 .splashImage {
-    height: 100vh;
-    background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
-    background-size: cover;
-    background-position: center;
-    /* background-repeat: no-repeat; */
-    /* position: sticky; */
+  height: 100vh;
+  background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* position: sticky; */
+  margin-top: 75px;
+  margin-bottom: 75px;
+  /* background-attachment: fixed; */
+}
+@media only screen and (max-width: 767px) {
+  .splashImage {
+    background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1639110983/HauteFinder/Images/media-queries/iphone-13-max-428x800_egegza.png");
     margin-top: 50px;
-    /* background-attachment: fixed; */
-   
+    /* height: 500px; */
+    background-position: center center;
+  }
 }
-/* @media only screen and (max-width: 767px) {
-.splashImage {
-  
-    background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
-    margin-top: 100px;
-    height: 700px;
-   
-   
+@media only screen and (max-width: 767px) {
+  /* .welcomePageMessage {
+  position: relative;
+  right: 5%;
+  top: 15%;
+  font-size: 20px;
+  } */
 }
-} */
 
 .welcomePageMessage {
-  
   position: absolute;
   width: 600px;
   height: 500px;
@@ -39,7 +44,7 @@
   top: 15%;
   font-size: 36px;
   margin-left: 700px;
- 
+
   /* line-height: 44px; */
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
@@ -50,7 +55,6 @@
   margin-bottom: 0;
   justify-content: justify;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
 }
 @media (max-width: 767px) {
   .welcomePageMessage {
@@ -69,10 +73,8 @@
   color: #853e4a;
   border-radius: 3px;
   /* text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25); */
-
 }
 .demo-login-btn:hover {
   background-color: #853e4a;
   color: white;
 }
-
