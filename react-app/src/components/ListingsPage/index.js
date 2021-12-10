@@ -24,44 +24,45 @@ function ListingsPage() {
   }
 
   return (
-    <div>
-      <div className="listing-page-container">
-        <h1>Listings</h1>
-        <div className="side-bar">
-          <NewListingModal />
-        </div>
-        {}
-        <div className="listing-feed-container">
-          <div className="display-listings">
-            <div className="listings">
-              <div className="parent">
-                {listingObj.map((listing, index) => (
-                  <div className={`div${index}`}>
-                    <NavLink
-                      to={`/listings/${listing.id}`}
-                      key={`listings${listing.id}`}
+    <div className="listings-page-container">
+      <div className="heading">
+      <h1>Listings</h1>
+      </div>
+      <div className="listings-feed-container">
+      <div className="left-side-bar">
+        <NewListingModal />
+      </div>
+      {}
+        <div className="display-listings">
+          <div className="listings">
+            <div className="parent">
+              {listingObj.map((listing, index) => (
+                <div className={`div${index}`}>
+                  <NavLink
+                    to={`/listings/${listing.id}`}
+                    key={`listings${listing.id}`}
+                  >
+                    <div
+                      className="listing-card"
+                      style={{ width: "500px", justifyContent: "center" }}
                     >
-                      <div
-                        className="listing-card"
-                        style={{ width: "500px", justifyContent: "center" }}
-                      >
-                        <h2>{listing.name}</h2>
-                        <img
-                          src={listing.imageURL}
-                          alt="item-for-sale"
-                          className="listings-page-imgs"
-                        ></img>
-                        <p>{listing.description}</p>
-                        <p>${listing.price}</p>
-                      </div>
-                    </NavLink>
-                  </div>
-                ))}
-              </div>
+                      <h2>{listing.name}</h2>
+                      <img
+                        src={listing.imageURL}
+                        alt="item-for-sale"
+                        className="listings-page-imgs"
+                      ></img>
+                      {/* <p>{listing.description}</p> */}
+                      <p>Price: ${listing.price}</p>
+                    </div>
+                  </NavLink>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+      {/* <div className="right-listing-bar">Placeholder for user info</div> */}
     </div>
   );
 }

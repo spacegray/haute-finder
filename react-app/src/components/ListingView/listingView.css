@@ -6,13 +6,10 @@
  
 }
 .listing-page-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
+ 
   /* justify-content: center; */
 }
+
 
 .listing-details {
   display: flex;
@@ -186,9 +183,9 @@ h1 {
   display: flex;
   flex-direction: column;
   /* position: fixed; */
-  /* margin-top: 150px; */
-  /* align-items: center; */
-  /* justify-content: flex-start; */
+  margin-top: 10px;
+  align-items: center;
+  justify-content: flex-start;
   width: 20%;
   /* height: 100%; */
   padding: 0;
@@ -231,7 +228,9 @@ input {
   border-radius: 5px;
 }
 
-.listing-creation {}
+.listing-creation {
+
+}
 .create-listing-btn {
   position: relative;
   width: 150px;

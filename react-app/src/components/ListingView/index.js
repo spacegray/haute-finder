@@ -215,7 +215,7 @@ function ListingView() {
           </div>
         </div>
         <div className="right-bar">
-          Placeholder for user info
+         
         </div>
       </div>
 
