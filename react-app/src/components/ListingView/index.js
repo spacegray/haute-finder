@@ -214,7 +214,7 @@ function ListingView() {
             </div>
           </div>
         </div>
-        <div className="right-bar">placeholder</div>
+        <div className="right-bar"></div>
       </div>
 
       <div className="bottom-bar"></div>

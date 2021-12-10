@@ -54,24 +54,26 @@ function MyBag() {
           Empty Bag
         </button>
       </div>
-      <div className="order-bag-items">
-        {orderBag &&
-          orderBag[userId]?.listings?.map((item) => (
-            <div className="order-bag-item" key={item?.id}>
-              <img src={item.imageURL} alt={item.name} className="bag-img" />
-              <div className="order-bag-item-info">
-                <h3>{item.name}</h3>
-                {/* <p>{item.description}</p> */}
-                <p>${item.price}</p>
+      <div className="order-bag-list">
+        <div className="order-bag-items">
+          {orderBag &&
+            orderBag[userId]?.listings?.map((item) => (
+              <div className="order-bag-item" key={item?.id}>
+                <img src={item.imageURL} alt={item.name} className="bag-img" />
+                <div className="order-bag-item-info">
+                  <h3>{item.name}</h3>
+                  {/* <p>{item.description}</p> */}
+                  <p>${item.price}</p>
+                </div>
+                <button
+                  className="remove-from-bag-btn"
+                  onClick={() => deleteItem(item?.id)}
+                >
+                  Remove
+                </button>
               </div>
-              <button
-                className="remove-from-bag-btn"
-                onClick={() => deleteItem(item?.id)}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );
