@@ -1,18 +1,16 @@
-
-
 .listing-view {
   padding-top: 100px;
   justify-content: center;
- 
-
+  overflow: hidden;
 }
 .listing-page-container {
- display: flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   width: 100%;
+  padding: 0px;
+  margin: 0px;
   /* justify-content: center; */
 }
-
 
 .listing-details {
   display: flex;
@@ -31,10 +29,9 @@
   /* justify-self: center; */
   /* align-self: center; */
   justify-content: center;
-  width: 50%;
-  height: 30%;
+  width: 70%;
+  height: 40%;
   margin-top: 20px;
-
   margin-bottom: 10%;
   border: 1px solid #a83838;
   box-shadow: 1px 1px 7px #979494;
@@ -44,7 +41,6 @@
   padding-top: 50px;
   width: auto;
   text-align: center;
-  
 }
 h1 {
   display: flex;
@@ -52,7 +48,6 @@ h1 {
   justify-content: center;
 
   /* border-bottom: 1px solid #9b9696; */
-  
 }
 
 /* .listing-view-container {
@@ -69,9 +64,9 @@ h1 {
 .listing-view-info {
   display: flex;
   flex-wrap: wrap;
-  font-size: 1.5rem;
-  justify-content: justify;
-  width: 60%;
+  font-size: 30px;
+  /* justify-content: justify; */
+  width: 70%;
   text-align: center;
   text-align: justify;
   color: rgb(68, 66, 66);
@@ -81,18 +76,16 @@ h1 {
 .price-section {
   margin-top: 20px;
   padding: 20px;
+  margin-left: 0px;
   /* justify-content: space-between; */
 }
 
-.add-btn {
-  /* height:200px;
-  width:200px;
-  display:flex; */
-  /* justify-content:  center; */
-  /* align-content: center; */
-  /* margin-bottom:  40px; */
+/* .add-btn {
+  height: 200px;
+  width: 200px;
+  display: flex;
 
-}
+} */
 
 /* Modal */
 
@@ -126,8 +119,8 @@ h1 {
 }
 
 .listing-view-container img {
-  height: 60%;
-  width: 60%;
+  height: 80%;
+  width: 80%;
   padding-top: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -146,7 +139,7 @@ h1 {
 .errors-listing-form-modal {
   justify-content: center;
   align-content: center;
-  
+
   height: 155px;
   width: 390px;
   margin-top: 0px;
@@ -185,16 +178,16 @@ h1 {
 .side-bar {
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
-  margin-top: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  width: 20%;
-  /* height: 100%; */
+  position: relative;
+  margin-top: 50px;
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  width: 10%;
+  height: 100%;
   padding: 0;
   margin-left: 3%;
   height: 100%;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .right-bar {
   display: flex;
@@ -203,7 +196,7 @@ h1 {
   /* margin-top: 150px; */
   /* align-items: center; */
   /* justify-content: flex-start; */
-  width: 15%;
+  width: 20%;
   /* height: 100%; */
   padding: 0;
   margin-right: 3%;
@@ -232,10 +225,9 @@ input {
 }
 
 .listing-creation {
-
 }
 .create-listing-btn {
-  /* position: relative; */
+  position: relative;
   width: 150px;
   height: 50px;
   background: #3e7f8a;
@@ -253,6 +245,7 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
+  margin-top: 10px;
   /* margin-left: 20px; */
 }
 .edit-listing-btn {
@@ -266,7 +259,7 @@ input {
   font-size: 17px;
   border-radius: 3px;
   /* margin-left: 20px; */
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -278,6 +271,7 @@ input {
   color: white;
   font-size: 17px;
   border-radius: 3px;
+
   /* margin-left: 20px; */
 }
 /* .bottom-bar {
