@@ -81,7 +81,7 @@ const NavBar = () => {
             zIndex: "1",
           }}
         >
-          <li>
+          {/* <li>
             <NavLink
               to="/"
               exact={true}
@@ -96,7 +96,7 @@ const NavBar = () => {
             >
               Home
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/listings"
@@ -107,7 +107,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Listings |
@@ -123,7 +123,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Users |
@@ -139,7 +139,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               My Bag:
@@ -171,6 +171,20 @@ const NavBar = () => {
                 zIndex: "2",
               }}
             ></img>
+            <img
+              className="mobile-logo"
+              src={mobileLogo}
+              alt="haute-logo"
+              style={{
+                position: "fixed",
+                top: "0",
+                marginLeft: "10px",
+                height: "85px",
+                maxHeight: "100%",
+                maxWidth: "100%",
+                zIndex: "2",
+              }}
+            />
           </NavLink>
         </div>
 
@@ -200,7 +214,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Login |
@@ -216,7 +230,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Sign Up |
@@ -232,7 +246,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Listings |
@@ -248,7 +262,7 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "10px",
+                padding: "7px",
               }}
             >
               Users
