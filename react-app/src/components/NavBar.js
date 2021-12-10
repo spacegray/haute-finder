@@ -1,12 +1,11 @@
-import React, { useEffect }from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import { useSelector, useDispatch } from "react-redux";
 import { getItemsForBag } from "../store/orders";
-
+import "./navBar.css";
 import logo from "../images/haute-logo-bold.png";
-
-
+import mobileLogo from "../images/haute-icon.png";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -16,23 +15,24 @@ const NavBar = () => {
 
   useEffect(() => {
     dispatch(getItemsForBag(userId));
-  }, [dispatch,userId]);
+  }, [dispatch, userId]);
 
-  const listings =  orderBag &&
-          orderBag[userId]?.listings?.map((item) => {
-            return  item;
-          })
-          
+  const listings =
+    orderBag &&
+    orderBag[userId]?.listings?.map((item) => {
+      return item;
+    });
+
   let quantity = 0;
-  orderBag && orderBag[userId]?.listings?.forEach((item) => {
-    return (quantity += 1);
-  });
-
+  orderBag &&
+    orderBag[userId]?.listings?.forEach((item) => {
+      return (quantity += 1);
+    });
 
   if (sessionUser) {
     return (
       <>
-        <div className="nav-left" style={{ width: "300px"}}>
+        <div className="nav-left" style={{ width: "300px" }}>
           <NavLink to="/" exact={true} activeClassName="active">
             <img
               className="HauteFinder-logo"
@@ -48,6 +48,20 @@ const NavBar = () => {
                 zIndex: "2",
               }}
             ></img>
+            <img
+              className="mobile-logo"
+              src={mobileLogo}
+              alt="haute-logo"
+              style={{
+                position: "fixed",
+                top: "0",
+                marginLeft: "10px",
+                height: "85px",
+                maxHeight: "100%",
+                maxWidth: "100%",
+                zIndex: "2",
+              }}
+            />
           </NavLink>
         </div>
 
@@ -128,7 +142,7 @@ const NavBar = () => {
                 padding: "10px",
               }}
             >
-              My Bag:  
+              My Bag:
               {quantity}
             </NavLink>
           </li>
