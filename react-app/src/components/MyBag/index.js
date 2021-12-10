@@ -13,13 +13,12 @@ function MyBag() {
   const history = useHistory();
   // const [order] = useSelector((state) => state.orders?.orderBag.listings);
 
-
   useEffect(() => {
     dispatch(getItemsForBag(userId));
-  }, [dispatch,userId]);
+  }, [dispatch, userId]);
 
   const emptyBag = (userId) => {
-    dispatch(emptyCart( userId));
+    dispatch(emptyCart(userId));
     history.push(`/order_bag/user/${userId}`);
   };
 
@@ -29,17 +28,22 @@ function MyBag() {
     history.push(`/order_bag/user/${userId}`);
   };
 
+  const checkOut = (userId) => {
+    dispatch(emptyCart(userId));
+    window.alert("Your order has been placed!");
+    history.push(`/listings`);
+  };
+
   let total = 0;
   orderBag[userId]?.listings?.map((item) => {
     return (total += item.price);
   });
 
-  
-    let quantity = 0;
-  orderBag && orderBag[userId]?.listings?.forEach((item) => {
-    return (quantity += 1);
-  });
-
+  let quantity = 0;
+  orderBag &&
+    orderBag[userId]?.listings?.forEach((item) => {
+      return (quantity += 1);
+    });
 
   return (
     <div className="order-bag-container">
@@ -49,9 +53,9 @@ function MyBag() {
         <h2>{quantity}</h2>
         <h2>Price:</h2>
         <h2>$ {total} </h2> <br></br>
-        <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
+        <button className="checkout-btn" onClick={() => checkOut(userId)}>
           {" "}
-          Empty Bag
+          Submit Order{" "}
         </button>
       </div>
       <div className="order-bag-list">
@@ -70,6 +74,13 @@ function MyBag() {
                   onClick={() => deleteItem(item?.id)}
                 >
                   Remove
+                </button>
+                <button
+                  className="empty-bag-btn"
+                  onClick={() => emptyBag(userId)}
+                >
+                  {" "}
+                  Empty Bag
                 </button>
               </div>
             ))}
