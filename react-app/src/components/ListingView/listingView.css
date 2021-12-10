@@ -2,8 +2,18 @@
 
 .listing-view {
   padding-top: 100px;
+  justify-content: center;
  
 }
+.listing-page-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  /* justify-content: center; */
+}
+
 .listing-details {
   display: flex;
   justify-content: center;
@@ -17,10 +27,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  align-self: center;
+  /* align-content: center; */
+  /* justify-self: center; */
+  /* align-self: center; */
+  justify-content: center;
   width: 60%;
-  height: 60%;
+  height: 40%;
   margin-top: 20px;
 
   margin-bottom: 10%;
@@ -114,8 +126,8 @@ h1 {
 }
 
 .listing-view-container img {
-  height: 60%;
-  width: 60%;
+  height: 70%;
+  width: 70%;
   padding-top: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -176,13 +188,25 @@ h1 {
   /* position: fixed; */
   /* margin-top: 150px; */
   /* align-items: center; */
-  justify-content: flex-start;
-  width: 15%;
+  /* justify-content: flex-start; */
+  width: 20%;
   /* height: 100%; */
   padding: 0;
   margin-left: 3%;
   height: 100%;
   z-index: 1;
+}
+.right-bar {
+  display: flex;
+  flex-direction: column;
+  /* position: fixed; */
+  /* margin-top: 150px; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  width: 20%;
+  /* height: 100%; */
+  padding: 0;
+  margin-right: 3%;
 }
 
 input {
@@ -207,6 +231,7 @@ input {
   border-radius: 5px;
 }
 
+.listing-creation {}
 .create-listing-btn {
   position: relative;
   width: 150px;
