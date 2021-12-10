@@ -53,14 +53,10 @@ function MyBag() {
         <h2>{quantity}</h2>
         <h2>Price:</h2>
         <h2>$ {total} </h2> <br></br>
-        <button className="empty-bag-btn" onClick={() => emptyBag(userId)}>
+        <button className="checkout-btn" onClick={() => checkOut(userId)}>
           {" "}
-          Empty Bag
+          Submit Order{" "}
         </button>
-        <button
-          className="checkout-btn"
-          onClick={() => checkOut(userId)}
-        ></button>
       </div>
       <div className="order-bag-list">
         <div className="order-bag-items">
@@ -78,6 +74,13 @@ function MyBag() {
                   onClick={() => deleteItem(item?.id)}
                 >
                   Remove
+                </button>
+                <button
+                  className="empty-bag-btn"
+                  onClick={() => emptyBag(userId)}
+                >
+                  {" "}
+                  Empty Bag
                 </button>
               </div>
             ))}
