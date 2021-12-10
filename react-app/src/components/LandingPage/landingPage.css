@@ -13,12 +13,14 @@
   background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
   background-size: cover;
   background-position: center;
+
   /* background-repeat: no-repeat; */
   /* position: sticky; */
   margin-top: 75px;
   margin-bottom: 75px;
   /* background-attachment: fixed; */
 }
+
 @media only screen and (max-width: 767px) {
   .splashImage {
     background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1639110983/HauteFinder/Images/media-queries/iphone-13-max-428x800_egegza.png");
@@ -26,14 +28,6 @@
     /* height: 500px; */
     background-position: center center;
   }
-}
-@media only screen and (max-width: 767px) {
-  /* .welcomePageMessage {
-  position: relative;
-  right: 5%;
-  top: 15%;
-  font-size: 20px;
-  } */
 }
 
 @media only screen and (min-width: 2200px) and (max-width: 2600px) {
