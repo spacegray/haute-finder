@@ -107,109 +107,118 @@ function ListingView() {
       <div className="heading">
         <h1>{item?.name}</h1>
       </div>
-      <div className="side-bar">
-        <NewListingModal />
-        {sessionUser && sessionUser?.id === item?.userId && (
-          <>
-            <button className="delete-listing-btn" onClick={deleteItem}>
-              {" "}
-              Delete Listing
-            </button>
-            <button
-              className="edit-listing-btn"
-              onClick={() => setModalOpen(true)}
-            >
-              Edit Listing
-            </button>
-          </>
-        )}
-        
-        <Modal
-          className="site-modal"
-          isOpen={modalOpen}
-          onRequestClose={() => setModalOpen(false)}
-        >
-          <div className="create-listing-modal-content">
-            <div className="modal-title">
-              <h1> Edit Your Listing </h1>
-            </div>
-            <div className="create-listing-form">
-              <div className="errors-container">
-                {/* {validationErrors.map((error, ind) => {
+      <div className="listing-page-container">
+        <div className="side-bar">
+          <NewListingModal />
+          {sessionUser && sessionUser?.id === item?.userId && (
+            <>
+              <button className="delete-listing-btn" onClick={deleteItem}>
+                {" "}
+                Delete Listing
+              </button>
+              <button
+                className="edit-listing-btn"
+                onClick={() => setModalOpen(true)}
+              >
+                Edit Listing
+              </button>
+            </>
+          )}
+          <div
+            className="modal-background"
+            onRequestClose={() => setModalOpen(false)}
+          ></div>
+          <Modal
+            className="site-modal"
+            isOpen={modalOpen}
+            onRequestClose={() => setModalOpen(false)}
+            shouldCloseOnOverlayClick={true}
+          >
+            <div className="create-listing-modal-content">
+              <div className="modal-title">
+                <h1> Edit Your Listing </h1>
+              </div>
+              <div className="create-listing-form">
+                <div className="errors-container">
+                  {/* {validationErrors.map((error, ind) => {
                   <div key={ind}>{error}</div>;
                 })} */}
-                {validationErrors.length > 0 && (
-                  <div className="errors-listing-form-modal">
-                    <h3 className="error-title">
-                      {" "}
-                      The following errors were found:
-                    </h3>
-                    <ol className="error-list">
-                      {validationErrors.map((error) => (
-                        <li key={`EditErrorValidation${error}`}> {error} </li>
-                      ))}
-                    </ol>
-                  </div>
-                )}
-              </div>
-              <form onSubmit={handleEditSubmit}>
-                <label htmlFor="name"> Item Name </label>
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={item?.name}
-                />
-                <label htmlFor="description"> Description </label>
-                <input
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder={item?.description}
-                />
-                <label htmlFor="imageURL"> Item Image </label>
-                <input
-                  value={imageURL}
-                  onChange={(e) => setImageURL(e.target.value)}
-                  placeholder={item?.imageURL}
-                />
-                <label htmlFor="price"> Price </label>
-                <input
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  placeholder={item?.price}
-                />
-                <div id="create-listing-btn-div">
-                  <button id="submit-listing" type="submit">
-                    {" "}
-                    Submit Edit{" "}
-                  </button>
-                  <button
-                    id="cancel-listing"
-                    onClick={(e) => cancelListingHandler(e)}
-                  >
-                    Cancel
-                  </button>
+                  {validationErrors.length > 0 && (
+                    <div className="errors-listing-form-modal">
+                      <h3 className="error-title">
+                        {" "}
+                        The following errors were found:
+                      </h3>
+                      <ol className="error-list">
+                        {validationErrors.map((error) => (
+                          <li key={`EditErrorValidation${error}`}> {error} </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
                 </div>
-              </form>
+                <form onSubmit={handleEditSubmit}>
+                  <label htmlFor="name"> Item Name </label>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={item?.name}
+                  />
+                  <label htmlFor="description"> Description </label>
+                  <input
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder={item?.description}
+                  />
+                  <label htmlFor="imageURL"> Item Image </label>
+                  <input
+                    value={imageURL}
+                    onChange={(e) => setImageURL(e.target.value)}
+                    placeholder={item?.imageURL}
+                  />
+                  <label htmlFor="price"> Price </label>
+                  <input
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    placeholder={item?.price}
+                  />
+                  <div id="create-listing-btn-div">
+                    <button id="submit-listing" type="submit">
+                      {" "}
+                      Submit Edit{" "}
+                    </button>
+                    <button
+                      id="cancel-listing"
+                      onClick={(e) => cancelListingHandler(e)}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-        </Modal>
-      </div>
-      <div className="listing-details">
-        <div className="listing-view-container">
-          <img src={item?.imageURL} alt="item-for-sale"></img>
-          <div className="listing-view-info">
-            {item?.description}
-            <div className="price-section">${item?.price}</div>
-          </div>
-            <div  className="add-btn">
+          </Modal>
+        </div>
+        <div className="listing-details">
+          <div className="listing-view-container">
+            <img src={item?.imageURL} alt="item-for-sale"></img>
+            <div className="listing-view-info">
+              {item?.description}
+              <div className="price-section">${item?.price}</div>
+            </div>
+            <div className="add-btn">
               <button className="add-to-bag-btn" onClick={() => addItem()}>
-              {" "}
-              ADD TO BAG{" "}
-            </button>
+                {" "}
+                ADD TO BAG{" "}
+              </button>
             </div>
+          </div>
+        </div>
+        <div className="right-bar">
+          Placeholder for user info
         </div>
       </div>
-      
+
       <div className="bottom-bar"></div>
     </div>
   );

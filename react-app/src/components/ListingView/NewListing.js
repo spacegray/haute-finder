@@ -95,7 +95,7 @@ function NewListingModal() {
 
   return (
     <>
-      <div>
+      <div className="listing-creation">
         <button
           className="create-listing-btn"
           onClick={() => isUser()}

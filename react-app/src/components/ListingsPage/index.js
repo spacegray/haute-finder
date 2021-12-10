@@ -30,9 +30,10 @@ function ListingsPage() {
         <div className="side-bar">
           <NewListingModal />
         </div>
+        {}
         <div className="listing-feed-container">
           <div className="display-listings">
-            {listingObj.map((listing) => (
+            {listingObj.map((listing, index) => (
               <NavLink
                 to={`/listings/${listing.id}`}
                 key={`listings${listing.id}`}

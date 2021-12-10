@@ -11,7 +11,12 @@
     position: fixed;
     width: 100%;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    /* visibility: hidden; */
 }
+
+/* footer::hover {
+    visibility: visible;
+} */
 
 .footer__icons {
     justify-content: center;
