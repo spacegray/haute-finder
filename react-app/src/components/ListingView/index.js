@@ -49,6 +49,7 @@ function ListingView() {
       dispatch(getItemsForBag(userId));
 
       window.alert("Your item has been added");
+      // history.push(`/listings`);
     } else {
       window.alert("You already have this item in your cart");
     }
