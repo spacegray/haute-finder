@@ -10,15 +10,16 @@
 
 .splashImage {
   height: 100vh;
-  background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1637224888/HauteFinder/Images/landing-page-img_uvgdjv.jpg");
+  background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1640727350/HauteFinder/Images/MacBook_Pro_14__-_1_3_zjgqfy.png");
   background-size: cover;
   background-position: center;
 
-  /* background-repeat: no-repeat; */
+  background-repeat: repeat;
   /* position: sticky; */
-  margin-top: 75px;
+  padding-top: 200px;
   margin-bottom: 75px;
   /* background-attachment: fixed; */
+  transition: ease-all 0.5s;
 }
 
 @media only screen and (max-width: 767px) {
@@ -29,6 +30,8 @@
     background-position: center center;
   }
 }
+
+
 
 @media only screen and (min-width: 2200px) and (max-width: 2600px) {
   .splashImage {

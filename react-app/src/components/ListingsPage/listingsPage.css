@@ -18,7 +18,21 @@
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 800px) {
+  .parent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .right-listing-bar {
+    display: none;
+  }
+  .left-side-bar {
+    display: none;
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 700px) {
   .parent {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -38,31 +52,35 @@
   }
 
 }
+.parent {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
   
 
 @media screen and (min-width: 1000px) and (max-width: 1549px) {
   .parent {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1550px) and (max-width: 2300px) {
   .parent {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
 }
 
 @media screen and (min-width: 2301px) and (max-width: 2800px) {
   .parent {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
 }
 @media screen and (min-width: 2801px) {
   .parent {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
 }
 
@@ -85,7 +103,7 @@
   /* flex-direction: column; */
   width: 100%;
   padding: 0px;
-  margin: 0px;
+  margin-top: 200px;
   /* justify-content: center; */
 }
 
@@ -114,6 +132,7 @@ a:hover h2 .listing-page-container {
 }
 .listing-feed-container {
   height: auto;
+  color: blue
 }
 .display-listings {
   display: flex;
@@ -161,9 +180,10 @@ a .listing-card {
 
 .right-listing-bar {
   position: relative;
-  width: 10%;
+  width: 3%;
   height: 100%;
-  background: transparent;
+  background-color: red;
+  /* background: transparent; */
   z-index: -2;
 }
 .left-side-bar {
