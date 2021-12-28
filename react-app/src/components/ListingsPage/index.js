@@ -44,7 +44,7 @@ function ListingsPage() {
                   >
                     <div
                       className="listing-card"
-                      style={{ width: "500px", justifyContent: "center" }}
+                      style={{ width: "95%", justifyContent: "center", margin: "10px" }}
                     >
                       <h2>{listing.name}</h2>
                       <img
