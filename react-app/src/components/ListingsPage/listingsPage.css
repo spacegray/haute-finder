@@ -4,6 +4,7 @@
   height: 100%;
   width: 100%;
   padding: 10px;
+  padding-bottom: 350px;
   justify-content: center;
   overflow-y: hidden;
 }
@@ -32,10 +33,10 @@
 }
 
 /* Media Queries */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 799px) {
   .parent {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
   .right-listing-bar {
     display: none;
@@ -171,6 +172,7 @@ a .listing-card {
   justify-content: center;
   text-align: justify;
   text-align: center;
+  margin: 10px;
 }
 .listings-page-imgs {
   position: center;
