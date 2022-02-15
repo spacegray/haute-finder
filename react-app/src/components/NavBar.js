@@ -110,10 +110,10 @@ const NavBar = () => {
                 padding: "7px",
               }}
             >
-              Listings |
+              Listings
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/users"
               exact={true}
@@ -128,7 +128,7 @@ const NavBar = () => {
             >
               Users |
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to={`/order_bag/user/${sessionUser.id}`}
@@ -142,7 +142,7 @@ const NavBar = () => {
                 padding: "7px",
               }}
             >
-              My Bag:
+             | My Bag: {""}
               {quantity}
             </NavLink>
           </li>
@@ -249,10 +249,10 @@ const NavBar = () => {
                 padding: "7px",
               }}
             >
-              Listings |
+              Listings 
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/users"
               exact={true}
@@ -267,7 +267,7 @@ const NavBar = () => {
             >
               Users
             </NavLink>
-          </li>
+          </li> */}
         </nav>
       </>
     );
