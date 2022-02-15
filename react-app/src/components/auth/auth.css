@@ -1,7 +1,7 @@
 .auth-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
     height: 600px;
@@ -10,14 +10,13 @@
 
 .login-form-container  {
     display: flex;
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-    /* align-content: center; */
+    align-content: center;
     height: 400px;
     width: 400px;
-    padding: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
     margin: 20px;
+    border: 1px solid #853e4a;
     border-radius: 10%;
     background-color: #fafafa;
 }
@@ -29,7 +28,6 @@
     align-items: center;
     align-self: center;
     margin-top: 20px;
-    /* margin-left: 10%; */
     height: 300px;
     width: 400px;
 }
@@ -86,6 +84,10 @@
     margin-top: 10px;
     padding: 0 10px;
 }
+#login-btn:hover {
+  background-color: #3e7f8a;
+  color: white;
+}
 
 #demo-login-btn-auth-pages {
     height: 40px;
@@ -100,3 +102,4 @@
   background-color: #853e4a;
   color: white;
 }
+
