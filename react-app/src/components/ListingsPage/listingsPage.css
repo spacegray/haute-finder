@@ -6,6 +6,7 @@
   padding: 10px;
   padding-bottom: 350px;
   justify-content: center;
+  
   overflow-y: hidden;
 }
 
@@ -105,7 +106,9 @@
   width: 100%;
   padding: 0px;
   margin-top: 200px;
-  /* justify-content: center; */
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .create-listing-btn {
