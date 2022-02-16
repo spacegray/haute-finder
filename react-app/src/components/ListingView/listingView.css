@@ -245,6 +245,11 @@ input {
   /* margin-left: 20px; */
   margin-bottom: 10px;
 }
+
+.nav-createListing-btn {
+  
+}
+
 .delete-listing-btn {
   position: relative;
   width: 150px;

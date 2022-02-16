@@ -6,6 +6,7 @@ import { getItemsForBag } from "../store/orders";
 import "./navBar.css";
 import logo from "../images/haute-logo-bold.png";
 import mobileLogo from "../images/haute-icon.png";
+import NavCreateListing from "./NavCreateListingModal"
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -81,22 +82,6 @@ const NavBar = () => {
             zIndex: "1",
           }}
         >
-          {/* <li>
-            <NavLink
-              to="/"
-              exact={true}
-              activeClassName="active"
-              style={{
-                display: "flex",
-                color: "#763B2D",
-                decoration: "none",
-                justifyContent: "flex-end",
-                padding: "10px",
-              }}
-            >
-              Home
-            </NavLink>
-          </li> */}
           <li>
             <NavLink
               to="/listings"
@@ -142,12 +127,15 @@ const NavBar = () => {
                 padding: "7px",
               }}
             >
-             | My Bag: {""}
-              {quantity}
+              | My Bag: {""} 
+              {quantity} 
             </NavLink>
           </li>
           <li>
-            <LogoutButton />
+            <NavCreateListing activeClassName="active" /> 
+          </li>
+          <li>
+            <LogoutButton /> 
           </li>
         </nav>
       </>
