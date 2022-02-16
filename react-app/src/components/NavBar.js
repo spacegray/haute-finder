@@ -46,7 +46,7 @@ const NavBar = () => {
                 height: "85px",
                 maxHeight: "100%",
                 maxWidth: "100%",
-                zIndex: "2",
+                zIndex: "3",
               }}
             ></img>
             <img
@@ -60,7 +60,7 @@ const NavBar = () => {
                 height: "85px",
                 maxHeight: "100%",
                 maxWidth: "100%",
-                zIndex: "2",
+                zIndex: "3",
               }}
             />
           </NavLink>
@@ -79,7 +79,7 @@ const NavBar = () => {
             decoration: "none",
             listStyle: "none",
             fontSize: "20px",
-            zIndex: "1",
+            zIndex: "2",
           }}
         >
           <li>
@@ -92,10 +92,10 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "7px",
+                padding: "8px",
               }}
             >
-              Listings
+              Listings |
             </NavLink>
           </li>
           {/* <li>
@@ -124,18 +124,18 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "7px",
+                padding: "8px",
               }}
             >
-              | My Bag: {""} 
-              {quantity} 
+              My Bag: {""}
+              {quantity} {""} 
             </NavLink>
           </li>
           <li>
-            <NavCreateListing activeClassName="active" /> 
+            <NavCreateListing activeClassName="active" />
           </li>
           <li>
-            <LogoutButton /> 
+            <LogoutButton />
           </li>
         </nav>
       </>

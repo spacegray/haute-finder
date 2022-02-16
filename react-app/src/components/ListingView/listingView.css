@@ -185,7 +185,6 @@ h1 {
 .side-bar {
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
   margin-top: 10px;
   align-items: center;
   justify-content: flex-start;

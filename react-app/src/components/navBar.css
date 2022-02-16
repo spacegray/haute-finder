@@ -31,6 +31,12 @@
   font-family: poppins, sans-serif;
 } */
 
+/* .nav-createListing-btn:hover {
+  background-color: #3e7f8a;
+  color: white;
+} */
+
+
 .create-listing-modal-content {
   display: flex;
   flex-direction: column;

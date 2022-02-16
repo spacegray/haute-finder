@@ -28,6 +28,7 @@ function NewListingModal() {
       setModalOpen(true);
     }
   }
+  
 
 
   const handleSubmit = async (e) => {

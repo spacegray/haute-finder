@@ -100,6 +100,7 @@ function NavCreateListing() {
             display: "flex",
             color: "#763B2D",
             decoration: "none",
+            fontFamily: 'poppins, sans-serif',
             justifyContent: "flex-end",
             padding: "5px",
             marginBottom: "5px",
