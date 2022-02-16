@@ -55,6 +55,14 @@ function ListingView() {
     }
   };
 
+  const canShop = () => {
+    if (!sessionUser) {
+      window.alert("You must be logged in to shop");
+    } else {
+      addItem()
+    }
+  };
+
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     // const edited_listing = ( name, description, imageURL, price, id );
@@ -112,7 +120,7 @@ function ListingView() {
         <div className="side-bar">
           <NewListingModal />
           <div className="add-btn">
-            <button className="add-to-bag-btn" onClick={() => addItem()}>
+            <button className="add-to-bag-btn" onClick={() => canShop()}>
               {" "}
               ADD TO BAG{" "}
             </button>

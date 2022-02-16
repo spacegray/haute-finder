@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
-import { createListing } from "../../store/listings";
+import { createListing } from "../store/listings";
 import { useHistory } from "react-router-dom";
 
-
-import "./listingView.css";
+import "./navBar.css";
 
 Modal.setAppElement("#root");
 
-function NewListingModal() {
+function NavCreateListing() {
   const [modalOpen, setModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -19,7 +18,6 @@ function NewListingModal() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  
 
   const isUser = () => {
     if (!sessionUser) {
@@ -27,23 +25,20 @@ function NewListingModal() {
     } else {
       setModalOpen(true);
     }
-  }
-  
-
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const new_listing = { name, description, imageURL, price }
+    const new_listing = { name, description, imageURL, price };
     const [...errors] = validate();
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-     
     } else {
       setValidationErrors([]);
       const added = await dispatch(createListing(new_listing));
       setModalOpen(false);
-      history.push('/listings')
+      history.push("/listings");
       if (added) {
         setName("");
         setDescription("");
@@ -63,15 +58,17 @@ function NewListingModal() {
       validationErrors.push("A listing Name is required");
     }
     if (description.length < 2) {
-      validationErrors.push("A description is required" );
+      validationErrors.push("A description is required");
     }
     if (description.length > 2999) {
       validationErrors.push("Description is too long");
     }
     if (!isURL) {
-      validationErrors.push("An image URL is required for listings. Must have a .jpg, or .png extension");
+      validationErrors.push(
+        "An image URL is required for listings. Must have a .jpg, or .png extension"
+      );
     }
-    if (price === '') {
+    if (price === "") {
       validationErrors.push("Price is required");
     }
     if (isNaN(price)) {
@@ -82,7 +79,6 @@ function NewListingModal() {
     }
     return validationErrors;
   };
-
 
   const cancelListingHandler = (e) => {
     e.preventDefault();
@@ -98,8 +94,18 @@ function NewListingModal() {
     <>
       <div className="listing-creation">
         <button
-          className="create-listing-btn"
+          className="nav-createListing-btn"
           onClick={() => isUser()}
+          style={{
+            display: "flex",
+            color: "#763B2D",
+            decoration: "none",
+            fontFamily: 'poppins, sans-serif',
+            justifyContent: "flex-end",
+            padding: "5px",
+            marginBottom: "5px",
+            marginRight: "10px",
+          }}
         >
           Create Listing
         </button>
@@ -124,10 +130,7 @@ function NewListingModal() {
                     </h3>
                     <ol className="error-list">
                       {validationErrors.map((error) => (
-                        <li key={`errorValidation${error}`}>
-                          {" "}
-                          {error}{" "}
-                        </li>
+                        <li key={`errorValidation${error}`}> {error} </li>
                       ))}
                     </ol>
                   </div>
@@ -183,4 +186,4 @@ function NewListingModal() {
   );
 }
 
-export default NewListingModal;
+export default NavCreateListing;

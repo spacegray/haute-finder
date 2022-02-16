@@ -6,6 +6,7 @@ import { getItemsForBag } from "../store/orders";
 import "./navBar.css";
 import logo from "../images/haute-logo-bold.png";
 import mobileLogo from "../images/haute-icon.png";
+import NavCreateListing from "./NavCreateListingModal"
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ const NavBar = () => {
                 height: "85px",
                 maxHeight: "100%",
                 maxWidth: "100%",
-                zIndex: "2",
+                zIndex: "3",
               }}
             ></img>
             <img
@@ -59,7 +60,7 @@ const NavBar = () => {
                 height: "85px",
                 maxHeight: "100%",
                 maxWidth: "100%",
-                zIndex: "2",
+                zIndex: "3",
               }}
             />
           </NavLink>
@@ -78,25 +79,9 @@ const NavBar = () => {
             decoration: "none",
             listStyle: "none",
             fontSize: "20px",
-            zIndex: "1",
+            zIndex: "2",
           }}
         >
-          {/* <li>
-            <NavLink
-              to="/"
-              exact={true}
-              activeClassName="active"
-              style={{
-                display: "flex",
-                color: "#763B2D",
-                decoration: "none",
-                justifyContent: "flex-end",
-                padding: "10px",
-              }}
-            >
-              Home
-            </NavLink>
-          </li> */}
           <li>
             <NavLink
               to="/listings"
@@ -107,13 +92,13 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "7px",
+                padding: "8px",
               }}
             >
               Listings |
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/users"
               exact={true}
@@ -128,7 +113,7 @@ const NavBar = () => {
             >
               Users |
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to={`/order_bag/user/${sessionUser.id}`}
@@ -139,12 +124,15 @@ const NavBar = () => {
                 color: "#763B2D",
                 decoration: "none",
                 justifyContent: "flex-end",
-                padding: "7px",
+                padding: "8px",
               }}
             >
-              My Bag:
-              {quantity}
+              My Bag: {""}
+              {quantity} {""} 
             </NavLink>
+          </li>
+          <li>
+            <NavCreateListing activeClassName="active" />
           </li>
           <li>
             <LogoutButton />
@@ -249,10 +237,10 @@ const NavBar = () => {
                 padding: "7px",
               }}
             >
-              Listings |
+              Listings 
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/users"
               exact={true}
@@ -267,7 +255,7 @@ const NavBar = () => {
             >
               Users
             </NavLink>
-          </li>
+          </li> */}
         </nav>
       </>
     );

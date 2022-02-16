@@ -185,7 +185,6 @@ h1 {
 .side-bar {
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
   margin-top: 10px;
   align-items: center;
   justify-content: flex-start;
@@ -245,6 +244,11 @@ input {
   /* margin-left: 20px; */
   margin-bottom: 10px;
 }
+
+.nav-createListing-btn {
+  
+}
+
 .delete-listing-btn {
   position: relative;
   width: 150px;
