@@ -23,6 +23,18 @@
   top: 0;
 }
 
+/* .listing-seller {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  align-content: flex-start;
+  border-bottom: 1px solid #757373;
+  background-color: #73279c;
+  top: 0;
+} */
+
 .listing-view-container {
   display: flex;
   flex-direction: column;
@@ -31,8 +43,8 @@
   /* justify-self: center; */
   /* align-self: center; */
   justify-content: center;
-  width: 50%;
-  height: 30%;
+  width: 30%;
+  height: 20%;
   margin-top: 20px;
 
   margin-bottom: 10%;
@@ -73,10 +85,12 @@ h1 {
   justify-content: justify;
   width: 60%;
   text-align: center;
-  text-align: justify;
+  text-align: left;
   color: rgb(68, 66, 66);
   padding: 20px;
 }
+
+
 
 .price-section {
   margin-top: 20px;

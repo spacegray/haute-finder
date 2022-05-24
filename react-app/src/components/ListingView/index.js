@@ -221,6 +221,13 @@ function ListingView() {
               {item?.description}
               <div className="price-section">Price: ${item?.price}</div>
             </div>
+            <div className="listing-seller">
+            <div className="seller-info">
+              <div className="seller-name">
+                {/* <h3> Seller: {item?.user.username} </h3> */}
+                </div>
+                </div>
+            </div>
           </div>
         </div>
         <div className="right-bar"></div>
